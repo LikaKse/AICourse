@@ -1,0 +1,81 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "mode": "pilot",
+  "created_at": "2026-11-04T23:38:07",
+  "thinking_levels": [
+    "MINIMAL",
+    "HIGH"
+  ],
+  "strategies": [
+    "direct",
+    "step_by_step",
+    "prompt_generation",
+    "expert_group"
+  ],
+  "task_ids": [
+    "math_bat_ball"
+  ],
+  "plan": [
+    [
+      "math_bat_ball",
+      "direct",
+      "MINIMAL"
+    ],
+    [
+      "math_bat_ball",
+      "step_by_step",
+      "MINIMAL"
+    ],
+    [
+      "math_bat_ball",
+      "prompt_generation",
+      "MINIMAL"
+    ],
+    [
+      "math_bat_ball",
+      "expert_group",
+      "MINIMAL"
+    ],
+    [
+      "math_bat_ball",
+      "direct",
+      "HIGH"
+    ],
+    [
+      "math_bat_ball",
+      "step_by_step",
+      "HIGH"
+    ],
+    [
+      "math_bat_ball",
+      "prompt_generation",
+      "HIGH"
+    ],
+    [
+      "math_bat_ball",
+      "expert_group",
+      "HIGH"
+    ]
+  ],
+  "planned_solutions": 8,
+  "expected_api_calls": 10,
+  "settings": {
+    "min_interval_between_requests_sec": 13,
+    "request_timeout_sec": 180,
+    "retry_status_codes": [
+      503,
+      504,
+      429
+    ],
+    "retry_delays_sec": [
+      15,
+      30
+    ],
+    "max_retry_after_sec": 60,
+    "structured_final_answers": true,
+    "max_output_tokens": null
+  },
+  "sdk": {
+    "google-genai": "2.34.0"
+  }
+}

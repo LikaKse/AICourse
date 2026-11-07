@@ -1,0 +1,181 @@
+{
+  "run_id": "run_3",
+  "rows": [
+    {
+      "role": "small",
+      "role_name": "Маленькая и дешёвая",
+      "model": "gemini-3.5-flash-lite",
+      "correct": 6,
+      "total": 6,
+      "accuracy_pct": 100.0,
+      "api_errors": 0,
+      "skipped": 0,
+      "not_run": 0,
+      "truncated": 0,
+      "avg_latency_sec": 1.17,
+      "median_latency_sec": 1.15,
+      "total_latency_sec": 7.01,
+      "input_tokens": 411,
+      "output_tokens": 366,
+      "thoughts_tokens": null,
+      "total_tokens": 777,
+      "avg_total_tokens": 130,
+      "cost_usd": 0.0010383,
+      "cost_complete": true,
+      "avg_cost_usd": 0.00017305,
+      "cost_per_correct_usd": 0.00017305
+    },
+    {
+      "role": "medium",
+      "role_name": "Средняя",
+      "model": "gemini-3.8-flash",
+      "correct": 6,
+      "total": 6,
+      "accuracy_pct": 100.0,
+      "api_errors": 0,
+      "skipped": 0,
+      "not_run": 0,
+      "truncated": 0,
+      "avg_latency_sec": 3.47,
+      "median_latency_sec": 3.35,
+      "total_latency_sec": 20.85,
+      "input_tokens": 411,
+      "output_tokens": 754,
+      "thoughts_tokens": 373,
+      "total_tokens": 1165,
+      "avg_total_tokens": 194,
+      "cost_usd": 0.00313575,
+      "cost_complete": true,
+      "avg_cost_usd": 0.000522625,
+      "cost_per_correct_usd": 0.000522625
+    },
+    {
+      "role": "flagship",
+      "role_name": "Флагманская",
+      "model": "gemini-4-argon",
+      "correct": 6,
+      "total": 6,
+      "accuracy_pct": 100.0,
+      "api_errors": 0,
+      "skipped": 0,
+      "not_run": 0,
+      "truncated": 0,
+      "avg_latency_sec": 5.31,
+      "median_latency_sec": 4.73,
+      "total_latency_sec": 31.87,
+      "input_tokens": 1847,
+      "output_tokens": 544,
+      "thoughts_tokens": null,
+      "total_tokens": 2391,
+      "avg_total_tokens": 398,
+      "cost_usd": 0.009134,
+      "cost_complete": true,
+      "avg_cost_usd": 0.0015223333333333332,
+      "cost_per_correct_usd": 0.0015223333333333332
+    }
+  ],
+  "comparison": {
+    "flagship_vs_small_cost_ratio": 8.797072137147259,
+    "flagship_vs_small_cost_note": null,
+    "medium_vs_small_cost_ratio": 3.0200809014735626,
+    "medium_vs_small_cost_note": null,
+    "flagship_minus_small_accuracy_pp": 0.0,
+    "medium_minus_small_accuracy_pp": 0.0,
+    "flagship_minus_medium_accuracy_pp": 0.0,
+    "avg_latency_sec": {
+      "gemini-3.5-flash-lite": 1.17,
+      "gemini-3.8-flash": 3.47,
+      "gemini-4-argon": 5.31
+    },
+    "flagship_vs_small_latency_ratio": 4.538461538461538
+  },
+  "pricing": {
+    "tier": "Standard (paid tier)",
+    "checked_on": "2026-11-06",
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "source_resolved": "https://aistudio.google.com/docs/pricing",
+    "models_source": "https://aistudio.google.com/docs/models",
+    "thinking_source": "https://aistudio.google.com/docs/thinking",
+    "prices": {
+      "gemini-3.5-flash-lite": [
+        {
+          "valid_from": null,
+          "valid_to": null,
+          "input": 0.3,
+          "output": 2.5,
+          "cached_input": 0.03,
+          "free_tier": true
+        }
+      ],
+      "gemini-3.8-flash": [
+        {
+          "valid_from": null,
+          "valid_to": "2026-12-31",
+          "input": 0.75,
+          "output": 3.75,
+          "cached_input": 0.075,
+          "free_tier": true
+        },
+        {
+          "valid_from": "2027-01-01",
+          "valid_to": null,
+          "input": 1.5,
+          "output": 7.5,
+          "cached_input": 0.15,
+          "free_tier": true
+        }
+      ],
+      "gemini-4-argon": [
+        {
+          "valid_from": null,
+          "valid_to": "2026-11-30",
+          "input": 2.0,
+          "output": 10.0,
+          "cached_input": 0.1,
+          "free_tier": false
+        },
+        {
+          "valid_from": "2026-12-01",
+          "valid_to": null,
+          "input": 4.0,
+          "output": 20.0,
+          "cached_input": 0.2,
+          "free_tier": false
+        }
+      ]
+    },
+    "thinking_billing": "thoughts_token_count оплачивается по цене выходных токенов"
+  },
+  "per_task": {
+    "math_bat_ball": {
+      "gemini-3.5-flash-lite": "✓",
+      "gemini-3.8-flash": "✓",
+      "gemini-4-argon": "✓"
+    },
+    "logic_syllogism": {
+      "gemini-3.5-flash-lite": "✓",
+      "gemini-3.8-flash": "✓",
+      "gemini-4-argon": "✓"
+    },
+    "combinatorics_digits": {
+      "gemini-3.5-flash-lite": "✓",
+      "gemini-3.8-flash": "✓",
+      "gemini-4-argon": "✓"
+    },
+    "algorithm_loop": {
+      "gemini-3.5-flash-lite": "✓",
+      "gemini-3.8-flash": "✓",
+      "gemini-4-argon": "✓"
+    },
+    "order_logic": {
+      "gemini-3.5-flash-lite": "✓",
+      "gemini-3.8-flash": "✓",
+      "gemini-4-argon": "✓"
+    },
+    "days_count": {
+      "gemini-3.5-flash-lite": "✓",
+      "gemini-3.8-flash": "✓",
+      "gemini-4-argon": "✓"
+    }
+  }
+}

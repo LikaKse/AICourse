@@ -1,0 +1,162 @@
+[
+  {
+    "solution_id": "cafe_names|t=0.7|run1",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.7,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:24:26",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": null,
+    "finish_reason": null,
+    "model_version": null,
+    "prompt_token_count": null,
+    "candidates_token_count": null,
+    "thoughts_token_count": null,
+    "total_token_count": null,
+    "latency_sec": null,
+    "total_elapsed_sec": 64.732,
+    "attempts": 3,
+    "retries": 2,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:23:24",
+        "latency_sec": 8.15,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:23:47",
+        "latency_sec": 4.323,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-05T21:24:21",
+        "latency_sec": 4.646,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "status": "UNAVAILABLE",
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "daily_quota_exceeded": false,
+    "evaluation": null
+  },
+  {
+    "solution_id": "cafe_names|t=0.0|run3",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.0,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:31:26",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": null,
+    "finish_reason": null,
+    "model_version": null,
+    "prompt_token_count": null,
+    "candidates_token_count": null,
+    "thoughts_token_count": null,
+    "total_token_count": null,
+    "latency_sec": null,
+    "total_elapsed_sec": 68.645,
+    "attempts": 3,
+    "retries": 2,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:30:22",
+        "latency_sec": 1.085,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:30:38",
+        "latency_sec": 14.779,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-05T21:31:22",
+        "latency_sec": 3.127,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "status": "UNAVAILABLE",
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "daily_quota_exceeded": false,
+    "evaluation": null
+  }
+]

@@ -1,0 +1,214 @@
+[
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 1,
+    "timestamp": "2026-11-04T22:41:29",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T22:41:29",
+        "latency_sec": 31.985,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 13
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T22:42:13",
+        "latency_sec": 9.438,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 2,
+    "retries_count": 1,
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 9.438,
+    "total_elapsed_sec": 54.424,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 1,
+    "timestamp": "2026-11-04T22:42:36",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T22:42:36",
+        "latency_sec": 7.797,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 13
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T22:42:57",
+        "latency_sec": 17.783,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 2,
+    "retries_count": 1,
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 17.783,
+    "total_elapsed_sec": 38.582,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 1,
+    "timestamp": "2026-11-04T22:43:28",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "ApiBook": {
+            "description": "Одна рекомендованная книга (схема для API).",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "ApiBook",
+            "type": "object"
+          }
+        },
+        "description": "Ответ модели: ровно 3 книги (схема для API).",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/ApiBook"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "ApiBookRecommendations",
+        "type": "object"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T22:43:28",
+        "latency_sec": 1.26,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 13
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T22:43:42",
+        "latency_sec": 118.897,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 504,
+          "message": "Deadline expired before operation could complete."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 2,
+    "retries_count": 1,
+    "api_error": {
+      "type": "APIError",
+      "code": 504,
+      "message": "Deadline expired before operation could complete."
+    },
+    "latency_sec": 118.897,
+    "total_elapsed_sec": 133.162,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  }
+]

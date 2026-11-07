@@ -1,0 +1,151 @@
+{
+  "run_id": "run_3",
+  "mode": "full",
+  "started_at": "2026-11-08T00:38:09",
+  "finished_at": "2026-11-08T00:41:55",
+  "sdk": "google-genai 2.34.0",
+  "python": "3.12.6",
+  "models": [
+    {
+      "role": "small",
+      "role_name": "Маленькая и дешёвая",
+      "id": "gemini-3.5-flash-lite",
+      "why": "Stable; «the fastest and most cost-effective 3.5 model». Та же модель, что в Днях 3–4."
+    },
+    {
+      "role": "medium",
+      "role_name": "Средняя",
+      "id": "gemini-3.8-flash",
+      "why": "«The most intelligent Flash model»; на странице моделей отмечена как New (без метки Stable/Preview)."
+    },
+    {
+      "role": "flagship",
+      "role_name": "Флагманская",
+      "id": "gemini-4-argon",
+      "why": "«Our flagship reasoning model». Бесплатного уровня нет: нужен платный (billing) проект."
+    }
+  ],
+  "task_ids": [
+    "math_bat_ball",
+    "logic_syllogism",
+    "combinatorics_digits",
+    "algorithm_loop",
+    "order_logic",
+    "days_count"
+  ],
+  "repeats": 1,
+  "request_config": {
+    "thinking_config": {
+      "thinking_level": "LOW"
+    },
+    "response_mime_type": "application/json",
+    "response_schema": {
+      "description": "Формат финального ответа модели (схема для API).",
+      "properties": {
+        "answer": {
+          "description": "Короткий ответ",
+          "title": "Answer",
+          "type": "string"
+        },
+        "explanation": {
+          "description": "Краткое объяснение",
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer",
+        "explanation"
+      ],
+      "title": "ApiSolution",
+      "type": "object"
+    },
+    "temperature": "не задана (по умолчанию модели)",
+    "max_output_tokens": 8192
+  },
+  "prompt_template": "{question}\n\n{answer_format}",
+  "answer_format": "Верни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+  "pricing": {
+    "tier": "Standard (paid tier)",
+    "checked_on": "2026-11-06",
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "source_resolved": "https://aistudio.google.com/docs/pricing",
+    "models_source": "https://aistudio.google.com/docs/models",
+    "thinking_source": "https://aistudio.google.com/docs/thinking",
+    "prices": {
+      "gemini-3.5-flash-lite": [
+        {
+          "valid_from": null,
+          "valid_to": null,
+          "input": 0.3,
+          "output": 2.5,
+          "cached_input": 0.03,
+          "free_tier": true
+        }
+      ],
+      "gemini-3.8-flash": [
+        {
+          "valid_from": null,
+          "valid_to": "2026-12-31",
+          "input": 0.75,
+          "output": 3.75,
+          "cached_input": 0.075,
+          "free_tier": true
+        },
+        {
+          "valid_from": "2027-01-01",
+          "valid_to": null,
+          "input": 1.5,
+          "output": 7.5,
+          "cached_input": 0.15,
+          "free_tier": true
+        }
+      ],
+      "gemini-4-argon": [
+        {
+          "valid_from": null,
+          "valid_to": "2026-11-30",
+          "input": 2.0,
+          "output": 10.0,
+          "cached_input": 0.1,
+          "free_tier": false
+        },
+        {
+          "valid_from": "2026-12-01",
+          "valid_to": null,
+          "input": 4.0,
+          "output": 20.0,
+          "cached_input": 0.2,
+          "free_tier": false
+        }
+      ]
+    },
+    "thinking_billing": "thoughts_token_count оплачивается по цене выходных токенов"
+  },
+  "max_output_tokens": 8192,
+  "model_output_token_limits": {
+    "gemini-3.5-flash-lite": 65536,
+    "gemini-3.8-flash": 65536,
+    "gemini-4-argon": 32768
+  },
+  "planned_record_ids": [
+    "math_bat_ball|gemini-3.5-flash-lite|1",
+    "math_bat_ball|gemini-3.8-flash|1",
+    "math_bat_ball|gemini-4-argon|1",
+    "logic_syllogism|gemini-3.5-flash-lite|1",
+    "logic_syllogism|gemini-3.8-flash|1",
+    "logic_syllogism|gemini-4-argon|1",
+    "combinatorics_digits|gemini-3.5-flash-lite|1",
+    "combinatorics_digits|gemini-3.8-flash|1",
+    "combinatorics_digits|gemini-4-argon|1",
+    "algorithm_loop|gemini-3.5-flash-lite|1",
+    "algorithm_loop|gemini-3.8-flash|1",
+    "algorithm_loop|gemini-4-argon|1",
+    "order_logic|gemini-3.5-flash-lite|1",
+    "order_logic|gemini-3.8-flash|1",
+    "order_logic|gemini-4-argon|1",
+    "days_count|gemini-3.5-flash-lite|1",
+    "days_count|gemini-3.8-flash|1",
+    "days_count|gemini-4-argon|1"
+  ]
+}

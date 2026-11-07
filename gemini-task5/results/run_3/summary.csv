@@ -1,0 +1,4 @@
+role,role_name,model,correct,total,accuracy_pct,api_errors,skipped,not_run,truncated,avg_latency_sec,median_latency_sec,total_latency_sec,input_tokens,output_tokens,thoughts_tokens,total_tokens,avg_total_tokens,cost_usd,cost_complete,avg_cost_usd,cost_per_correct_usd
+small,Маленькая и дешёвая,gemini-3.5-flash-lite,6,6,100.0,0,0,0,0,1.17,1.15,7.01,411,366,,777,130,0.0010383,True,0.00017305,0.00017305
+medium,Средняя,gemini-3.8-flash,6,6,100.0,0,0,0,0,3.47,3.35,20.85,411,754,373,1165,194,0.00313575,True,0.000522625,0.000522625
+flagship,Флагманская,gemini-4-argon,6,6,100.0,0,0,0,0,5.31,4.73,31.87,1847,544,,2391,398,0.009134,True,0.0015223333333333332,0.0015223333333333332

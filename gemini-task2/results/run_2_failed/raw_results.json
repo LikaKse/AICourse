@@ -1,0 +1,686 @@
+[
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 1,
+    "timestamp": "2026-11-04T00:36:00",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:36:00",
+        "latency_sec": 15.972,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 10
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T00:36:26",
+        "latency_sec": 9.494,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-04T00:37:06",
+        "latency_sec": 0.852,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 60
+      },
+      {
+        "attempt": 4,
+        "started_at": "2026-11-04T00:38:07",
+        "latency_sec": 68.014,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 4,
+    "retries_count": 3,
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 68.014,
+    "total_elapsed_sec": 194.34,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 2,
+    "timestamp": "2026-11-04T00:39:17",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:39:17",
+        "latency_sec": 1.31,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 10
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T00:39:28",
+        "latency_sec": 14.278,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-04T00:40:12",
+        "latency_sec": 5.631,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 60
+      },
+      {
+        "attempt": 4,
+        "started_at": "2026-11-04T00:41:18",
+        "latency_sec": 6.557,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 4,
+    "retries_count": 3,
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 6.557,
+    "total_elapsed_sec": 127.788,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 3,
+    "timestamp": "2026-11-04T00:41:27",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:41:27",
+        "latency_sec": 118.832,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 504,
+          "message": "Deadline expired before operation could complete."
+        },
+        "retry_after_sec": 10
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T00:43:35",
+        "latency_sec": 1.452,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-04T00:44:07",
+        "latency_sec": 3.603,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 60
+      },
+      {
+        "attempt": 4,
+        "started_at": "2026-11-04T00:45:11",
+        "latency_sec": 68.097,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 4,
+    "retries_count": 3,
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 68.097,
+    "total_elapsed_sec": 291.995,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 1,
+    "timestamp": "2026-11-04T00:46:21",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:46:21",
+        "latency_sec": 11.476,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 10
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T00:46:42",
+        "latency_sec": 118.956,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 504,
+          "message": "Deadline expired before operation could complete."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-04T00:49:11",
+        "latency_sec": 13.964,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 60
+      },
+      {
+        "attempt": 4,
+        "started_at": "2026-11-04T00:50:25",
+        "latency_sec": 3.233,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 4,
+    "retries_count": 3,
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 3.233,
+    "total_elapsed_sec": 247.638,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 2,
+    "timestamp": "2026-11-04T00:50:30",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:50:30",
+        "latency_sec": 0.237,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 429,
+          "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m28.842268966s."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": {
+      "type": "APIError",
+      "code": 429,
+      "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m28.842268966s."
+    },
+    "latency_sec": 0.237,
+    "total_elapsed_sec": 0.237,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 3,
+    "timestamp": "2026-11-04T00:50:32",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:50:32",
+        "latency_sec": 0.375,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 429,
+          "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m26.548927562s."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": {
+      "type": "APIError",
+      "code": 429,
+      "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m26.548927562s."
+    },
+    "latency_sec": 0.375,
+    "total_elapsed_sec": 0.375,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 1,
+    "timestamp": "2026-11-04T00:50:35",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "ApiBook": {
+            "description": "Одна рекомендованная книга (схема для API).",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "ApiBook",
+            "type": "object"
+          }
+        },
+        "description": "Ответ модели: ровно 3 книги (схема для API).",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/ApiBook"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "ApiBookRecommendations",
+        "type": "object"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:50:35",
+        "latency_sec": 0.342,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 429,
+          "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m24.145269314s."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": {
+      "type": "APIError",
+      "code": 429,
+      "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m24.145269314s."
+    },
+    "latency_sec": 0.342,
+    "total_elapsed_sec": 0.342,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 2,
+    "timestamp": "2026-11-04T00:50:37",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "ApiBook": {
+            "description": "Одна рекомендованная книга (схема для API).",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "ApiBook",
+            "type": "object"
+          }
+        },
+        "description": "Ответ модели: ровно 3 книги (схема для API).",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/ApiBook"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "ApiBookRecommendations",
+        "type": "object"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:50:37",
+        "latency_sec": 0.239,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 429,
+          "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m21.85894521s."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": {
+      "type": "APIError",
+      "code": 429,
+      "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m21.85894521s."
+    },
+    "latency_sec": 0.239,
+    "total_elapsed_sec": 0.239,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 3,
+    "timestamp": "2026-11-04T00:50:39",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "ApiBook": {
+            "description": "Одна рекомендованная книга (схема для API).",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "ApiBook",
+            "type": "object"
+          }
+        },
+        "description": "Ответ модели: ровно 3 книги (схема для API).",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/ApiBook"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "ApiBookRecommendations",
+        "type": "object"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-04T00:50:39",
+        "latency_sec": 9.47,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 10
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-04T00:50:59",
+        "latency_sec": 0.325,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 429,
+          "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m0.054248894s."
+        },
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 2,
+    "retries_count": 1,
+    "api_error": {
+      "type": "APIError",
+      "code": 429,
+      "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 14h9m0.054248894s."
+    },
+    "latency_sec": 0.325,
+    "total_elapsed_sec": 19.798,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  }
+]

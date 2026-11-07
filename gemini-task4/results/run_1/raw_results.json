@@ -1,0 +1,2638 @@
+[
+  {
+    "solution_id": "days_count|t=0.0|run1",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.0,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:21:46",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.302,
+    "total_elapsed_sec": 1.302,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:21:45",
+        "latency_sec": 1.302,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.7|run1",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.7,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:22:27",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 29.673,
+    "total_elapsed_sec": 41.37,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:21:58",
+        "latency_sec": 29.673,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.0|run1",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.0,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:22:29",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 2.188,
+    "total_elapsed_sec": 2.188,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:22:27",
+        "latency_sec": 2.188,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.2|run1",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.2,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:23:00",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 2.365,
+    "total_elapsed_sec": 30.5,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:22:40",
+        "latency_sec": 2.32,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:22:58",
+        "latency_sec": 2.365,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.0|run1",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.0,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:23:21",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Brew\", \"Компиляция Утра\", \"Синтаксис Бодрости\", \"Точка Запятой\", \"Деплой Энергии\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 42,
+    "thoughts_token_count": null,
+    "total_token_count": 116,
+    "latency_sec": 10.392,
+    "total_elapsed_sec": 21.025,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:23:11",
+        "latency_sec": 10.392,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Brew",
+        "Компиляция Утра",
+        "Синтаксис Бодрости",
+        "Точка Запятой",
+        "Деплой Энергии"
+      ],
+      "names_normalized": [
+        "ctrl+alt+brew",
+        "компиляция утра",
+        "синтаксис бодрости",
+        "точка запятой",
+        "деплой энергии"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.7|run1",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.7,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:47:39",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Cup\", \"Булево Капучино\", \"Сборка & Помол\", \"Краш-Тест\", \"Синтаксис Вкуса\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 43,
+    "thoughts_token_count": null,
+    "total_token_count": 117,
+    "latency_sec": 1.703,
+    "total_elapsed_sec": 17.618,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:47:22",
+        "latency_sec": 0.912,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:47:38",
+        "latency_sec": 1.703,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Cup",
+        "Булево Капучино",
+        "Сборка & Помол",
+        "Краш-Тест",
+        "Синтаксис Вкуса"
+      ],
+      "names_normalized": [
+        "ctrl+alt+cup",
+        "булево капучино",
+        "сборка & помол",
+        "краш-тест",
+        "синтаксис вкуса"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.0|run1",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.0,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:25:07",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\n  \"names\": [\n    \"sudo brew\",\n    \"commit & cup\",\n    \"Ctrl+Alt+Coffee\",\n    \"Пинг-Понг\",\n    \"Релиз\"\n  ]\n}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 50,
+    "thoughts_token_count": null,
+    "total_token_count": 124,
+    "latency_sec": 32.556,
+    "total_elapsed_sec": 40.907,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:24:34",
+        "latency_sec": 32.556,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "sudo brew",
+        "commit & cup",
+        "Ctrl+Alt+Coffee",
+        "Пинг-Понг",
+        "Релиз"
+      ],
+      "names_normalized": [
+        "sudo brew",
+        "commit & cup",
+        "ctrl+alt+coffee",
+        "пинг-понг",
+        "релиз"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.2|run1",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.2,
+    "run": 1,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:25:08",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Синтаксис Вкуса\", \"Ctrl+Alt+Brew\", \"Деплой Утра\", \"Багфиксул\", \"Репозиторий Бодрости\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 42,
+    "thoughts_token_count": null,
+    "total_token_count": 116,
+    "latency_sec": 1.665,
+    "total_elapsed_sec": 1.665,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:25:07",
+        "latency_sec": 1.665,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Синтаксис Вкуса",
+        "Ctrl+Alt+Brew",
+        "Деплой Утра",
+        "Багфиксул",
+        "Репозиторий Бодрости"
+      ],
+      "names_normalized": [
+        "синтаксис вкуса",
+        "ctrl+alt+brew",
+        "деплой утра",
+        "багфиксул",
+        "репозиторий бодрости"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.0|run2",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.0,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:25:49",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 12.615,
+    "total_elapsed_sec": 40.653,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:25:20",
+        "latency_sec": 1.706,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:25:36",
+        "latency_sec": 12.615,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.7|run2",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.7,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:25:59",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 79,
+    "thoughts_token_count": null,
+    "total_token_count": 157,
+    "latency_sec": 9.286,
+    "total_elapsed_sec": 9.665,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:25:49",
+        "latency_sec": 9.286,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.0|run2",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.0,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:26:05",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 2.561,
+    "total_elapsed_sec": 6.268,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:26:02",
+        "latency_sec": 2.561,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.2|run2",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.2,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:26:27",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 79,
+    "thoughts_token_count": null,
+    "total_token_count": 157,
+    "latency_sec": 12.084,
+    "total_elapsed_sec": 22.516,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:26:15",
+        "latency_sec": 12.084,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.0|run2",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.0,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:26:30",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Brew\", \"Компиляция Утра\", \"Синтаксис Бодрости\", \"Infinite Loop\", \"Дебаг-Кофе\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 39,
+    "thoughts_token_count": null,
+    "total_token_count": 113,
+    "latency_sec": 1.924,
+    "total_elapsed_sec": 2.831,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:26:28",
+        "latency_sec": 1.924,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Brew",
+        "Компиляция Утра",
+        "Синтаксис Бодрости",
+        "Infinite Loop",
+        "Дебаг-Кофе"
+      ],
+      "names_normalized": [
+        "ctrl+alt+brew",
+        "компиляция утра",
+        "синтаксис бодрости",
+        "infinite loop",
+        "дебаг-кофе"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.7|run2",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.7,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:26:42",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Brew\", \"Компиляция Утра\", \"Синтаксис Бодрости\", \"Пул Потоков\", \"Рефакторинг Сна\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 42,
+    "thoughts_token_count": null,
+    "total_token_count": 116,
+    "latency_sec": 1.109,
+    "total_elapsed_sec": 12.175,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:26:41",
+        "latency_sec": 1.109,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Brew",
+        "Компиляция Утра",
+        "Синтаксис Бодрости",
+        "Пул Потоков",
+        "Рефакторинг Сна"
+      ],
+      "names_normalized": [
+        "ctrl+alt+brew",
+        "компиляция утра",
+        "синтаксис бодрости",
+        "пул потоков",
+        "рефакторинг сна"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.0|run2",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.0,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:28:11",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\n  \"names\": [\n    \"Кофе и Коммит\",\n    \"Ctrl+Alt+Brew\",\n    \"Синтаксис Бодрости\",\n    \"Байт на кофе\",\n    \"Пинг-Понг\"\n  ]\n}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 61,
+    "thoughts_token_count": null,
+    "total_token_count": 135,
+    "latency_sec": 76.936,
+    "total_elapsed_sec": 88.821,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:26:54",
+        "latency_sec": 76.936,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Кофе и Коммит",
+        "Ctrl+Alt+Brew",
+        "Синтаксис Бодрости",
+        "Байт на кофе",
+        "Пинг-Понг"
+      ],
+      "names_normalized": [
+        "кофе и коммит",
+        "ctrl+alt+brew",
+        "синтаксис бодрости",
+        "байт на кофе",
+        "пинг-понг"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.2|run2",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.2,
+    "run": 2,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:29:01",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Cup\", \"Булево Капучино\", \"СтекКофе\", \"Пинг Домой\", \"Деплой Утра\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 38,
+    "thoughts_token_count": null,
+    "total_token_count": 112,
+    "latency_sec": 1.635,
+    "total_elapsed_sec": 49.409,
+    "attempts": 3,
+    "retries": 2,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:28:11",
+        "latency_sec": 0.922,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:28:27",
+        "latency_sec": 1.845,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-05T21:28:59",
+        "latency_sec": 1.635,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Cup",
+        "Булево Капучино",
+        "СтекКофе",
+        "Пинг Домой",
+        "Деплой Утра"
+      ],
+      "names_normalized": [
+        "ctrl+alt+cup",
+        "булево капучино",
+        "стеккофе",
+        "пинг домой",
+        "деплой утра"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.0|run3",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.0,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:29:16",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 4.311,
+    "total_elapsed_sec": 15.665,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:29:12",
+        "latency_sec": 4.311,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.7|run3",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.7,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:29:27",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.788,
+    "total_elapsed_sec": 10.465,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:29:25",
+        "latency_sec": 1.788,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.0|run3",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.0,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:29:40",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 79,
+    "thoughts_token_count": null,
+    "total_token_count": 157,
+    "latency_sec": 1.623,
+    "total_elapsed_sec": 12.825,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:29:38",
+        "latency_sec": 1.623,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.2|run3",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.2,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:30:17",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (от 3 до 31 включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (от 1 до 17 включительно). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 8.344,
+    "total_elapsed_sec": 37.1,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:29:51",
+        "latency_sec": 2.392,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:30:09",
+        "latency_sec": 8.344,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (от 3 до 31 включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (от 1 до 17 включительно). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.0|run3",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.0,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:47:59",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Cup\", \"Булево Окно\", \"Синтаксис Вкуса\", \"Деплой Утра\", \"Латте-Код\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 42,
+    "thoughts_token_count": null,
+    "total_token_count": 116,
+    "latency_sec": 8.701,
+    "total_elapsed_sec": 19.959,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:47:51",
+        "latency_sec": 8.701,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Cup",
+        "Булево Окно",
+        "Синтаксис Вкуса",
+        "Деплой Утра",
+        "Латте-Код"
+      ],
+      "names_normalized": [
+        "ctrl+alt+cup",
+        "булево окно",
+        "синтаксис вкуса",
+        "деплой утра",
+        "латте-код"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.7|run3",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.7,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:31:38",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\n  \"names\": [\n    \"sudo brew\",\n    \"Commit & Cup\",\n    \"Узловая точка\",\n    \"Null Pointer\",\n    \"Продуктивный перерыв\"\n  ]\n}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 48,
+    "thoughts_token_count": null,
+    "total_token_count": 122,
+    "latency_sec": 2.666,
+    "total_elapsed_sec": 12.523,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:31:35",
+        "latency_sec": 2.666,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "sudo brew",
+        "Commit & Cup",
+        "Узловая точка",
+        "Null Pointer",
+        "Продуктивный перерыв"
+      ],
+      "names_normalized": [
+        "sudo brew",
+        "commit & cup",
+        "узловая точка",
+        "null pointer",
+        "продуктивный перерыв"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.0|run3",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.0,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:33:52",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Синтаксис Вкуса\", \"Ctrl+Alt+Brew\", \"Деплой Утра\", \"Багфиксумно\", \"Логи и Латте\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 41,
+    "thoughts_token_count": null,
+    "total_token_count": 115,
+    "latency_sec": 1.727,
+    "total_elapsed_sec": 134.222,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:31:48",
+        "latency_sec": 107.173,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:33:51",
+        "latency_sec": 1.727,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Синтаксис Вкуса",
+        "Ctrl+Alt+Brew",
+        "Деплой Утра",
+        "Багфиксумно",
+        "Логи и Латте"
+      ],
+      "names_normalized": [
+        "синтаксис вкуса",
+        "ctrl+alt+brew",
+        "деплой утра",
+        "багфиксумно",
+        "логи и латте"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.2|run3",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.2,
+    "run": 3,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:34:06",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Brew\", \"Компиляция Утра\", \"Синтаксис Бодрости\", \"Кофеин.exe\", \"Локальный Хост\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 41,
+    "thoughts_token_count": null,
+    "total_token_count": 115,
+    "latency_sec": 2.042,
+    "total_elapsed_sec": 13.3,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:34:04",
+        "latency_sec": 2.042,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Brew",
+        "Компиляция Утра",
+        "Синтаксис Бодрости",
+        "Кофеин.exe",
+        "Локальный Хост"
+      ],
+      "names_normalized": [
+        "ctrl+alt+brew",
+        "компиляция утра",
+        "синтаксис бодрости",
+        "кофеин.exe",
+        "локальный хост"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.0|run4",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.0,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:34:18",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.155,
+    "total_elapsed_sec": 12.105,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:34:17",
+        "latency_sec": 1.155,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.7|run4",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.7,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:34:31",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.12,
+    "total_elapsed_sec": 12.957,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:34:30",
+        "latency_sec": 1.12,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.0|run4",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.0,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:34:45",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (от 3 до 31 включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (от 1 до 17 включительно). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 2.238,
+    "total_elapsed_sec": 14.085,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:34:43",
+        "latency_sec": 2.238,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (от 3 до 31 включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (от 1 до 17 включительно). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.2|run4",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.2,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:35:38",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (от 3 до 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (от 1 до 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.889,
+    "total_elapsed_sec": 53.414,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:34:56",
+        "latency_sec": 25.788,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:35:36",
+        "latency_sec": 1.889,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (от 3 до 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (от 1 до 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.0|run4",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.0,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:35:51",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Brew\", \"Компиляция Утра\", \"Синтаксис Бодрости\", \"Infinite Loop\", \"Деплой Кофе\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 38,
+    "thoughts_token_count": null,
+    "total_token_count": 112,
+    "latency_sec": 1.281,
+    "total_elapsed_sec": 12.378,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:35:50",
+        "latency_sec": 1.281,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Brew",
+        "Компиляция Утра",
+        "Синтаксис Бодрости",
+        "Infinite Loop",
+        "Деплой Кофе"
+      ],
+      "names_normalized": [
+        "ctrl+alt+brew",
+        "компиляция утра",
+        "синтаксис бодрости",
+        "infinite loop",
+        "деплой кофе"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.7|run4",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.7,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:36:05",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\n  \"names\": [\n    \"Кофе и Коммит\",\n    \"Синтаксис Бодрости\",\n    \"Побег из Спринта\",\n    \"Редирект в Качели\",\n    \"Брейкпоинт\"\n  ]\n}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 66,
+    "thoughts_token_count": null,
+    "total_token_count": 140,
+    "latency_sec": 2.054,
+    "total_elapsed_sec": 13.746,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:36:03",
+        "latency_sec": 2.054,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Кофе и Коммит",
+        "Синтаксис Бодрости",
+        "Побег из Спринта",
+        "Редирект в Качели",
+        "Брейкпоинт"
+      ],
+      "names_normalized": [
+        "кофе и коммит",
+        "синтаксис бодрости",
+        "побег из спринта",
+        "редирект в качели",
+        "брейкпоинт"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.0|run4",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.0,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:36:17",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Синтаксис Вкуса\", \"Брейкпоинт\", \"Деплой Утра\", \"Код и Пенка\", \"ГитКофе\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 40,
+    "thoughts_token_count": null,
+    "total_token_count": 114,
+    "latency_sec": 1.378,
+    "total_elapsed_sec": 12.292,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:36:16",
+        "latency_sec": 1.378,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Синтаксис Вкуса",
+        "Брейкпоинт",
+        "Деплой Утра",
+        "Код и Пенка",
+        "ГитКофе"
+      ],
+      "names_normalized": [
+        "синтаксис вкуса",
+        "брейкпоинт",
+        "деплой утра",
+        "код и пенка",
+        "гиткофе"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.2|run4",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.2,
+    "run": 4,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:37:12",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\n  \"names\": [\n    \"Ctrl+Alt+Brew\",\n    \"commit & cup\",\n    \"Деплой Утра\",\n    \"Syntax & Sugar\",\n    \"Точка Запятой\"\n  ]\n}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 53,
+    "thoughts_token_count": null,
+    "total_token_count": 127,
+    "latency_sec": 21.442,
+    "total_elapsed_sec": 55.51,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:36:29",
+        "latency_sec": 7.477,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:36:51",
+        "latency_sec": 21.442,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Brew",
+        "commit & cup",
+        "Деплой Утра",
+        "Syntax & Sugar",
+        "Точка Запятой"
+      ],
+      "names_normalized": [
+        "ctrl+alt+brew",
+        "commit & cup",
+        "деплой утра",
+        "syntax & sugar",
+        "точка запятой"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.0|run5",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.0,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:37:14",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.099,
+    "total_elapsed_sec": 1.099,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:37:12",
+        "latency_sec": 1.099,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день и в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=0.7|run5",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 0.7,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:37:27",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте осталось 29 дней (с 3 по 31), в апреле 30 дней, в мае 31 день и в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 77,
+    "thoughts_token_count": null,
+    "total_token_count": 155,
+    "latency_sec": 1.339,
+    "total_elapsed_sec": 13.207,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:37:25",
+        "latency_sec": 1.339,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте осталось 29 дней (с 3 по 31), в апреле 30 дней, в мае 31 день и в июне 17 дней. Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.0|run5",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.0,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:37:40",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.233,
+    "total_elapsed_sec": 12.866,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:37:39",
+        "latency_sec": 1.233,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "days_count|t=1.2|run5",
+    "task_id": "days_count",
+    "kind": "single_answer",
+    "temperature": 1.2,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:38:10",
+    "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": "107",
+    "raw_text": "{\"answer\": \"107\", \"explanation\": \"В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.\"}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 78,
+    "candidates_token_count": 88,
+    "thoughts_token_count": null,
+    "total_token_count": 166,
+    "latency_sec": 1.8,
+    "total_elapsed_sec": 29.767,
+    "attempts": 2,
+    "retries": 1,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:37:52",
+        "latency_sec": 1.23,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:38:08",
+        "latency_sec": 1.8,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "answer": "107",
+      "explanation": "В марте 29 дней (с 3 по 31 марта включительно), в апреле 30 дней, в мае 31 день, в июне 17 дней (с 1 по 17 июня). Итого: 29 + 30 + 31 + 17 = 107 дней.",
+      "answer_key": "107",
+      "is_correct": true,
+      "check_reason": "107"
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.0|run5",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.0,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:39:22",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Cup\", \"Булево Капучино\", \"СтекКофе\", \"Пинг <3\", \"Точка Запятой\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 38,
+    "thoughts_token_count": null,
+    "total_token_count": 112,
+    "latency_sec": 1.448,
+    "total_elapsed_sec": 72.133,
+    "attempts": 3,
+    "retries": 2,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:38:21",
+        "latency_sec": 12.529,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 15
+      },
+      {
+        "attempt": 2,
+        "started_at": "2026-11-05T21:38:48",
+        "latency_sec": 1.984,
+        "status": "api_error",
+        "error": {
+          "type": "APIError",
+          "code": 503,
+          "status": "UNAVAILABLE",
+          "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        },
+        "retry_after_sec": 30
+      },
+      {
+        "attempt": 3,
+        "started_at": "2026-11-05T21:39:20",
+        "latency_sec": 1.448,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Cup",
+        "Булево Капучино",
+        "СтекКофе",
+        "Пинг <3",
+        "Точка Запятой"
+      ],
+      "names_normalized": [
+        "ctrl+alt+cup",
+        "булево капучино",
+        "стеккофе",
+        "пинг <3",
+        "точка запятой"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=0.7|run5",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 0.7,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:39:40",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 0.7,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Синексис\", \"Деплой и Дрип\", \"Брейкпоинт\", \"Коммит Кофе\", \"Кэш & Чашка\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 40,
+    "thoughts_token_count": null,
+    "total_token_count": 114,
+    "latency_sec": 6.742,
+    "total_elapsed_sec": 18.267,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:39:33",
+        "latency_sec": 6.742,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Синексис",
+        "Деплой и Дрип",
+        "Брейкпоинт",
+        "Коммит Кофе",
+        "Кэш & Чашка"
+      ],
+      "names_normalized": [
+        "синексис",
+        "деплой и дрип",
+        "брейкпоинт",
+        "коммит кофе",
+        "кэш & чашка"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.0|run5",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.0,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:39:51",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.0,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Brew\", \"Побег из Open Space\", \"Локальный Хост\", \"Кофеин & Код\", \"Рилтайм Роаст\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 41,
+    "thoughts_token_count": null,
+    "total_token_count": 115,
+    "latency_sec": 4.315,
+    "total_elapsed_sec": 10.545,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:39:46",
+        "latency_sec": 4.315,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Brew",
+        "Побег из Open Space",
+        "Локальный Хост",
+        "Кофеин & Код",
+        "Рилтайм Роаст"
+      ],
+      "names_normalized": [
+        "ctrl+alt+brew",
+        "побег из open space",
+        "локальный хост",
+        "кофеин & код",
+        "рилтайм роаст"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  },
+  {
+    "solution_id": "cafe_names|t=1.2|run5",
+    "task_id": "cafe_names",
+    "kind": "generation",
+    "temperature": 1.2,
+    "run": 5,
+    "model": "gemini-3.5-flash-lite",
+    "thinking_level": "MINIMAL",
+    "max_output_tokens": 2048,
+    "timestamp": "2026-11-05T21:40:01",
+    "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+    "request_config": {
+      "temperature": 1.2,
+      "max_output_tokens": 2048,
+      "thinking_config": {
+        "thinking_level": "MINIMAL"
+      }
+    },
+    "expected_answer": null,
+    "raw_text": "{\"names\": [\"Ctrl+Alt+Cup\", \"Булево Капучино\", \"СтекКофе\", \"Пинг до Бариста\", \"Рефакторинг Утра\"]}",
+    "finish_reason": "STOP",
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_token_count": 74,
+    "candidates_token_count": 40,
+    "thoughts_token_count": null,
+    "total_token_count": 114,
+    "latency_sec": 1.852,
+    "total_elapsed_sec": 10.495,
+    "attempts": 1,
+    "retries": 0,
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-05T21:39:59",
+        "latency_sec": 1.852,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "evaluation": {
+      "format_status": "ok",
+      "format_error": null,
+      "recovered": false,
+      "schema_errors": null,
+      "format_ok": true,
+      "truncated": false,
+      "names": [
+        "Ctrl+Alt+Cup",
+        "Булево Капучино",
+        "СтекКофе",
+        "Пинг до Бариста",
+        "Рефакторинг Утра"
+      ],
+      "names_normalized": [
+        "ctrl+alt+cup",
+        "булево капучино",
+        "стеккофе",
+        "пинг до бариста",
+        "рефакторинг утра"
+      ],
+      "duplicates_within": [],
+      "structure_issues": null,
+      "structure_ok": true
+    }
+  }
+]

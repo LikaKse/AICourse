@@ -1,0 +1,247 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "created_at": "2026-11-05T21:21:44",
+  "thinking_level": "MINIMAL",
+  "max_output_tokens": 2048,
+  "temperatures": [
+    0.0,
+    0.7,
+    1.0,
+    1.2
+  ],
+  "runs_per_combination": 5,
+  "tasks": {
+    "days_count": {
+      "kind": "single_answer",
+      "title": "Один правильный ответ: дни с 3 марта по 17 июня 2025 включительно",
+      "prompt": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?\n\nВерни только JSON-объект вида {\"answer\": \"число дней\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+      "expected": "107"
+    },
+    "cafe_names": {
+      "kind": "generation",
+      "title": "Генерация: 5 названий кофейни рядом с офисом IT-компании",
+      "prompt": "Придумай 5 оригинальных названий для кофейни рядом с офисом IT-компании.\n\nВерни только JSON-объект вида {\"names\": [\"название 1\", \"название 2\", \"название 3\", \"название 4\", \"название 5\"]} без Markdown и без текста вне JSON.",
+      "expected": null
+    }
+  },
+  "plan": [
+    [
+      "days_count",
+      0.0,
+      1
+    ],
+    [
+      "days_count",
+      0.7,
+      1
+    ],
+    [
+      "days_count",
+      1.0,
+      1
+    ],
+    [
+      "days_count",
+      1.2,
+      1
+    ],
+    [
+      "cafe_names",
+      0.0,
+      1
+    ],
+    [
+      "cafe_names",
+      0.7,
+      1
+    ],
+    [
+      "cafe_names",
+      1.0,
+      1
+    ],
+    [
+      "cafe_names",
+      1.2,
+      1
+    ],
+    [
+      "days_count",
+      0.0,
+      2
+    ],
+    [
+      "days_count",
+      0.7,
+      2
+    ],
+    [
+      "days_count",
+      1.0,
+      2
+    ],
+    [
+      "days_count",
+      1.2,
+      2
+    ],
+    [
+      "cafe_names",
+      0.0,
+      2
+    ],
+    [
+      "cafe_names",
+      0.7,
+      2
+    ],
+    [
+      "cafe_names",
+      1.0,
+      2
+    ],
+    [
+      "cafe_names",
+      1.2,
+      2
+    ],
+    [
+      "days_count",
+      0.0,
+      3
+    ],
+    [
+      "days_count",
+      0.7,
+      3
+    ],
+    [
+      "days_count",
+      1.0,
+      3
+    ],
+    [
+      "days_count",
+      1.2,
+      3
+    ],
+    [
+      "cafe_names",
+      0.0,
+      3
+    ],
+    [
+      "cafe_names",
+      0.7,
+      3
+    ],
+    [
+      "cafe_names",
+      1.0,
+      3
+    ],
+    [
+      "cafe_names",
+      1.2,
+      3
+    ],
+    [
+      "days_count",
+      0.0,
+      4
+    ],
+    [
+      "days_count",
+      0.7,
+      4
+    ],
+    [
+      "days_count",
+      1.0,
+      4
+    ],
+    [
+      "days_count",
+      1.2,
+      4
+    ],
+    [
+      "cafe_names",
+      0.0,
+      4
+    ],
+    [
+      "cafe_names",
+      0.7,
+      4
+    ],
+    [
+      "cafe_names",
+      1.0,
+      4
+    ],
+    [
+      "cafe_names",
+      1.2,
+      4
+    ],
+    [
+      "days_count",
+      0.0,
+      5
+    ],
+    [
+      "days_count",
+      0.7,
+      5
+    ],
+    [
+      "days_count",
+      1.0,
+      5
+    ],
+    [
+      "days_count",
+      1.2,
+      5
+    ],
+    [
+      "cafe_names",
+      0.0,
+      5
+    ],
+    [
+      "cafe_names",
+      0.7,
+      5
+    ],
+    [
+      "cafe_names",
+      1.0,
+      5
+    ],
+    [
+      "cafe_names",
+      1.2,
+      5
+    ]
+  ],
+  "planned_calls": 40,
+  "settings": {
+    "min_interval_between_requests_sec": 13,
+    "request_timeout_sec": 180,
+    "retry_status_codes": [
+      503,
+      504,
+      429
+    ],
+    "retry_delays_sec": [
+      15,
+      30
+    ],
+    "structured_output": false
+  },
+  "sdk": {
+    "google-genai": "2.34.0"
+  }
+}

@@ -1,0 +1,109 @@
+[
+  {
+    "solution_id": "order_logic|expert_group|HIGH",
+    "task_id": "order_logic",
+    "category": "Логика порядка",
+    "strategy": "expert_group",
+    "thinking_level": "HIGH",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-05T00:40:51",
+    "prompt": "Реши задачу, смоделировав обсуждение группы из трёх экспертов:\n1. Аналитик — разбирает условие, выделяет данные и то, что нужно найти.\n2. Инженер — строит и выполняет решение.\n3. Критик — ищет ошибки и ловушки в решении инженера.\nПосле обсуждения сформулируй согласованный итоговый ответ группы.\n\nЗадача:\nЧетыре человека D, A, B, C должны выступить. D выступает раньше A, A раньше B, B раньше C. Каков порядок?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON. В поле explanation кратко изложи вклад каждой роли и итог.",
+    "generated_prompt": null,
+    "generated_prompt_leaks_answer": null,
+    "answer": null,
+    "explanation": null,
+    "expected_answer": "D, A, B, C",
+    "is_correct": null,
+    "check_reason": null,
+    "parse_status": null,
+    "parse_error": null,
+    "validation_status": null,
+    "validation_errors": null,
+    "finish_reason": null,
+    "attempts": 1,
+    "retries": 0,
+    "api_error": {
+      "stage": "solve",
+      "type": "ReadTimeout",
+      "code": null,
+      "status": null,
+      "message": "The read operation timed out"
+    },
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": null,
+    "calls": [
+      {
+        "stage": "solve",
+        "prompt": "Реши задачу, смоделировав обсуждение группы из трёх экспертов:\n1. Аналитик — разбирает условие, выделяет данные и то, что нужно найти.\n2. Инженер — строит и выполняет решение.\n3. Критик — ищет ошибки и ловушки в решении инженера.\nПосле обсуждения сформулируй согласованный итоговый ответ группы.\n\nЗадача:\nЧетыре человека D, A, B, C должны выступить. D выступает раньше A, A раньше B, B раньше C. Каков порядок?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON. В поле explanation кратко изложи вклад каждой роли и итог.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "HIGH"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-05T00:26:48",
+            "latency_sec": 180.025,
+            "status": "api_error",
+            "error": {
+              "type": "ReadTimeout",
+              "code": null,
+              "status": null,
+              "message": "The read operation timed out"
+            },
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": {
+          "type": "ReadTimeout",
+          "code": null,
+          "status": null,
+          "message": "The read operation timed out"
+        },
+        "daily_quota_exceeded": false,
+        "latency_sec": 180.025,
+        "total_elapsed_sec": 182.716,
+        "finish_reason": null,
+        "model_version": null,
+        "prompt_token_count": null,
+        "candidates_token_count": null,
+        "thoughts_token_count": null,
+        "total_token_count": null,
+        "raw_text": null
+      }
+    ],
+    "latency_sec": null,
+    "total_elapsed_sec": 182.716,
+    "prompt_token_count": null,
+    "candidates_token_count": null,
+    "thoughts_token_count": null,
+    "total_token_count": null
+  }
+]

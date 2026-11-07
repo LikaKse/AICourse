@@ -1,0 +1,50 @@
+[
+  {
+    "id": "math_bat_ball",
+    "category": "Математика",
+    "question": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?",
+    "expected": "0.05 доллара",
+    "checker": "check_bat_ball",
+    "source": "gemini-task3/tasks.py"
+  },
+  {
+    "id": "logic_syllogism",
+    "category": "Логика",
+    "question": "Все A являются B. Все B являются C. Следует ли, что все A являются C?",
+    "expected": "да",
+    "checker": "check_yes",
+    "source": "gemini-task3/tasks.py"
+  },
+  {
+    "id": "combinatorics_digits",
+    "category": "Комбинаторика",
+    "question": "Сколько трёхзначных чисел можно составить из цифр 1, 2, 3, 4 без повторений?",
+    "expected": "24",
+    "checker": "check_combinatorics",
+    "source": "gemini-task3/tasks.py"
+  },
+  {
+    "id": "algorithm_loop",
+    "category": "Алгоритмы",
+    "question": "Выполняется код:\ntotal = 0\nfor i in range(1, 4):\n    total += i * i\nЧему равен total?",
+    "expected": "14",
+    "checker": "check_code_total",
+    "source": "gemini-task3/tasks.py"
+  },
+  {
+    "id": "order_logic",
+    "category": "Логика порядка",
+    "question": "Четыре человека D, A, B, C должны выступить. D выступает раньше A, A раньше B, B раньше C. Каков порядок?",
+    "expected": "D, A, B, C",
+    "checker": "check_order",
+    "source": "gemini-task3/tasks.py"
+  },
+  {
+    "id": "days_count",
+    "category": "Даты",
+    "question": "Сколько дней с 3 марта 2025 года по 17 июня 2025 года включительно (считая и 3 марта, и 17 июня)?",
+    "expected": "107",
+    "checker": "check_days",
+    "source": "gemini-task4/tasks.py + config.SINGLE_ANSWER_PROMPT"
+  }
+]

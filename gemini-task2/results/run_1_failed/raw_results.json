@@ -1,0 +1,383 @@
+[
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 1,
+    "timestamp": "2026-11-03T22:42:35",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "api_error": {
+      "type": "APIError",
+      "code": 504,
+      "message": "Deadline expired before operation could complete."
+    },
+    "latency_sec": 119.028,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 2,
+    "timestamp": "2026-11-03T22:44:36",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "api_error": {
+      "type": "APIError",
+      "code": 504,
+      "message": "Deadline expired before operation could complete."
+    },
+    "latency_sec": 118.856,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 3,
+    "timestamp": "2026-11-03T22:46:36",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 3.237,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 1,
+    "timestamp": "2026-11-03T22:46:42",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 37.243,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 2,
+    "timestamp": "2026-11-03T22:47:21",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 1.728,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 3,
+    "timestamp": "2026-11-03T22:47:25",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "api_error": {
+      "type": "APIError",
+      "code": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    },
+    "latency_sec": 1.535,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 1,
+    "timestamp": "2026-11-03T22:47:28",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "Book": {
+            "additionalProperties": false,
+            "description": "Одна рекомендованная книга.",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "Book",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ модели: ровно 3 книги.",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/Book"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "BookRecommendations",
+        "type": "object"
+      }
+    },
+    "api_error": {
+      "type": "APIError",
+      "code": 400,
+      "message": "Invalid JSON payload received. Unknown name \"additional_properties\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additional_properties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field."
+    },
+    "latency_sec": 0.069,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 2,
+    "timestamp": "2026-11-03T22:47:30",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "Book": {
+            "additionalProperties": false,
+            "description": "Одна рекомендованная книга.",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "Book",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ модели: ровно 3 книги.",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/Book"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "BookRecommendations",
+        "type": "object"
+      }
+    },
+    "api_error": {
+      "type": "APIError",
+      "code": 400,
+      "message": "Invalid JSON payload received. Unknown name \"additional_properties\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additional_properties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field."
+    },
+    "latency_sec": 0.08,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 3,
+    "timestamp": "2026-11-03T22:47:32",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "Book": {
+            "additionalProperties": false,
+            "description": "Одна рекомендованная книга.",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "Book",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ модели: ровно 3 книги.",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/Book"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "BookRecommendations",
+        "type": "object"
+      }
+    },
+    "api_error": {
+      "type": "APIError",
+      "code": 400,
+      "message": "Invalid JSON payload received. Unknown name \"additional_properties\" at 'generation_config.response_schema': Cannot find field.\nInvalid JSON payload received. Unknown name \"additional_properties\" at 'generation_config.response_schema.properties[0].value.items': Cannot find field."
+    },
+    "latency_sec": 0.085,
+    "finish_reason": null,
+    "usage_metadata": null,
+    "raw_text": null,
+    "text_length_chars": null,
+    "checks": null
+  }
+]

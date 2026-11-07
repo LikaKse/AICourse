@@ -1,0 +1,833 @@
+[
+  {
+    "solution_id": "math_bat_ball|direct|MINIMAL",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "direct",
+    "thinking_level": "MINIMAL",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:38:28",
+    "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "generated_prompt": null,
+    "generated_prompt_leaks_answer": null,
+    "answer": "5 центов",
+    "explanation": "Если мяч стоит X, то бита стоит X + 1. Их сумма: X + (X + 1) = 2X + 1 = 1,10. Отсюда 2X = 0,10, а X = 0,05 доллара или 5 центов.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 1,
+    "retries": 0,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Если мяч стоит X, то бита стоит X + 1. Их сумма: X + (X + 1) = 2X + 1 = 1,10. Отсюда 2X = 0,10, а X = 0,05 доллара или 5 центов.\"\n}",
+    "calls": [
+      {
+        "stage": "solve",
+        "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "MINIMAL"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:38:07",
+            "latency_sec": 20.438,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 20.438,
+        "total_elapsed_sec": 20.438,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 65,
+        "candidates_token_count": 87,
+        "thoughts_token_count": null,
+        "total_token_count": 152,
+        "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Если мяч стоит X, то бита стоит X + 1. Их сумма: X + (X + 1) = 2X + 1 = 1,10. Отсюда 2X = 0,10, а X = 0,05 доллара или 5 центов.\"\n}"
+      }
+    ],
+    "latency_sec": 20.438,
+    "total_elapsed_sec": 20.438,
+    "prompt_token_count": 65,
+    "candidates_token_count": 87,
+    "thoughts_token_count": null,
+    "total_token_count": 152
+  },
+  {
+    "solution_id": "math_bat_ball|step_by_step|MINIMAL",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "step_by_step",
+    "thinking_level": "MINIMAL",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:38:49",
+    "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nРешай задачу пошагово. Проверь результат перед ответом.\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "generated_prompt": null,
+    "generated_prompt_leaks_answer": null,
+    "answer": "5 центов",
+    "explanation": "Если мяч стоит X, то бита стоит X + 1. Их сумма: X + (X + 1) = 2X + 1 = 1,10. Отсюда 2X = 0,10, а X = 0,05 доллара или 5 центов.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 1,
+    "retries": 0,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Если мяч стоит X, то бита стоит X + 1. Их сумма: X + (X + 1) = 2X + 1 = 1,10. Отсюда 2X = 0,10, а X = 0,05 доллара или 5 центов.\"\n}",
+    "calls": [
+      {
+        "stage": "solve",
+        "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nРешай задачу пошагово. Проверь результат перед ответом.\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "MINIMAL"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:38:28",
+            "latency_sec": 21.041,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 21.041,
+        "total_elapsed_sec": 21.041,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 81,
+        "candidates_token_count": 87,
+        "thoughts_token_count": null,
+        "total_token_count": 168,
+        "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Если мяч стоит X, то бита стоит X + 1. Их сумма: X + (X + 1) = 2X + 1 = 1,10. Отсюда 2X = 0,10, а X = 0,05 доллара или 5 центов.\"\n}"
+      }
+    ],
+    "latency_sec": 21.041,
+    "total_elapsed_sec": 21.041,
+    "prompt_token_count": 81,
+    "candidates_token_count": 87,
+    "thoughts_token_count": null,
+    "total_token_count": 168
+  },
+  {
+    "solution_id": "math_bat_ball|prompt_generation|MINIMAL",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "prompt_generation",
+    "thinking_level": "MINIMAL",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:40:47",
+    "prompt": "```text\nРеши классическую логическую задачу. Действуй по шагам, чтобы избежать распространенной когнитивной ошибки (интуитивного, но неверного ответа). \n\nШаг 1. Введи переменные для стоимости биты и мяча.\nШаг 2. Составь систему уравнений на основе условий задачи:\n- Общая стоимость биты и мяча равна $1,10.\n- Разница в цене между битой и мячом составляет $1,00.\nШаг 3. Реши уравнение шаг за шагом, выполняя все математические операции аккуратно.\nШаг 4. Проверь полученный ответ, подставив его в исходные условия задачи.\nШаг 5. Дай итоговый ответ.\n```\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "generated_prompt": "```text\nРеши классическую логическую задачу. Действуй по шагам, чтобы избежать распространенной когнитивной ошибки (интуитивного, но неверного ответа). \n\nШаг 1. Введи переменные для стоимости биты и мяча.\nШаг 2. Составь систему уравнений на основе условий задачи:\n- Общая стоимость биты и мяча равна $1,10.\n- Разница в цене между битой и мячом составляет $1,00.\nШаг 3. Реши уравнение шаг за шагом, выполняя все математические операции аккуратно.\nШаг 4. Проверь полученный ответ, подставив его в исходные условия задачи.\nШаг 5. Дай итоговый ответ.\n```",
+    "generated_prompt_leaks_answer": false,
+    "answer": "5 центов ($0,05)",
+    "explanation": "Пусть мяч стоит x, тогда бита стоит x + 1,00. Вместе они стоят x + (x + 1,00) = 1,10. Получаем 2x = 0,10, откуда x = 0,05. Проверка: мяч стоит 0,05, бита 1,05, вместе 1,10, разница 1,00.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 3,
+    "retries": 1,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\n  \"answer\": \"5 центов ($0,05)\",\n  \"explanation\": \"Пусть мяч стоит x, тогда бита стоит x + 1,00. Вместе они стоят x + (x + 1,00) = 1,10. Получаем 2x = 0,10, откуда x = 0,05. Проверка: мяч стоит 0,05, бита 1,05, вместе 1,10, разница 1,00.\"\n}",
+    "calls": [
+      {
+        "stage": "prompt_generation",
+        "prompt": "Ты — эксперт по составлению промптов для языковых моделей. Составь эффективный промпт, который поможет языковой модели правильно решить задачу ниже. Не решай задачу и не указывай ответ. Верни только текст промпта.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "MINIMAL"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:38:49",
+            "latency_sec": 58.401,
+            "status": "api_error",
+            "error": {
+              "type": "APIError",
+              "code": 503,
+              "status": "UNAVAILABLE",
+              "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+            },
+            "retry_after_sec": 15
+          },
+          {
+            "attempt": 2,
+            "started_at": "2026-11-04T23:40:02",
+            "latency_sec": 16.257,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 2,
+        "retries_count": 1,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 16.257,
+        "total_elapsed_sec": 89.662,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 84,
+        "candidates_token_count": 173,
+        "thoughts_token_count": null,
+        "total_token_count": 257,
+        "raw_text": "```text\nРеши классическую логическую задачу. Действуй по шагам, чтобы избежать распространенной когнитивной ошибки (интуитивного, но неверного ответа). \n\nШаг 1. Введи переменные для стоимости биты и мяча.\nШаг 2. Составь систему уравнений на основе условий задачи:\n- Общая стоимость биты и мяча равна $1,10.\n- Разница в цене между битой и мячом составляет $1,00.\nШаг 3. Реши уравнение шаг за шагом, выполняя все математические операции аккуратно.\nШаг 4. Проверь полученный ответ, подставив его в исходные условия задачи.\nШаг 5. Дай итоговый ответ.\n```"
+      },
+      {
+        "stage": "solve",
+        "prompt": "```text\nРеши классическую логическую задачу. Действуй по шагам, чтобы избежать распространенной когнитивной ошибки (интуитивного, но неверного ответа). \n\nШаг 1. Введи переменные для стоимости биты и мяча.\nШаг 2. Составь систему уравнений на основе условий задачи:\n- Общая стоимость биты и мяча равна $1,10.\n- Разница в цене между битой и мячом составляет $1,00.\nШаг 3. Реши уравнение шаг за шагом, выполняя все математические операции аккуратно.\nШаг 4. Проверь полученный ответ, подставив его в исходные условия задачи.\nШаг 5. Дай итоговый ответ.\n```\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "MINIMAL"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:40:18",
+            "latency_sec": 28.767,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 28.767,
+        "total_elapsed_sec": 28.767,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 242,
+        "candidates_token_count": 121,
+        "thoughts_token_count": null,
+        "total_token_count": 363,
+        "raw_text": "{\n  \"answer\": \"5 центов ($0,05)\",\n  \"explanation\": \"Пусть мяч стоит x, тогда бита стоит x + 1,00. Вместе они стоят x + (x + 1,00) = 1,10. Получаем 2x = 0,10, откуда x = 0,05. Проверка: мяч стоит 0,05, бита 1,05, вместе 1,10, разница 1,00.\"\n}"
+      }
+    ],
+    "latency_sec": 45.024,
+    "total_elapsed_sec": 118.429,
+    "prompt_token_count": 326,
+    "candidates_token_count": 294,
+    "thoughts_token_count": null,
+    "total_token_count": 620
+  },
+  {
+    "solution_id": "math_bat_ball|expert_group|MINIMAL",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "expert_group",
+    "thinking_level": "MINIMAL",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:41:26",
+    "prompt": "Реши задачу, смоделировав обсуждение группы из трёх экспертов:\n1. Аналитик — разбирает условие, выделяет данные и то, что нужно найти.\n2. Инженер — строит и выполняет решение.\n3. Критик — ищет ошибки и ловушки в решении инженера.\nПосле обсуждения сформулируй согласованный итоговый ответ группы.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON. В поле explanation кратко изложи вклад каждой роли и итог.",
+    "generated_prompt": null,
+    "generated_prompt_leaks_answer": null,
+    "answer": "5 центов",
+    "explanation": "Аналитик выделил данные: общая сумма 1,10 и разница 1,00. Инженер сначала предположил 10 центов, но критик указал на ошибку: тогда бита стоила бы 1,10, а вместе 1,20. Инженер скорректировал решение: если мяч стоит x, то бита x + 1,00, откуда 2x + 1,00 = 1,10, значит x = 0,05.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 1,
+    "retries": 0,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Аналитик выделил данные: общая сумма 1,10 и разница 1,00. Инженер сначала предположил 10 центов, но критик указал на ошибку: тогда бита стоила бы 1,10, а вместе 1,20. Инженер скорректировал решение: если мяч стоит x, то бита x + 1,00, откуда 2x + 1,00 = 1,10, значит x = 0,05.\"\n}",
+    "calls": [
+      {
+        "stage": "solve",
+        "prompt": "Реши задачу, смоделировав обсуждение группы из трёх экспертов:\n1. Аналитик — разбирает условие, выделяет данные и то, что нужно найти.\n2. Инженер — строит и выполняет решение.\n3. Критик — ищет ошибки и ловушки в решении инженера.\nПосле обсуждения сформулируй согласованный итоговый ответ группы.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON. В поле explanation кратко изложи вклад каждой роли и итог.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "MINIMAL"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:40:47",
+            "latency_sec": 38.7,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 38.7,
+        "total_elapsed_sec": 38.7,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 170,
+        "candidates_token_count": 137,
+        "thoughts_token_count": null,
+        "total_token_count": 307,
+        "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Аналитик выделил данные: общая сумма 1,10 и разница 1,00. Инженер сначала предположил 10 центов, но критик указал на ошибку: тогда бита стоила бы 1,10, а вместе 1,20. Инженер скорректировал решение: если мяч стоит x, то бита x + 1,00, откуда 2x + 1,00 = 1,10, значит x = 0,05.\"\n}"
+      }
+    ],
+    "latency_sec": 38.7,
+    "total_elapsed_sec": 38.7,
+    "prompt_token_count": 170,
+    "candidates_token_count": 137,
+    "thoughts_token_count": null,
+    "total_token_count": 307
+  },
+  {
+    "solution_id": "math_bat_ball|direct|HIGH",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "direct",
+    "thinking_level": "HIGH",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:42:14",
+    "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "generated_prompt": null,
+    "generated_prompt_leaks_answer": null,
+    "answer": "5 центов ($0.05)",
+    "explanation": "Если мяч стоит 5 центов, то бита стоит $1,05 (на $1 дороже мяча). В сумме они дают $1,10.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 2,
+    "retries": 1,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\"answer\": \"5 центов ($0.05)\", \"explanation\": \"Если мяч стоит 5 центов, то бита стоит $1,05 (на $1 дороже мяча). В сумме они дают $1,10.\"}",
+    "calls": [
+      {
+        "stage": "solve",
+        "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "HIGH"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:41:26",
+            "latency_sec": 13.084,
+            "status": "api_error",
+            "error": {
+              "type": "APIError",
+              "code": 503,
+              "status": "UNAVAILABLE",
+              "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+            },
+            "retry_after_sec": 15
+          },
+          {
+            "attempt": 2,
+            "started_at": "2026-11-04T23:41:54",
+            "latency_sec": 20.284,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 2,
+        "retries_count": 1,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 20.284,
+        "total_elapsed_sec": 48.371,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 65,
+        "candidates_token_count": 55,
+        "thoughts_token_count": 551,
+        "total_token_count": 671,
+        "raw_text": "{\"answer\": \"5 центов ($0.05)\", \"explanation\": \"Если мяч стоит 5 центов, то бита стоит $1,05 (на $1 дороже мяча). В сумме они дают $1,10.\"}"
+      }
+    ],
+    "latency_sec": 20.284,
+    "total_elapsed_sec": 48.371,
+    "prompt_token_count": 65,
+    "candidates_token_count": 55,
+    "thoughts_token_count": 551,
+    "total_token_count": 671
+  },
+  {
+    "solution_id": "math_bat_ball|step_by_step|HIGH",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "step_by_step",
+    "thinking_level": "HIGH",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:42:35",
+    "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nРешай задачу пошагово. Проверь результат перед ответом.\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "generated_prompt": null,
+    "generated_prompt_leaks_answer": null,
+    "answer": "5 центов",
+    "explanation": "Пусть мяч стоит x, тогда бита стоит x + 1. Вместе они стоят x + (x + 1) = 1,10, откуда 2x = 0,10 и x = 0,05 доллара (5 центов). Проверка: 0,05 + 1,05 = 1,10.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 1,
+    "retries": 0,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\"answer\": \"5 центов\", \"explanation\": \"Пусть мяч стоит x, тогда бита стоит x + 1. Вместе они стоят x + (x + 1) = 1,10, откуда 2x = 0,10 и x = 0,05 доллара (5 центов). Проверка: 0,05 + 1,05 = 1,10.\"}",
+    "calls": [
+      {
+        "stage": "solve",
+        "prompt": "Бита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nРешай задачу пошагово. Проверь результат перед ответом.\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "HIGH"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:42:14",
+            "latency_sec": 20.244,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 20.244,
+        "total_elapsed_sec": 20.244,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 81,
+        "candidates_token_count": 94,
+        "thoughts_token_count": 698,
+        "total_token_count": 873,
+        "raw_text": "{\"answer\": \"5 центов\", \"explanation\": \"Пусть мяч стоит x, тогда бита стоит x + 1. Вместе они стоят x + (x + 1) = 1,10, откуда 2x = 0,10 и x = 0,05 доллара (5 центов). Проверка: 0,05 + 1,05 = 1,10.\"}"
+      }
+    ],
+    "latency_sec": 20.244,
+    "total_elapsed_sec": 20.244,
+    "prompt_token_count": 81,
+    "candidates_token_count": 94,
+    "thoughts_token_count": 698,
+    "total_token_count": 873
+  },
+  {
+    "solution_id": "math_bat_ball|prompt_generation|HIGH",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "prompt_generation",
+    "thinking_level": "HIGH",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:45:13",
+    "prompt": "Реши следующую задачу, используя подробный пошаговый анализ (Chain of Thought). Учти, что эта задача часто вызывает ошибку из-за интуитивного восприятия, поэтому будь предельно внимателен и опирайся на строгую математическую логику.\n\nСледуй алгоритму:\n1. Обозначь неизвестные переменными.\n2. Составь математическое уравнение, описывающее условие задачи.\n3. Реши уравнение, детально расписав каждый шаг вычислений.\n4. Выполни проверку: подставь найденные значения в исходные условия (проверь и общую сумму, и разницу).\n5. Сформулируй окончательный ответ.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+    "generated_prompt": "Реши следующую задачу, используя подробный пошаговый анализ (Chain of Thought). Учти, что эта задача часто вызывает ошибку из-за интуитивного восприятия, поэтому будь предельно внимателен и опирайся на строгую математическую логику.\n\nСледуй алгоритму:\n1. Обозначь неизвестные переменными.\n2. Составь математическое уравнение, описывающее условие задачи.\n3. Реши уравнение, детально расписав каждый шаг вычислений.\n4. Выполни проверку: подставь найденные значения в исходные условия (проверь и общую сумму, и разницу).\n5. Сформулируй окончательный ответ.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?",
+    "generated_prompt_leaks_answer": false,
+    "answer": "5 центов",
+    "explanation": "Пусть мяч стоит x, а бита x + 1,00. Уравнение: x + (x + 1,00) = 1,10. Решаем: 2x = 0,10, значит x = 0,05. Мяч стоит 5 центов, а бита 1,05.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 3,
+    "retries": 1,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\"answer\": \"5 центов\", \"explanation\": \"Пусть мяч стоит x, а бита x + 1,00. Уравнение: x + (x + 1,00) = 1,10. Решаем: 2x = 0,10, значит x = 0,05. Мяч стоит 5 центов, а бита 1,05.\"}",
+    "calls": [
+      {
+        "stage": "prompt_generation",
+        "prompt": "Ты — эксперт по составлению промптов для языковых моделей. Составь эффективный промпт, который поможет языковой модели правильно решить задачу ниже. Не решай задачу и не указывай ответ. Верни только текст промпта.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "HIGH"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:42:35",
+            "latency_sec": 33.458,
+            "status": "api_error",
+            "error": {
+              "type": "APIError",
+              "code": 503,
+              "status": "UNAVAILABLE",
+              "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+            },
+            "retry_after_sec": 15
+          },
+          {
+            "attempt": 2,
+            "started_at": "2026-11-04T23:43:23",
+            "latency_sec": 18.998,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 2,
+        "retries_count": 1,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 18.998,
+        "total_elapsed_sec": 67.46,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 84,
+        "candidates_token_count": 186,
+        "thoughts_token_count": 1237,
+        "total_token_count": 1507,
+        "raw_text": "Реши следующую задачу, используя подробный пошаговый анализ (Chain of Thought). Учти, что эта задача часто вызывает ошибку из-за интуитивного восприятия, поэтому будь предельно внимателен и опирайся на строгую математическую логику.\n\nСледуй алгоритму:\n1. Обозначь неизвестные переменными.\n2. Составь математическое уравнение, описывающее условие задачи.\n3. Реши уравнение, детально расписав каждый шаг вычислений.\n4. Выполни проверку: подставь найденные значения в исходные условия (проверь и общую сумму, и разницу).\n5. Сформулируй окончательный ответ.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?"
+      },
+      {
+        "stage": "solve",
+        "prompt": "Реши следующую задачу, используя подробный пошаговый анализ (Chain of Thought). Учти, что эта задача часто вызывает ошибку из-за интуитивного восприятия, поэтому будь предельно внимателен и опирайся на строгую математическую логику.\n\nСледуй алгоритму:\n1. Обозначь неизвестные переменными.\n2. Составь математическое уравнение, описывающее условие задачи.\n3. Реши уравнение, детально расписав каждый шаг вычислений.\n4. Выполни проверку: подставь найденные значения в исходные условия (проверь и общую сумму, и разницу).\n5. Сформулируй окончательный ответ.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "HIGH"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:43:42",
+            "latency_sec": 90.708,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 90.708,
+        "total_elapsed_sec": 90.708,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 255,
+        "candidates_token_count": 93,
+        "thoughts_token_count": 798,
+        "total_token_count": 1146,
+        "raw_text": "{\"answer\": \"5 центов\", \"explanation\": \"Пусть мяч стоит x, а бита x + 1,00. Уравнение: x + (x + 1,00) = 1,10. Решаем: 2x = 0,10, значит x = 0,05. Мяч стоит 5 центов, а бита 1,05.\"}"
+      }
+    ],
+    "latency_sec": 109.706,
+    "total_elapsed_sec": 158.168,
+    "prompt_token_count": 339,
+    "candidates_token_count": 279,
+    "thoughts_token_count": 2035,
+    "total_token_count": 2653
+  },
+  {
+    "solution_id": "math_bat_ball|expert_group|HIGH",
+    "task_id": "math_bat_ball",
+    "category": "Математика",
+    "strategy": "expert_group",
+    "thinking_level": "HIGH",
+    "model": "gemini-3.5-flash-lite",
+    "timestamp": "2026-11-04T23:45:35",
+    "prompt": "Реши задачу, смоделировав обсуждение группы из трёх экспертов:\n1. Аналитик — разбирает условие, выделяет данные и то, что нужно найти.\n2. Инженер — строит и выполняет решение.\n3. Критик — ищет ошибки и ловушки в решении инженера.\nПосле обсуждения сформулируй согласованный итоговый ответ группы.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON. В поле explanation кратко изложи вклад каждой роли и итог.",
+    "generated_prompt": null,
+    "generated_prompt_leaks_answer": null,
+    "answer": "5 центов",
+    "explanation": "Аналитик выделил данные: общая стоимость 1,10 и разница 1,00. Инженер составил уравнение x + (x + 1) = 1.1 и нашёл, что мяч стоит 0,05. Критик предупредил о ловушке с интуитивным ответом 10 центов и подтвердил верность расчёта. Итог: мяч стоит 5 центов.",
+    "expected_answer": "0.05 доллара",
+    "is_correct": true,
+    "check_reason": "0.05 доллара",
+    "parse_status": "ok",
+    "parse_error": null,
+    "validation_status": "ok",
+    "validation_errors": null,
+    "finish_reason": "STOP",
+    "attempts": 1,
+    "retries": 0,
+    "api_error": null,
+    "daily_quota_exceeded": false,
+    "stage_error": null,
+    "tokens_incomplete": false,
+    "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Аналитик выделил данные: общая стоимость 1,10 и разница 1,00. Инженер составил уравнение x + (x + 1) = 1.1 и нашёл, что мяч стоит 0,05. Критик предупредил о ловушке с интуитивным ответом 10 центов и подтвердил верность расчёта. Итог: мяч стоит 5 центов.\"\n}",
+    "calls": [
+      {
+        "stage": "solve",
+        "prompt": "Реши задачу, смоделировав обсуждение группы из трёх экспертов:\n1. Аналитик — разбирает условие, выделяет данные и то, что нужно найти.\n2. Инженер — строит и выполняет решение.\n3. Критик — ищет ошибки и ловушки в решении инженера.\nПосле обсуждения сформулируй согласованный итоговый ответ группы.\n\nЗадача:\nБита и мяч вместе стоят $1,10. Бита на $1 дороже мяча. Сколько стоит мяч?\n\nВерни только JSON-объект вида {\"answer\": \"короткий ответ\", \"explanation\": \"краткое объяснение\"} без Markdown и без текста вне JSON. В поле explanation кратко изложи вклад каждой роли и итог.",
+        "request_config": {
+          "thinking_config": {
+            "thinking_level": "HIGH"
+          },
+          "response_mime_type": "application/json",
+          "response_schema": {
+            "description": "Формат финального ответа модели (схема для API).",
+            "properties": {
+              "answer": {
+                "description": "Короткий ответ",
+                "title": "Answer",
+                "type": "string"
+              },
+              "explanation": {
+                "description": "Краткое объяснение",
+                "title": "Explanation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "explanation"
+            ],
+            "title": "ApiSolution",
+            "type": "object"
+          }
+        },
+        "attempts": [
+          {
+            "attempt": 1,
+            "started_at": "2026-11-04T23:45:13",
+            "latency_sec": 22.115,
+            "status": "ok",
+            "error": null,
+            "retry_after_sec": null
+          }
+        ],
+        "attempts_count": 1,
+        "retries_count": 0,
+        "api_error": null,
+        "daily_quota_exceeded": false,
+        "latency_sec": 22.115,
+        "total_elapsed_sec": 22.115,
+        "finish_reason": "STOP",
+        "model_version": "gemini-3.5-flash-lite",
+        "prompt_token_count": 170,
+        "candidates_token_count": 116,
+        "thoughts_token_count": 914,
+        "total_token_count": 1200,
+        "raw_text": "{\n  \"answer\": \"5 центов\",\n  \"explanation\": \"Аналитик выделил данные: общая стоимость 1,10 и разница 1,00. Инженер составил уравнение x + (x + 1) = 1.1 и нашёл, что мяч стоит 0,05. Критик предупредил о ловушке с интуитивным ответом 10 центов и подтвердил верность расчёта. Итог: мяч стоит 5 центов.\"\n}"
+      }
+    ],
+    "latency_sec": 22.115,
+    "total_elapsed_sec": 22.115,
+    "prompt_token_count": 170,
+    "candidates_token_count": 116,
+    "thoughts_token_count": 914,
+    "total_token_count": 1200
+  }
+]
