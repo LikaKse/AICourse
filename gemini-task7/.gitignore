@@ -1,0 +1,23 @@
+# Секреты
+.env
+.env.*
+!.env.example
+*.key
+
+# Виртуальное окружение
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Логи и временные файлы
+logs/
+*.log
+*.tmp
+.DS_Store
+
+# История чата (личные данные диалога)
+results/chat_history*.json
