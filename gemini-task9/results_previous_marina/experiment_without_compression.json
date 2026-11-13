@@ -1,0 +1,340 @@
+{
+  "experiment": "A",
+  "title": "Без сжатия (полная история)",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "compression": false,
+    "summary_every": 10,
+    "keep_last": 6,
+    "answer_thinking_level": "MINIMAL",
+    "summary_thinking_level": "LOW"
+  },
+  "started_at": "2026-11-13T01:51:58",
+  "finished_at": "2026-11-13T01:52:10",
+  "state_dir": "/Users/ksevskayanzela/work/AICourse/gemini-task9/results/state_A",
+  "dialogue_messages": 50,
+  "context": {
+    "full_history_messages": 50,
+    "full_history_tokens": 1066,
+    "summarized_messages": 0,
+    "summary_version": 0,
+    "summary_tokens": 0,
+    "recent_messages": 50,
+    "recent_tokens": 1066,
+    "request_context_tokens": 1066,
+    "count_errors": []
+  },
+  "compression_events": [],
+  "final_summary": "",
+  "answers": [
+    {
+      "id": 1,
+      "fact": "Имя пользователя",
+      "question": "Как меня зовут?",
+      "expected": "Марина",
+      "answer": "Вас зовут Марина.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1071,
+      "usage": {
+        "prompt_tokens": 1152,
+        "candidates_tokens": 5,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1157,
+        "present": true,
+        "input_tokens": 1152,
+        "output_tokens": 5
+      },
+      "count_vs_usage": {
+        "count_tokens": 1071,
+        "prompt_token_count": 1152,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 2,
+      "fact": "Город",
+      "question": "В каком городе я живу?",
+      "expected": "Нячанг",
+      "answer": "Вы живете в Нячанге.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1073,
+      "usage": {
+        "prompt_tokens": 1154,
+        "candidates_tokens": 8,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1162,
+        "present": true,
+        "input_tokens": 1154,
+        "output_tokens": 8
+      },
+      "count_vs_usage": {
+        "count_tokens": 1073,
+        "prompt_token_count": 1154,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 3,
+      "fact": "Бюджет",
+      "question": "Какой бюджет утверждён для проекта?",
+      "expected": "18 500 000 VND",
+      "answer": "Утверждённый бюджет составляет 18 500 000 VND.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1074,
+      "usage": {
+        "prompt_tokens": 1155,
+        "candidates_tokens": 19,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1174,
+        "present": true,
+        "input_tokens": 1155,
+        "output_tokens": 19
+      },
+      "count_vs_usage": {
+        "count_tokens": 1074,
+        "prompt_token_count": 1155,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 4,
+      "fact": "Срок проекта",
+      "question": "До какой даты нужно сдать проект?",
+      "expected": "17 декабря 2026 года",
+      "answer": "До 17 декабря 2026 года.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1075,
+      "usage": {
+        "prompt_tokens": 1156,
+        "candidates_tokens": 12,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1168,
+        "present": true,
+        "input_tokens": 1156,
+        "output_tokens": 12
+      },
+      "count_vs_usage": {
+        "count_tokens": 1075,
+        "prompt_token_count": 1156,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 5,
+      "fact": "Количество тестов",
+      "question": "Сколько тестов мы планируем написать?",
+      "expected": "24",
+      "answer": "Мы планируем написать 24 теста.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1076,
+      "usage": {
+        "prompt_tokens": 1157,
+        "candidates_tokens": 9,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1166,
+        "present": true,
+        "input_tokens": 1157,
+        "output_tokens": 9
+      },
+      "count_vs_usage": {
+        "count_tokens": 1076,
+        "prompt_token_count": 1157,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 6,
+      "fact": "Модель",
+      "question": "Какую модель Gemini мы выбрали для проекта?",
+      "expected": "gemini-3.5-flash-lite",
+      "answer": "Для проекта была выбрана модель `gemini-3.5-flash-lite`.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1076,
+      "usage": {
+        "prompt_tokens": 1157,
+        "candidates_tokens": 18,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1175,
+        "present": true,
+        "input_tokens": 1157,
+        "output_tokens": 18
+      },
+      "count_vs_usage": {
+        "count_tokens": 1076,
+        "prompt_token_count": 1157,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 7,
+      "fact": "Ограничение",
+      "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+      "expected": "не использовать Docker",
+      "answer": "Вы установили строгое ограничение: **Docker не использовать вообще**, ни для разработки, ни для запуска.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1082,
+      "usage": {
+        "prompt_tokens": 1163,
+        "candidates_tokens": 22,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1185,
+        "present": true,
+        "input_tokens": 1163,
+        "output_tokens": 22
+      },
+      "count_vs_usage": {
+        "count_tokens": 1082,
+        "prompt_token_count": 1163,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 8,
+      "fact": "ОС",
+      "question": "На какой операционной системе я работаю?",
+      "expected": "macOS",
+      "answer": "Вы работаете на macOS.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1075,
+      "usage": {
+        "prompt_tokens": 1156,
+        "candidates_tokens": 6,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1162,
+        "present": true,
+        "input_tokens": 1156,
+        "output_tokens": 6
+      },
+      "count_vs_usage": {
+        "count_tokens": 1075,
+        "prompt_token_count": 1156,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 9,
+      "fact": "Решение по хранению",
+      "question": "В каком формате решили хранить результаты?",
+      "expected": "хранить результаты в JSON",
+      "answer": "Результаты хранятся в формате JSON, по одному файлу на каждый запуск.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1075,
+      "usage": {
+        "prompt_tokens": 1156,
+        "candidates_tokens": 18,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1174,
+        "present": true,
+        "input_tokens": 1156,
+        "output_tokens": 18
+      },
+      "count_vs_usage": {
+        "count_tokens": 1075,
+        "prompt_token_count": 1156,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 10,
+      "fact": "Время ежедневного запуска",
+      "question": "Во сколько скрипт должен запускаться каждый день?",
+      "expected": "09:30",
+      "answer": "Скрипт должен запускаться каждый день в 09:30.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 51,
+      "request_tokens_count_tokens": 1078,
+      "usage": {
+        "prompt_tokens": 1159,
+        "candidates_tokens": 17,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 1176,
+        "present": true,
+        "input_tokens": 1159,
+        "output_tokens": 17
+      },
+      "count_vs_usage": {
+        "count_tokens": 1078,
+        "prompt_token_count": 1159,
+        "difference": 81
+      },
+      "error": null
+    }
+  ],
+  "facts_correct": 10,
+  "facts_total": 10,
+  "facts_retained_percent": 100.0,
+  "tokens": {
+    "control_questions": {
+      "calls": 10,
+      "calls_with_usage_metadata": 10,
+      "complete": true,
+      "input_tokens": 11565,
+      "candidates_tokens": 134,
+      "thoughts_tokens": 0,
+      "output_tokens": 134,
+      "total_tokens": 11699,
+      "request_tokens_count_tokens": 10755,
+      "estimated_cost_usd": 0.0038045
+    },
+    "summarization": {
+      "calls": 0,
+      "calls_with_usage_metadata": 0,
+      "complete": true,
+      "input_tokens": 0,
+      "candidates_tokens": 0,
+      "thoughts_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "request_tokens_count_tokens": 0,
+      "failed_attempts": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "total": {
+      "input_tokens": 11565,
+      "output_tokens": 134,
+      "total_tokens": 11699,
+      "complete": true,
+      "estimated_cost_usd": 0.0038045
+    },
+    "source": "usage_metadata (фактически); request_tokens_count_tokens — count_tokens до отправки",
+    "count_tokens_calls": 13
+  }
+}

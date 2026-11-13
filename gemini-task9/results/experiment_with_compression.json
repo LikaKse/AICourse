@@ -1,0 +1,1973 @@
+{
+  "experiment": "B",
+  "title": "Со сжатием (summary + последние сообщения)",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "compression": true,
+    "summary_every": 10,
+    "keep_last": 6,
+    "answer_thinking_level": "MINIMAL",
+    "summary_thinking_level": "LOW"
+  },
+  "started_at": "2026-11-13T18:10:56",
+  "finished_at": "2026-11-13T18:11:34",
+  "state_dir": "/Users/ksevskayanzela/work/AICourse/gemini-task9/results/state_B",
+  "dialogue_messages": 50,
+  "dialogue_fingerprint": "aaafbc97d9cd7e14bd7371830cdad70ae70e62b2bd0d5d9a3fd62d0961afccf9",
+  "context": {
+    "full_history_messages": 50,
+    "full_history_tokens": 1068,
+    "summarized_messages": 40,
+    "summary_version": 4,
+    "summary_tokens": 453,
+    "recent_messages": 10,
+    "recent_tokens": 155,
+    "request_context_tokens": 608,
+    "count_errors": []
+  },
+  "compression_events": [
+    {
+      "ok": true,
+      "start": 0,
+      "end": 10,
+      "messages": 10,
+      "version": 1,
+      "error": null,
+      "meta": {
+        "request_tokens": 408,
+        "request_count_error": null,
+        "previous_summary_chars": 0,
+        "usage": {
+          "prompt_tokens": 608,
+          "candidates_tokens": 124,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 732,
+          "present": true,
+          "input_tokens": 608,
+          "output_tokens": 124
+        },
+        "count_vs_usage": {
+          "count_tokens": 408,
+          "prompt_token_count": 608,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 0.8,
+        "summary_tokens": 125,
+        "summary_count_error": null,
+        "summary_chars": 384
+      }
+    },
+    {
+      "ok": true,
+      "start": 10,
+      "end": 20,
+      "messages": 10,
+      "version": 2,
+      "error": null,
+      "meta": {
+        "request_tokens": 514,
+        "request_count_error": null,
+        "previous_summary_chars": 384,
+        "usage": {
+          "prompt_tokens": 714,
+          "candidates_tokens": 221,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 935,
+          "present": true,
+          "input_tokens": 714,
+          "output_tokens": 221
+        },
+        "count_vs_usage": {
+          "count_tokens": 514,
+          "prompt_token_count": 714,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 1.36,
+        "summary_tokens": 222,
+        "summary_count_error": null,
+        "summary_chars": 747
+      }
+    },
+    {
+      "ok": true,
+      "start": 20,
+      "end": 30,
+      "messages": 10,
+      "version": 3,
+      "error": null,
+      "meta": {
+        "request_tokens": 589,
+        "request_count_error": null,
+        "previous_summary_chars": 747,
+        "usage": {
+          "prompt_tokens": 789,
+          "candidates_tokens": 313,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 1102,
+          "present": true,
+          "input_tokens": 789,
+          "output_tokens": 313
+        },
+        "count_vs_usage": {
+          "count_tokens": 589,
+          "prompt_token_count": 789,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 1.34,
+        "summary_tokens": 314,
+        "summary_count_error": null,
+        "summary_chars": 1036
+      }
+    },
+    {
+      "ok": true,
+      "start": 30,
+      "end": 40,
+      "messages": 10,
+      "version": 4,
+      "error": null,
+      "meta": {
+        "request_tokens": 698,
+        "request_count_error": null,
+        "previous_summary_chars": 1036,
+        "usage": {
+          "prompt_tokens": 898,
+          "candidates_tokens": 423,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 1321,
+          "present": true,
+          "input_tokens": 898,
+          "output_tokens": 423
+        },
+        "count_vs_usage": {
+          "count_tokens": 698,
+          "prompt_token_count": 898,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 1.36,
+        "summary_tokens": 424,
+        "summary_count_error": null,
+        "summary_chars": 1403
+      }
+    }
+  ],
+  "final_summary": "* **Пользователь:** Лика.\n* **Проект:** Учебный скрипт на Python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.\n* **Геолокация погоды:** Нячанг.\n* **Сроки и расписание:** Крайний срок сдачи проекта — 17 декабря 2026 года. Автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macOS, перенесено с 08:00).\n* **Бюджет:** Окончательный бюджет на платные API и хостинг — 18 500 000 VND (заменил предварительный бюджет в 15 000 000 VND).\n* **Окружение и инструменты:** Операционная система — macOS (инструкции для терминала macOS, zsh, Homebrew). Без использования Docker (ограничение: не использовать Docker вообще, ни для разработки, ни для запуска). Для HTTP-запросов выбрана библиотека `httpx`. API-ключи хранятся в файле `.env` (добавлен в `.gitignore`), читаются через `python-dotenv`.\n* **Структура проекта:** `src/` для кода, `tests/` для тестов, `results/` для файлов с результатами, `scripts/` для служебных скриптов.\n* **Технологии и модели:** Для анализа ответов используется модель `gemini-3.5-flash-lite` (выбрана вместо `gemini-3.5-flash` из-за скорости и цены).\n* **Хранение данных и тестирование:** Результаты сохраняются в формате JSON, по одному отдельному файле на каждый запуск. Всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов).",
+  "summary_versions": [
+    {
+      "version": 1,
+      "start": 0,
+      "end": 10,
+      "text": "* **Пользователь:** Лика.\n* **Проект:** Учебный скрипт на Python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.\n* **Геолокация погоды:** Нячанг.\n* **Бюджет:** Предварительный бюджет на платные API и хостинг — 15 000 000 VND (требует уточнения).\n* **Окружение:** Операционная система — macOS (инструкции для терминала macOS, zsh, Homebrew)."
+    },
+    {
+      "version": 2,
+      "start": 10,
+      "end": 20,
+      "text": "* **Пользователь:** Лика.\n* **Проект:** Учебный скрипт на Python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.\n* **Геолокация погоды:** Нячанг.\n* **Бюджет:** Предварительный бюджет на платные API и хостинг — 15 000 000 VND (требует уточнения).\n* **Окружение:** Операционная система — macOS (инструкции для терминала macOS, zsh, Homebrew). Без использования Docker (ограничение: не использовать Docker вообще, ни для разработки, ни для запуска).\n* **Технологии и модели:** Для анализа ответов используется модель `gemini-3.5-flash-lite` (выбрана вместо `gemini-3.5-flash` из-за скорости и цены).\n* **Хранение данных:** Результаты сохраняются в формате JSON, по одному отдельному файлу на каждый запуск."
+    },
+    {
+      "version": 3,
+      "start": 20,
+      "end": 30,
+      "text": "* **Пользователь:** Лика.\n* **Проект:** Учебный скрипт на Python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.\n* **Геолокация погоды:** Нячанг.\n* **Сроки и расписание:** Крайний срок сдачи проекта — 17 декабря 2026 года. Автоматический запуск скрипта — ежедневно в 08:00 (через launchd на macOS).\n* **Бюджет:** Окончательный бюджет на платные API и хостинг — 18 500 000 VND (заменил предварительный бюджет в 15 000 000 VND).\n* **Окружение:** Операционная система — macOS (инструкции для терминала macOS, zsh, Homebrew). Без использования Docker (ограничение: не использовать Docker вообще, ни для разработки, ни для запуска).\n* **Технологии и модели:** Для анализа ответов используется модель `gemini-3.5-flash-lite` (выбрана вместо `gemini-3.5-flash` из-за скорости и цены).\n* **Хранение данных и тестирование:** Результаты сохраняются в формате JSON, по одному отдельному файлу на каждый запуск. На старте необходимо написать 20 тестов (на загрузку данных, сохранение и обработку ошибок)."
+    },
+    {
+      "version": 4,
+      "start": 30,
+      "end": 40,
+      "text": "* **Пользователь:** Лика.\n* **Проект:** Учебный скрипт на Python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.\n* **Геолокация погоды:** Нячанг.\n* **Сроки и расписание:** Крайний срок сдачи проекта — 17 декабря 2026 года. Автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macOS, перенесено с 08:00).\n* **Бюджет:** Окончательный бюджет на платные API и хостинг — 18 500 000 VND (заменил предварительный бюджет в 15 000 000 VND).\n* **Окружение и инструменты:** Операционная система — macOS (инструкции для терминала macOS, zsh, Homebrew). Без использования Docker (ограничение: не использовать Docker вообще, ни для разработки, ни для запуска). Для HTTP-запросов выбрана библиотека `httpx`. API-ключи хранятся в файле `.env` (добавлен в `.gitignore`), читаются через `python-dotenv`.\n* **Структура проекта:** `src/` для кода, `tests/` для тестов, `results/` для файлов с результатами, `scripts/` для служебных скриптов.\n* **Технологии и модели:** Для анализа ответов используется модель `gemini-3.5-flash-lite` (выбрана вместо `gemini-3.5-flash` из-за скорости и цены).\n* **Хранение данных и тестирование:** Результаты сохраняются в формате JSON, по одному отдельному файле на каждый запуск. Всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов)."
+    }
+  ],
+  "compression_audit": {
+    "source": {
+      "file": "(этот прогон)",
+      "started_at": "2026-11-13T18:10:56",
+      "model": "gemini-3.5-flash-lite"
+    },
+    "warnings": [],
+    "summarized_messages": 40,
+    "versions_available": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "totals": {
+      "preserved": 26,
+      "lost": 10,
+      "distorted": 0,
+      "not_compressed": 0,
+      "not_comparable": 0,
+      "checked": 36
+    },
+    "preserved_percent": 72.2,
+    "by_importance": {
+      "high": {
+        "preserved": 9,
+        "lost": 1
+      },
+      "medium": {
+        "preserved": 10,
+        "lost": 3
+      },
+      "low": {
+        "preserved": 7,
+        "lost": 6
+      }
+    },
+    "details": [
+      {
+        "id": "D01",
+        "detail": "Имя пользователя — Лика",
+        "importance": "high",
+        "kind": "fact",
+        "messages": [
+          1
+        ],
+        "status": "preserved",
+        "line": "пользователь: лика.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D02",
+        "detail": "Учебный проект на Python",
+        "importance": "low",
+        "kind": "fact",
+        "messages": [
+          1
+        ],
+        "status": "preserved",
+        "line": "проект: учебный скрипт на python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D03",
+        "detail": "Ежедневный сбор курсов валют и прогноза погоды",
+        "importance": "medium",
+        "kind": "fact",
+        "messages": [
+          3
+        ],
+        "status": "preserved",
+        "line": "проект: учебный скрипт на python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D04",
+        "detail": "Результаты собираются для анализа",
+        "importance": "low",
+        "kind": "fact",
+        "messages": [
+          3
+        ],
+        "status": "preserved",
+        "line": "проект: учебный скрипт на python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D05",
+        "detail": "Пользователь живёт в Нячанге",
+        "importance": "high",
+        "kind": "fact",
+        "messages": [
+          5
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "lost"
+          },
+          {
+            "version": 2,
+            "status": "lost"
+          },
+          {
+            "version": 3,
+            "status": "lost"
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 1,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D06",
+        "detail": "Прогноз погоды — для Нячанга",
+        "importance": "medium",
+        "kind": "fact",
+        "messages": [
+          5
+        ],
+        "status": "preserved",
+        "line": "геолокация погоды: нячанг.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D07",
+        "detail": "Совет: открытые API погоды по координатам города",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          6
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "lost"
+          },
+          {
+            "version": 2,
+            "status": "lost"
+          },
+          {
+            "version": 3,
+            "status": "lost"
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 1,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D08",
+        "detail": "Предварительный бюджет 15 000 000 VND",
+        "importance": "medium",
+        "kind": "intermediate",
+        "messages": [
+          7
+        ],
+        "status": "preserved",
+        "line": "бюджет: окончательный бюджет на платные api и хостинг — 18500000 vnd (заменил предварительный бюджет в 15000000 vnd).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D09",
+        "detail": "Бюджет — на платные API и хостинг",
+        "importance": "low",
+        "kind": "fact",
+        "messages": [
+          7
+        ],
+        "status": "preserved",
+        "line": "бюджет: окончательный бюджет на платные api и хостинг — 18500000 vnd (заменил предварительный бюджет в 15000000 vnd).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D10",
+        "detail": "Операционная система — macOS",
+        "importance": "high",
+        "kind": "fact",
+        "messages": [
+          9
+        ],
+        "status": "preserved",
+        "line": "сроки и расписание: крайний срок сдачи проекта — 17 декабря 2026 года. автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macos, перенесено с 08:00).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D11",
+        "detail": "Команды для zsh и Homebrew (ассистент)",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          10
+        ],
+        "status": "preserved",
+        "line": "окружение и инструменты: операционная система — macos (инструкции для терминала macos, zsh, homebrew). без использования docker (ограничение: не использовать docker вообще, ни для разработки, ни для запуска). для http-запросов выбрана библиотека httpx. api-ключи хранятся в файле .env (добавлен в .gitignore), читаются через python-dotenv.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": "preserved"
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D12",
+        "detail": "Docker запрещён и для разработки, и для запуска",
+        "importance": "high",
+        "kind": "constraint",
+        "messages": [
+          11
+        ],
+        "status": "preserved",
+        "line": "окружение и инструменты: операционная система — macos (инструкции для терминала macos, zsh, homebrew). без использования docker (ограничение: не использовать docker вообще, ни для разработки, ни для запуска). для http-запросов выбрана библиотека httpx. api-ключи хранятся в файле .env (добавлен в .gitignore), читаются через python-dotenv.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D13",
+        "detail": "venv и системный планировщик (предложение ассистента)",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          12
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "lost"
+          },
+          {
+            "version": 3,
+            "status": "lost"
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 2,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D14",
+        "detail": "Рассматривали и gemini-3.5-flash",
+        "importance": "medium",
+        "kind": "alternative",
+        "messages": [
+          13
+        ],
+        "status": "preserved",
+        "line": "технологии и модели: для анализа ответов используется модель gemini-3.5-flash-lite (выбрана вместо gemini-3.5-flash из-за скорости и цены).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D15",
+        "detail": "Сравнение моделей: lite дешевле и быстрее, flash точнее",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          14
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "lost"
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 3,
+          "status": "lost",
+          "after_preserved": true
+        }
+      },
+      {
+        "id": "D16",
+        "detail": "Выбрана модель gemini-3.5-flash-lite",
+        "importance": "high",
+        "kind": "decision",
+        "messages": [
+          15
+        ],
+        "status": "preserved",
+        "line": "технологии и модели: для анализа ответов используется модель gemini-3.5-flash-lite (выбрана вместо gemini-3.5-flash из-за скорости и цены).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D17",
+        "detail": "Причина выбора модели: важнее скорость и цена",
+        "importance": "medium",
+        "kind": "preference",
+        "messages": [
+          15
+        ],
+        "status": "preserved",
+        "line": "технологии и модели: для анализа ответов используется модель gemini-3.5-flash-lite (выбрана вместо gemini-3.5-flash из-за скорости и цены).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D18",
+        "detail": "Рассматривали CSV и SQLite",
+        "importance": "medium",
+        "kind": "alternative",
+        "messages": [
+          17
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "lost"
+          },
+          {
+            "version": 3,
+            "status": "lost"
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 2,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D19",
+        "detail": "Решение: хранить результаты в JSON",
+        "importance": "high",
+        "kind": "decision",
+        "messages": [
+          19
+        ],
+        "status": "preserved",
+        "line": "хранение данных и тестирование: результаты сохраняются в формате json, по одному отдельному файле на каждый запуск. всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D20",
+        "detail": "Отдельный файл на каждый запуск",
+        "importance": "medium",
+        "kind": "decision",
+        "messages": [
+          19
+        ],
+        "status": "preserved",
+        "line": "хранение данных и тестирование: результаты сохраняются в формате json, по одному отдельному файле на каждый запуск. всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": "preserved"
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D21",
+        "detail": "Первоначальное время запуска 08:00",
+        "importance": "medium",
+        "kind": "intermediate",
+        "messages": [
+          21
+        ],
+        "status": "preserved",
+        "line": "сроки и расписание: крайний срок сдачи проекта — 17 декабря 2026 года. автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macos, перенесено с 08:00).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D22",
+        "detail": "launchd как способ запуска (совет ассистента)",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          22
+        ],
+        "status": "preserved",
+        "line": "сроки и расписание: крайний срок сдачи проекта — 17 декабря 2026 года. автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macos, перенесено с 08:00).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D23",
+        "detail": "Совет ассистента: 15–20 тестов",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          24
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": "lost"
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 3,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D24",
+        "detail": "Первоначальный план — 20 тестов",
+        "importance": "medium",
+        "kind": "intermediate",
+        "messages": [
+          25
+        ],
+        "status": "preserved",
+        "line": "хранение данных и тестирование: результаты сохраняются в формате json, по одному отдельному файле на каждый запуск. всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D25",
+        "detail": "Срок сдачи — 17 декабря 2026 года",
+        "importance": "high",
+        "kind": "fact",
+        "messages": [
+          27
+        ],
+        "status": "preserved",
+        "line": "сроки и расписание: крайний срок сдачи проекта — 17 декабря 2026 года. автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macos, перенесено с 08:00).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D26",
+        "detail": "Окончательный бюджет 18 500 000 VND",
+        "importance": "high",
+        "kind": "fact",
+        "messages": [
+          29
+        ],
+        "status": "preserved",
+        "line": "бюджет: окончательный бюджет на платные api и хостинг — 18500000 vnd (заменил предварительный бюджет в 15000000 vnd).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": "preserved"
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D27",
+        "detail": "Итоговый план — 24 теста",
+        "importance": "high",
+        "kind": "fact",
+        "messages": [
+          31
+        ],
+        "status": "preserved",
+        "line": "хранение данных и тестирование: результаты сохраняются в формате json, по одному отдельному файле на каждый запуск. всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D28",
+        "detail": "Тесты включают проверки сетевых ошибок",
+        "importance": "low",
+        "kind": "fact",
+        "messages": [
+          31
+        ],
+        "status": "preserved",
+        "line": "хранение данных и тестирование: результаты сохраняются в формате json, по одному отдельному файле на каждый запуск. всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D29",
+        "detail": "Итоговое время запуска 09:30",
+        "importance": "high",
+        "kind": "fact",
+        "messages": [
+          33
+        ],
+        "status": "preserved",
+        "line": "сроки и расписание: крайний срок сдачи проекта — 17 декабря 2026 года. автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macos, перенесено с 08:00).",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D30",
+        "detail": "Причина переноса: в 08:00 ноутбук ещё выключен",
+        "importance": "medium",
+        "kind": "reason",
+        "messages": [
+          33
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 4,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D31",
+        "detail": "launchd: StartCalendarInterval, Hour=9, Minute=30",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          34
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 4,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D32",
+        "detail": "Рассматривали requests",
+        "importance": "medium",
+        "kind": "alternative",
+        "messages": [
+          36
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 4,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D33",
+        "detail": "httpx — если понадобится асинхронность",
+        "importance": "low",
+        "kind": "reason",
+        "messages": [
+          36
+        ],
+        "status": "lost",
+        "line": null,
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "lost"
+          }
+        ],
+        "first_problem_version": {
+          "version": 4,
+          "status": "lost",
+          "after_preserved": false
+        }
+      },
+      {
+        "id": "D34",
+        "detail": "Решение: библиотека httpx",
+        "importance": "medium",
+        "kind": "decision",
+        "messages": [
+          37
+        ],
+        "status": "preserved",
+        "line": "окружение и инструменты: операционная система — macos (инструкции для терминала macos, zsh, homebrew). без использования docker (ограничение: не использовать docker вообще, ни для разработки, ни для запуска). для http-запросов выбрана библиотека httpx. api-ключи хранятся в файле .env (добавлен в .gitignore), читаются через python-dotenv.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D35",
+        "detail": "Структура папок src/, tests/, results/, scripts/ (совет)",
+        "importance": "low",
+        "kind": "advice",
+        "messages": [
+          38
+        ],
+        "status": "preserved",
+        "line": "структура проекта: src/ для кода, tests/ для тестов, results/ для файлов с результатами, scripts/ для служебных скриптов.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      },
+      {
+        "id": "D36",
+        "detail": "Ключи в .env (в .gitignore), чтение через python-dotenv (совет)",
+        "importance": "medium",
+        "kind": "advice",
+        "messages": [
+          40
+        ],
+        "status": "preserved",
+        "line": "окружение и инструменты: операционная система — macos (инструкции для терминала macos, zsh, homebrew). без использования docker (ограничение: не использовать docker вообще, ни для разработки, ни для запуска). для http-запросов выбрана библиотека httpx. api-ключи хранятся в файле .env (добавлен в .gitignore), читаются через python-dotenv.",
+        "note": null,
+        "versions": [
+          {
+            "version": 1,
+            "status": null
+          },
+          {
+            "version": 2,
+            "status": null
+          },
+          {
+            "version": 3,
+            "status": null
+          },
+          {
+            "version": 4,
+            "status": "preserved"
+          }
+        ],
+        "first_problem_version": null
+      }
+    ],
+    "attributions": [
+      {
+        "id": "A01",
+        "item": "Открытые API погоды по координатам",
+        "assistant_messages": [
+          6
+        ],
+        "accepted_by_user": false,
+        "status": "absent",
+        "lines": []
+      },
+      {
+        "id": "A02",
+        "item": "Команды для zsh / Homebrew",
+        "assistant_messages": [
+          10
+        ],
+        "accepted_by_user": false,
+        "status": "as_decision",
+        "lines": [
+          "окружение и инструменты: операционная система — macos (инструкции для терминала macos, zsh, homebrew). без использования docker (ограничение: не использовать docker вообще, ни для разработки, ни для запуска). для http-запросов выбрана библиотека httpx. api-ключи хранятся в файле .env (добавлен в .gitignore), читаются через python-dotenv."
+        ]
+      },
+      {
+        "id": "A03",
+        "item": "Виртуальное окружение venv",
+        "assistant_messages": [
+          12
+        ],
+        "accepted_by_user": false,
+        "status": "absent",
+        "lines": []
+      },
+      {
+        "id": "A04",
+        "item": "Системный планировщик / launchd",
+        "assistant_messages": [
+          12,
+          22,
+          34
+        ],
+        "accepted_by_user": false,
+        "status": "unattributed",
+        "lines": [
+          "сроки и расписание: крайний срок сдачи проекта — 17 декабря 2026 года. автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macos, перенесено с 08:00)."
+        ]
+      },
+      {
+        "id": "A05",
+        "item": "StartCalendarInterval (Hour=9, Minute=30)",
+        "assistant_messages": [
+          34
+        ],
+        "accepted_by_user": false,
+        "status": "absent",
+        "lines": []
+      },
+      {
+        "id": "A06",
+        "item": "Структура папок src/ tests/ results/ scripts/",
+        "assistant_messages": [
+          38
+        ],
+        "accepted_by_user": false,
+        "status": "unattributed",
+        "lines": [
+          "структура проекта: src/ для кода, tests/ для тестов, results/ для файлов с результатами, scripts/ для служебных скриптов."
+        ]
+      },
+      {
+        "id": "A07",
+        "item": "Хранение ключей в .env + python-dotenv",
+        "assistant_messages": [
+          40
+        ],
+        "accepted_by_user": false,
+        "status": "as_decision",
+        "lines": [
+          "окружение и инструменты: операционная система — macos (инструкции для терминала macos, zsh, homebrew). без использования docker (ограничение: не использовать docker вообще, ни для разработки, ни для запуска). для http-запросов выбрана библиотека httpx. api-ключи хранятся в файле .env (добавлен в .gitignore), читаются через python-dotenv."
+        ]
+      },
+      {
+        "id": "A08",
+        "item": "Библиотека httpx",
+        "assistant_messages": [
+          36
+        ],
+        "accepted_by_user": true,
+        "status": "ok_user_accepted",
+        "lines": [
+          "окружение и инструменты: операционная система — macos (инструкции для терминала macos, zsh, homebrew). без использования docker (ограничение: не использовать docker вообще, ни для разработки, ни для запуска). для http-запросов выбрана библиотека httpx. api-ключи хранятся в файле .env (добавлен в .gitignore), читаются через python-dotenv."
+        ]
+      }
+    ],
+    "attribution_issues": [
+      "A02",
+      "A04",
+      "A06",
+      "A07"
+    ]
+  },
+  "answers": [
+    {
+      "id": 1,
+      "fact": "Имя пользователя",
+      "category": "core",
+      "kind": "fact",
+      "question": "Как меня зовут?",
+      "expected": "Лика",
+      "answer": "Вас зовут Лика.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 613,
+      "usage": {
+        "prompt_tokens": 694,
+        "candidates_tokens": 6,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 700,
+        "present": true,
+        "input_tokens": 694,
+        "output_tokens": 6
+      },
+      "count_vs_usage": {
+        "count_tokens": 613,
+        "prompt_token_count": 694,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 2,
+      "fact": "Место проживания",
+      "category": "core",
+      "kind": "fact",
+      "question": "Где я живу?",
+      "expected": "Нячанг",
+      "answer": "В Нячанге.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 614,
+      "usage": {
+        "prompt_tokens": 695,
+        "candidates_tokens": 5,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 700,
+        "present": true,
+        "input_tokens": 695,
+        "output_tokens": 5
+      },
+      "count_vs_usage": {
+        "count_tokens": 614,
+        "prompt_token_count": 695,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 3,
+      "fact": "Бюджет",
+      "category": "core",
+      "kind": "fact",
+      "question": "Какой бюджет утверждён для проекта?",
+      "expected": "18 500 000 VND",
+      "answer": "Окончательный бюджет проекта — 18 500 000 VND.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 616,
+      "usage": {
+        "prompt_tokens": 697,
+        "candidates_tokens": 20,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 717,
+        "present": true,
+        "input_tokens": 697,
+        "output_tokens": 20
+      },
+      "count_vs_usage": {
+        "count_tokens": 616,
+        "prompt_token_count": 697,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 4,
+      "fact": "Срок проекта",
+      "category": "core",
+      "kind": "fact",
+      "question": "До какой даты нужно сдать проект?",
+      "expected": "17 декабря 2026 года",
+      "answer": "Крайний срок сдачи проекта — 17 декабря 2026 года.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 617,
+      "usage": {
+        "prompt_tokens": 698,
+        "candidates_tokens": 19,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 717,
+        "present": true,
+        "input_tokens": 698,
+        "output_tokens": 19
+      },
+      "count_vs_usage": {
+        "count_tokens": 617,
+        "prompt_token_count": 698,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 5,
+      "fact": "Количество тестов",
+      "category": "core",
+      "kind": "fact",
+      "question": "Сколько тестов мы планируем написать?",
+      "expected": "24",
+      "answer": "Всего планируется написать 24 теста (включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок).",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 618,
+      "usage": {
+        "prompt_tokens": 699,
+        "candidates_tokens": 27,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 726,
+        "present": true,
+        "input_tokens": 699,
+        "output_tokens": 27
+      },
+      "count_vs_usage": {
+        "count_tokens": 618,
+        "prompt_token_count": 699,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 6,
+      "fact": "Модель",
+      "category": "core",
+      "kind": "fact",
+      "question": "Какую модель Gemini мы выбрали для проекта?",
+      "expected": "gemini-3.5-flash-lite",
+      "answer": "Для проекта выбрана модель `gemini-3.5-flash-lite`.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 618,
+      "usage": {
+        "prompt_tokens": 699,
+        "candidates_tokens": 17,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 716,
+        "present": true,
+        "input_tokens": 699,
+        "output_tokens": 17
+      },
+      "count_vs_usage": {
+        "count_tokens": 618,
+        "prompt_token_count": 699,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 7,
+      "fact": "Ограничение",
+      "category": "core",
+      "kind": "fact",
+      "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+      "expected": "не использовать Docker",
+      "answer": "Не использовать Docker вообще (ни для разработки, ни для запуска).",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 624,
+      "usage": {
+        "prompt_tokens": 705,
+        "candidates_tokens": 13,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 718,
+        "present": true,
+        "input_tokens": 705,
+        "output_tokens": 13
+      },
+      "count_vs_usage": {
+        "count_tokens": 624,
+        "prompt_token_count": 705,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 8,
+      "fact": "ОС",
+      "category": "core",
+      "kind": "fact",
+      "question": "На какой операционной системе я работаю?",
+      "expected": "macOS",
+      "answer": "Вы работаете на macOS.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 617,
+      "usage": {
+        "prompt_tokens": 698,
+        "candidates_tokens": 6,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 704,
+        "present": true,
+        "input_tokens": 698,
+        "output_tokens": 6
+      },
+      "count_vs_usage": {
+        "count_tokens": 617,
+        "prompt_token_count": 698,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 9,
+      "fact": "Решение по хранению",
+      "category": "core",
+      "kind": "fact",
+      "question": "В каком формате решили хранить результаты?",
+      "expected": "хранить результаты в JSON",
+      "answer": "Результаты сохраняются в формате JSON, по одному отдельному файлу на каждый запуск.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 617,
+      "usage": {
+        "prompt_tokens": 698,
+        "candidates_tokens": 19,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 717,
+        "present": true,
+        "input_tokens": 698,
+        "output_tokens": 19
+      },
+      "count_vs_usage": {
+        "count_tokens": 617,
+        "prompt_token_count": 698,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 10,
+      "fact": "Время ежедневного запуска",
+      "category": "core",
+      "kind": "fact",
+      "question": "Во сколько скрипт должен запускаться каждый день?",
+      "expected": "09:30",
+      "answer": "Скрипт должен запускаться ежедневно в 09:30.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 620,
+      "usage": {
+        "prompt_tokens": 701,
+        "candidates_tokens": 16,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 717,
+        "present": true,
+        "input_tokens": 701,
+        "output_tokens": 16
+      },
+      "count_vs_usage": {
+        "count_tokens": 620,
+        "prompt_token_count": 701,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 11,
+      "fact": "Причина переноса запуска",
+      "category": "detail",
+      "kind": "reason",
+      "question": "Почему ежедневный запуск перенесли с 08:00?",
+      "expected": "в 08:00 ноутбук ещё выключен",
+      "answer": "Точная причина изменения времени запуска с 08:00 на 09:30 в предыдущем диалоге не уточнялась.",
+      "status": "ok",
+      "correct": false,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 625,
+      "usage": {
+        "prompt_tokens": 706,
+        "candidates_tokens": 31,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 737,
+        "present": true,
+        "input_tokens": 706,
+        "output_tokens": 31
+      },
+      "count_vs_usage": {
+        "count_tokens": 625,
+        "prompt_token_count": 706,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 12,
+      "fact": "Причина выбора модели",
+      "category": "detail",
+      "kind": "preference",
+      "question": "Почему выбрали gemini-3.5-flash-lite вместо gemini-3.5-flash?",
+      "expected": "важнее скорость и цена",
+      "answer": "Из-за большей скорости работы и более низкой цены.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 631,
+      "usage": {
+        "prompt_tokens": 712,
+        "candidates_tokens": 11,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 723,
+        "present": true,
+        "input_tokens": 712,
+        "output_tokens": 11
+      },
+      "count_vs_usage": {
+        "count_tokens": 631,
+        "prompt_token_count": 712,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 13,
+      "fact": "Отвергнутые форматы хранения",
+      "category": "detail",
+      "kind": "alternative",
+      "question": "Какие форматы хранения рассматривали помимо JSON?",
+      "expected": "CSV и SQLite",
+      "answer": "В контексте нашего диалога ранее упоминалось только сохранение результатов в формате JSON (по одному отдельному файлу на каждый запуск). Другие форматы не обсуждались.",
+      "status": "ok",
+      "correct": false,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 618,
+      "usage": {
+        "prompt_tokens": 699,
+        "candidates_tokens": 36,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 735,
+        "present": true,
+        "input_tokens": 699,
+        "output_tokens": 36
+      },
+      "count_vs_usage": {
+        "count_tokens": 618,
+        "prompt_token_count": 699,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 14,
+      "fact": "Предварительный бюджет",
+      "category": "detail",
+      "kind": "intermediate",
+      "question": "Какой бюджет был до окончательного утверждения?",
+      "expected": "15 000 000 VND (предварительный)",
+      "answer": "Предварительный бюджет составлял 15 000 000 VND.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 618,
+      "usage": {
+        "prompt_tokens": 699,
+        "candidates_tokens": 19,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 718,
+        "present": true,
+        "input_tokens": 699,
+        "output_tokens": 19
+      },
+      "count_vs_usage": {
+        "count_tokens": 618,
+        "prompt_token_count": 699,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 15,
+      "fact": "Кто предложил launchd",
+      "category": "detail",
+      "kind": "attribution",
+      "question": "Кто предложил использовать launchd — пользователь или ассистент?",
+      "expected": "ассистент",
+      "answer": "Пользователь.",
+      "status": "ok",
+      "correct": false,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 623,
+      "usage": {
+        "prompt_tokens": 704,
+        "candidates_tokens": 4,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 708,
+        "present": true,
+        "input_tokens": 704,
+        "output_tokens": 4
+      },
+      "count_vs_usage": {
+        "count_tokens": 623,
+        "prompt_token_count": 704,
+        "difference": 81
+      },
+      "error": null
+    }
+  ],
+  "facts_correct": 12,
+  "facts_total": 15,
+  "facts_retained_percent": 80.0,
+  "facts_by_category": {
+    "core": {
+      "correct": 10,
+      "total": 10,
+      "percent": 100.0
+    },
+    "detail": {
+      "correct": 2,
+      "total": 5,
+      "percent": 40.0
+    }
+  },
+  "tokens": {
+    "control_questions": {
+      "calls": 15,
+      "calls_with_usage_metadata": 15,
+      "complete": true,
+      "input_tokens": 10504,
+      "candidates_tokens": 249,
+      "thoughts_tokens": 0,
+      "output_tokens": 249,
+      "total_tokens": 10753,
+      "request_tokens_count_tokens": 9289,
+      "estimated_cost_usd": 0.0037737
+    },
+    "summarization": {
+      "calls": 4,
+      "calls_with_usage_metadata": 4,
+      "complete": true,
+      "input_tokens": 3009,
+      "candidates_tokens": 1081,
+      "thoughts_tokens": 0,
+      "output_tokens": 1081,
+      "total_tokens": 4090,
+      "request_tokens_count_tokens": 2209,
+      "failed_attempts": 0,
+      "estimated_cost_usd": 0.0036052
+    },
+    "total": {
+      "input_tokens": 13513,
+      "output_tokens": 1330,
+      "total_tokens": 14843,
+      "complete": true,
+      "estimated_cost_usd": 0.0073789
+    },
+    "source": "usage_metadata (фактически); request_tokens_count_tokens — count_tokens до отправки",
+    "count_tokens_calls": 27
+  }
+}

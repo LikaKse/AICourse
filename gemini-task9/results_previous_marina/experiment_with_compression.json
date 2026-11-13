@@ -1,0 +1,473 @@
+{
+  "experiment": "B",
+  "title": "Со сжатием (summary + последние сообщения)",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "compression": true,
+    "summary_every": 10,
+    "keep_last": 6,
+    "answer_thinking_level": "MINIMAL",
+    "summary_thinking_level": "LOW"
+  },
+  "started_at": "2026-11-13T01:52:10",
+  "finished_at": "2026-11-13T01:52:26",
+  "state_dir": "/Users/ksevskayanzela/work/AICourse/gemini-task9/results/state_B",
+  "dialogue_messages": 50,
+  "context": {
+    "full_history_messages": 50,
+    "full_history_tokens": 1066,
+    "summarized_messages": 40,
+    "summary_version": 4,
+    "summary_tokens": 507,
+    "recent_messages": 10,
+    "recent_tokens": 155,
+    "request_context_tokens": 662,
+    "count_errors": []
+  },
+  "compression_events": [
+    {
+      "ok": true,
+      "start": 0,
+      "end": 10,
+      "messages": 10,
+      "version": 1,
+      "error": null,
+      "meta": {
+        "request_tokens": 406,
+        "request_count_error": null,
+        "previous_summary_chars": 0,
+        "usage": {
+          "prompt_tokens": 606,
+          "candidates_tokens": 139,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 745,
+          "present": true,
+          "input_tokens": 606,
+          "output_tokens": 139
+        },
+        "count_vs_usage": {
+          "count_tokens": 406,
+          "prompt_token_count": 606,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 1.01,
+        "summary_tokens": 140,
+        "summary_count_error": null,
+        "summary_chars": 442
+      }
+    },
+    {
+      "ok": true,
+      "start": 10,
+      "end": 20,
+      "messages": 10,
+      "version": 2,
+      "error": null,
+      "meta": {
+        "request_tokens": 529,
+        "request_count_error": null,
+        "previous_summary_chars": 442,
+        "usage": {
+          "prompt_tokens": 729,
+          "candidates_tokens": 238,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 967,
+          "present": true,
+          "input_tokens": 729,
+          "output_tokens": 238
+        },
+        "count_vs_usage": {
+          "count_tokens": 529,
+          "prompt_token_count": 729,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 1.34,
+        "summary_tokens": 239,
+        "summary_count_error": null,
+        "summary_chars": 769
+      }
+    },
+    {
+      "ok": true,
+      "start": 20,
+      "end": 30,
+      "messages": 10,
+      "version": 3,
+      "error": null,
+      "meta": {
+        "request_tokens": 606,
+        "request_count_error": null,
+        "previous_summary_chars": 769,
+        "usage": {
+          "prompt_tokens": 806,
+          "candidates_tokens": 328,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 1134,
+          "present": true,
+          "input_tokens": 806,
+          "output_tokens": 328
+        },
+        "count_vs_usage": {
+          "count_tokens": 606,
+          "prompt_token_count": 806,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 1.32,
+        "summary_tokens": 329,
+        "summary_count_error": null,
+        "summary_chars": 1031
+      }
+    },
+    {
+      "ok": true,
+      "start": 30,
+      "end": 40,
+      "messages": 10,
+      "version": 4,
+      "error": null,
+      "meta": {
+        "request_tokens": 713,
+        "request_count_error": null,
+        "previous_summary_chars": 1031,
+        "usage": {
+          "prompt_tokens": 913,
+          "candidates_tokens": 477,
+          "thoughts_tokens": 0,
+          "cached_tokens": 0,
+          "total_tokens": 1390,
+          "present": true,
+          "input_tokens": 913,
+          "output_tokens": 477
+        },
+        "count_vs_usage": {
+          "count_tokens": 713,
+          "prompt_token_count": 913,
+          "difference": 200
+        },
+        "finish_reason": "FinishReason.STOP",
+        "seconds": 1.81,
+        "summary_tokens": 478,
+        "summary_count_error": null,
+        "summary_chars": 1488
+      }
+    }
+  ],
+  "final_summary": "* **Общая информация:**\n  * Имя пользователя: Марина.\n  * Тип проекта: учебный проект на Python.\n  * Операционная система: macOS (инструкции для терминала macOS).\n  * Крайний срок сдачи проекта: 17 декабря 2026 года.\n  * Ограничения: Docker не использовать вообще (ни для разработки, ни для запуска); используется виртуальное окружение `venv` и системный планировщик (`launchd`).\n  * Структура проекта: папка `src/` для кода, `tests/` для тестов, `results/` для файлов с результатами, `scripts/` для служебных скриптов.\n  * Конфигурация и безопасность: API-ключи хранятся в файле `.env` (добавлен в `.gitignore`), для чтения используется `python-dotenv`.\n\n* **Функционал и автоматизация:**\n  * Скрипт для ежедневного сбора курсов валют и прогноза погоды.\n  * Время ежедневного запуска: 09:30 (заменило прежнее время 08:00; для `launchd` используется `StartCalendarInterval` с `Hour=9` и `Minute=30`).\n  * Город для прогноза погоды: Нячанг.\n  * ИИ для анализа ответов: выбрана модель `gemini-3.5-flash-lite` (вместо `gemini-3.5-flash`).\n  * HTTP-клиент: выбрана библиотека `httpx`.\n  * Хранение результатов: в формате JSON, по одному отдельному файлу на каждый запуск в папке `results/`.\n  * Тестирование: запланировано 24 теста (заменили прежние 20 тестов), включая проверки сетевых ошибок, загрузку данных, сохранение и обработку ошибок.\n\n* **Финансы:**\n  * Бюджет на платные API и хостинг: утверждён окончательный бюджет 18 500 000 VND (заменил предварительный бюджет в 15 000 000 VND).",
+  "answers": [
+    {
+      "id": 1,
+      "fact": "Имя пользователя",
+      "question": "Как меня зовут?",
+      "expected": "Марина",
+      "answer": "Вас зовут Марина.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 667,
+      "usage": {
+        "prompt_tokens": 748,
+        "candidates_tokens": 5,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 753,
+        "present": true,
+        "input_tokens": 748,
+        "output_tokens": 5
+      },
+      "count_vs_usage": {
+        "count_tokens": 667,
+        "prompt_token_count": 748,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 2,
+      "fact": "Город",
+      "question": "В каком городе я живу?",
+      "expected": "Нячанг",
+      "answer": "Судя по информации из проекта, для прогноза погоды используется город Нячанг.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 669,
+      "usage": {
+        "prompt_tokens": 750,
+        "candidates_tokens": 18,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 768,
+        "present": true,
+        "input_tokens": 750,
+        "output_tokens": 18
+      },
+      "count_vs_usage": {
+        "count_tokens": 669,
+        "prompt_token_count": 750,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 3,
+      "fact": "Бюджет",
+      "question": "Какой бюджет утверждён для проекта?",
+      "expected": "18 500 000 VND",
+      "answer": "Утверждён бюджет в 18 500 000 VND.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 670,
+      "usage": {
+        "prompt_tokens": 751,
+        "candidates_tokens": 18,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 769,
+        "present": true,
+        "input_tokens": 751,
+        "output_tokens": 18
+      },
+      "count_vs_usage": {
+        "count_tokens": 670,
+        "prompt_token_count": 751,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 4,
+      "fact": "Срок проекта",
+      "question": "До какой даты нужно сдать проект?",
+      "expected": "17 декабря 2026 года",
+      "answer": "Проект нужно сдать до 17 декабря 2026 года.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 671,
+      "usage": {
+        "prompt_tokens": 752,
+        "candidates_tokens": 17,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 769,
+        "present": true,
+        "input_tokens": 752,
+        "output_tokens": 17
+      },
+      "count_vs_usage": {
+        "count_tokens": 671,
+        "prompt_token_count": 752,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 5,
+      "fact": "Количество тестов",
+      "question": "Сколько тестов мы планируем написать?",
+      "expected": "24",
+      "answer": "Мы планируем написать 24 теста.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 672,
+      "usage": {
+        "prompt_tokens": 753,
+        "candidates_tokens": 9,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 762,
+        "present": true,
+        "input_tokens": 753,
+        "output_tokens": 9
+      },
+      "count_vs_usage": {
+        "count_tokens": 672,
+        "prompt_token_count": 753,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 6,
+      "fact": "Модель",
+      "question": "Какую модель Gemini мы выбрали для проекта?",
+      "expected": "gemini-3.5-flash-lite",
+      "answer": "Для проекта была выбрана модель `gemini-3.5-flash-lite`.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 672,
+      "usage": {
+        "prompt_tokens": 753,
+        "candidates_tokens": 18,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 771,
+        "present": true,
+        "input_tokens": 753,
+        "output_tokens": 18
+      },
+      "count_vs_usage": {
+        "count_tokens": 672,
+        "prompt_token_count": 753,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 7,
+      "fact": "Ограничение",
+      "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+      "expected": "не использовать Docker",
+      "answer": "Ни в коем случае не использовать Docker (ни для разработки, ни для запуска).",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 678,
+      "usage": {
+        "prompt_tokens": 759,
+        "candidates_tokens": 17,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 776,
+        "present": true,
+        "input_tokens": 759,
+        "output_tokens": 17
+      },
+      "count_vs_usage": {
+        "count_tokens": 678,
+        "prompt_token_count": 759,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 8,
+      "fact": "ОС",
+      "question": "На какой операционной системе я работаю?",
+      "expected": "macOS",
+      "answer": "Вы работаете на macOS.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 671,
+      "usage": {
+        "prompt_tokens": 752,
+        "candidates_tokens": 6,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 758,
+        "present": true,
+        "input_tokens": 752,
+        "output_tokens": 6
+      },
+      "count_vs_usage": {
+        "count_tokens": 671,
+        "prompt_token_count": 752,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 9,
+      "fact": "Решение по хранению",
+      "question": "В каком формате решили хранить результаты?",
+      "expected": "хранить результаты в JSON",
+      "answer": "Результаты сохраняются в формате JSON, по одному отдельному файлу на каждый запуск в папке `results/`.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 671,
+      "usage": {
+        "prompt_tokens": 752,
+        "candidates_tokens": 25,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 777,
+        "present": true,
+        "input_tokens": 752,
+        "output_tokens": 25
+      },
+      "count_vs_usage": {
+        "count_tokens": 671,
+        "prompt_token_count": 752,
+        "difference": 81
+      },
+      "error": null
+    },
+    {
+      "id": 10,
+      "fact": "Время ежедневного запуска",
+      "question": "Во сколько скрипт должен запускаться каждый день?",
+      "expected": "09:30",
+      "answer": "В 09:30.",
+      "status": "ok",
+      "correct": true,
+      "request_messages": 13,
+      "request_tokens_count_tokens": 674,
+      "usage": {
+        "prompt_tokens": 755,
+        "candidates_tokens": 8,
+        "thoughts_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 763,
+        "present": true,
+        "input_tokens": 755,
+        "output_tokens": 8
+      },
+      "count_vs_usage": {
+        "count_tokens": 674,
+        "prompt_token_count": 755,
+        "difference": 81
+      },
+      "error": null
+    }
+  ],
+  "facts_correct": 10,
+  "facts_total": 10,
+  "facts_retained_percent": 100.0,
+  "tokens": {
+    "control_questions": {
+      "calls": 10,
+      "calls_with_usage_metadata": 10,
+      "complete": true,
+      "input_tokens": 7525,
+      "candidates_tokens": 141,
+      "thoughts_tokens": 0,
+      "output_tokens": 141,
+      "total_tokens": 7666,
+      "request_tokens_count_tokens": 6715,
+      "estimated_cost_usd": 0.00261
+    },
+    "summarization": {
+      "calls": 4,
+      "calls_with_usage_metadata": 4,
+      "complete": true,
+      "input_tokens": 3054,
+      "candidates_tokens": 1182,
+      "thoughts_tokens": 0,
+      "output_tokens": 1182,
+      "total_tokens": 4236,
+      "request_tokens_count_tokens": 2254,
+      "failed_attempts": 0,
+      "estimated_cost_usd": 0.0038712
+    },
+    "total": {
+      "input_tokens": 10579,
+      "output_tokens": 1323,
+      "total_tokens": 11902,
+      "complete": true,
+      "estimated_cost_usd": 0.0064812
+    },
+    "source": "usage_metadata (фактически); request_tokens_count_tokens — count_tokens до отправки",
+    "count_tokens_calls": 22
+  }
+}

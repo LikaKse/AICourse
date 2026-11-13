@@ -1,0 +1,197 @@
+{
+  "experiment": "short",
+  "model": "gemini-3.5-flash-lite",
+  "timestamp": "2026-11-12T15:59:49",
+  "input_token_limit": 1048576,
+  "input_token_limit_error": null,
+  "pricing": {
+    "input_per_1m": 0.3,
+    "output_per_1m": 2.5,
+    "tier": "Standard, paid tier",
+    "source": "https://aistudio.google.com/docs/pricing",
+    "checked": "2026-11-06"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "message": "Привет! Меня зовут Аня.",
+      "status": "ok",
+      "answer": "Привет, Аня! Рада знакомству. Чем я могу тебе помочь?",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 8,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 8,
+            "shape": {
+              "messages": 1,
+              "user_text_parts": 1,
+              "model_text_parts": 0,
+              "thought_parts": 0,
+              "function_call_parts": 0,
+              "function_response_parts": 0
+            },
+            "usage": {
+              "prompt_tokens": 684,
+              "candidates_tokens": 16,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 700,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 684,
+        "output_tokens": 16,
+        "history_tokens": 8,
+        "response_tokens": 16,
+        "cost_usd": 0.0002452
+      }
+    },
+    {
+      "turn": 2,
+      "message": "Сколько будет 2 + 2?",
+      "status": "ok",
+      "answer": "2 + 2 будет 4.",
+      "tool_calls": [
+        {
+          "iteration": 1,
+          "name": "calculate",
+          "args": {
+            "expression": "2 + 2"
+          }
+        }
+      ],
+      "token_stats": {
+        "request_tokens": 10,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 35,
+            "shape": {
+              "messages": 3,
+              "user_text_parts": 2,
+              "model_text_parts": 1,
+              "thought_parts": 0,
+              "function_call_parts": 0,
+              "function_response_parts": 0
+            },
+            "usage": {
+              "prompt_tokens": 711,
+              "candidates_tokens": 17,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 728,
+              "present": true
+            },
+            "function_calls_in_response": 1,
+            "error": null,
+            "overhead_tokens": 676
+          },
+          {
+            "iteration": 2,
+            "history_tokens": 73,
+            "shape": {
+              "messages": 5,
+              "user_text_parts": 2,
+              "model_text_parts": 1,
+              "thought_parts": 0,
+              "function_call_parts": 1,
+              "function_response_parts": 1
+            },
+            "usage": {
+              "prompt_tokens": 749,
+              "candidates_tokens": 8,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 757,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": 38,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 1460,
+        "output_tokens": 25,
+        "history_tokens": 73,
+        "response_tokens": 8,
+        "cost_usd": 0.0005005
+      }
+    },
+    {
+      "turn": 3,
+      "message": "Как меня зовут?",
+      "status": "ok",
+      "answer": "Вас зовут Аня.",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 5,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 87,
+            "shape": {
+              "messages": 7,
+              "user_text_parts": 3,
+              "model_text_parts": 2,
+              "thought_parts": 0,
+              "function_call_parts": 1,
+              "function_response_parts": 1
+            },
+            "usage": {
+              "prompt_tokens": 763,
+              "candidates_tokens": 6,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 769,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 763,
+        "output_tokens": 6,
+        "history_tokens": 87,
+        "response_tokens": 6,
+        "cost_usd": 0.0002439
+      }
+    }
+  ],
+  "session": {
+    "turns": 3,
+    "model_calls": 4,
+    "input_tokens": 2907,
+    "output_tokens": 47,
+    "thoughts_tokens": 0,
+    "cached_tokens": 0,
+    "cost_usd": 0.0009896
+  },
+  "final_history_messages": 8,
+  "final_history_tokens": 94
+}

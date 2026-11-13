@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-11-13T18:11:34",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "compression": true,
+    "summary_every": 10,
+    "keep_last": 6,
+    "answer_thinking_level": "MINIMAL",
+    "summary_thinking_level": "LOW"
+  },
+  "facts_retained_percent": {
+    "A_without_compression": 100.0,
+    "B_with_compression": 80.0
+  },
+  "facts_lost_in_B": [
+    11,
+    13,
+    15
+  ],
+  "facts_by_category": {
+    "A": {
+      "core": {
+        "correct": 10,
+        "total": 10,
+        "percent": 100.0
+      },
+      "detail": {
+        "correct": 5,
+        "total": 5,
+        "percent": 100.0
+      }
+    },
+    "B": {
+      "core": {
+        "correct": 10,
+        "total": 10,
+        "percent": 100.0
+      },
+      "detail": {
+        "correct": 2,
+        "total": 5,
+        "percent": 40.0
+      }
+    }
+  },
+  "summary_audit": {
+    "preserved": 26,
+    "lost": 10,
+    "distorted": 0,
+    "not_compressed": 0,
+    "not_comparable": 0,
+    "checked": 36
+  },
+  "context_tokens_before_questions": {
+    "A_full_history": 1068,
+    "B_summary_plus_recent": 608,
+    "B_summary": 453,
+    "B_recent": 155
+  },
+  "savings_control_requests_input_percent": 39.65,
+  "savings_control_requests_total_percent": 38.95,
+  "savings_overall_with_summarization_percent": 15.73,
+  "summarization_tokens": 4090,
+  "break_even_questions_estimate": 8.9,
+  "usage_metadata_complete": true,
+  "final_summary": "* **Пользователь:** Лика.\n* **Проект:** Учебный скрипт на Python для ежедневного сбора курсов валют и прогноза погоды с сохранением результатов для анализа.\n* **Геолокация погоды:** Нячанг.\n* **Сроки и расписание:** Крайний срок сдачи проекта — 17 декабря 2026 года. Автоматический запуск скрипта — ежедневно в 09:30 (через launchd на macOS, перенесено с 08:00).\n* **Бюджет:** Окончательный бюджет на платные API и хостинг — 18 500 000 VND (заменил предварительный бюджет в 15 000 000 VND).\n* **Окружение и инструменты:** Операционная система — macOS (инструкции для терминала macOS, zsh, Homebrew). Без использования Docker (ограничение: не использовать Docker вообще, ни для разработки, ни для запуска). Для HTTP-запросов выбрана библиотека `httpx`. API-ключи хранятся в файле `.env` (добавлен в `.gitignore`), читаются через `python-dotenv`.\n* **Структура проекта:** `src/` для кода, `tests/` для тестов, `results/` для файлов с результатами, `scripts/` для служебных скриптов.\n* **Технологии и модели:** Для анализа ответов используется модель `gemini-3.5-flash-lite` (выбрана вместо `gemini-3.5-flash` из-за скорости и цены).\n* **Хранение данных и тестирование:** Результаты сохраняются в формате JSON, по одному отдельному файле на каждый запуск. Всего необходимо написать 24 теста, включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок (количество изменено с 20 тестов)."
+}

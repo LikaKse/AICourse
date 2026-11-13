@@ -1,0 +1,122 @@
+{
+  "experiment": "overflow",
+  "model": "gemini-3.5-flash-lite",
+  "timestamp": "2026-11-12T16:02:29",
+  "input_token_limit": 1048576,
+  "input_token_limit_error": null,
+  "build_steps": [
+    {
+      "step": "sample",
+      "lines": 2000,
+      "tokens": 44891,
+      "error": null
+    },
+    {
+      "step": "full",
+      "lines": 48119,
+      "chars": 4079005,
+      "tokens": 1143747,
+      "error": null
+    }
+  ],
+  "overflow_message": {
+    "chars": 4079005,
+    "bytes_utf8": 7302978,
+    "count_tokens": 1143747
+  },
+  "guarded": {
+    "status": "context_overflow",
+    "text": "Запрос не отправлен: история занимает 1143747 токенов, а лимит контекста модели 1048576. Сократите сообщение или очистите историю (reset).",
+    "generate_content_calls": 0,
+    "history_after": 0
+  },
+  "api": {
+    "status": "context_overflow",
+    "error": "400 INVALID_ARGUMENT: The input token count exceeds the maximum number of tokens allowed (1048576).",
+    "text": "Превышен лимит контекста модели: Gemini API отклонил запрос (400 INVALID_ARGUMENT: The input token count exceeds the maximum number of tokens allowed (1048576).). Сократите сообщение или очистите историю (reset).",
+    "token_stats": {
+      "request_tokens": 1143747,
+      "calls": [
+        {
+          "iteration": 1,
+          "history_tokens": 1143747,
+          "shape": {
+            "messages": 1,
+            "user_text_parts": 1,
+            "model_text_parts": 0,
+            "thought_parts": 0,
+            "function_call_parts": 0,
+            "function_response_parts": 0
+          },
+          "usage": {
+            "prompt_tokens": 0,
+            "candidates_tokens": 0,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "tool_use_prompt_tokens": 0,
+            "total_tokens": 0,
+            "present": false
+          },
+          "function_calls_in_response": 0,
+          "error": "400 INVALID_ARGUMENT: The input token count exceeds the maximum number of tokens allowed (1048576).",
+          "overhead_tokens": null
+        }
+      ],
+      "tool_exchange_tokens": null,
+      "input_token_limit": 1048576,
+      "status": "context_overflow",
+      "count_errors": [],
+      "blocked_locally": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "history_tokens": 1143747,
+      "response_tokens": 0,
+      "cost_usd": 0.0
+    },
+    "history_after": 0
+  },
+  "after_error": {
+    "status": "ok",
+    "text": "Да.",
+    "token_stats": {
+      "request_tokens": 11,
+      "calls": [
+        {
+          "iteration": 1,
+          "history_tokens": 11,
+          "shape": {
+            "messages": 1,
+            "user_text_parts": 1,
+            "model_text_parts": 0,
+            "thought_parts": 0,
+            "function_call_parts": 0,
+            "function_response_parts": 0
+          },
+          "usage": {
+            "prompt_tokens": 687,
+            "candidates_tokens": 2,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "tool_use_prompt_tokens": 0,
+            "total_tokens": 689,
+            "present": true
+          },
+          "function_calls_in_response": 0,
+          "error": null,
+          "overhead_tokens": 676
+        }
+      ],
+      "tool_exchange_tokens": null,
+      "input_token_limit": 1048576,
+      "status": "ok",
+      "count_errors": [],
+      "blocked_locally": false,
+      "input_tokens": 687,
+      "output_tokens": 2,
+      "history_tokens": 11,
+      "response_tokens": 2,
+      "cost_usd": 0.00021109999999999998
+    }
+  },
+  "result": "context_overflow"
+}

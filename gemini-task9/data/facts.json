@@ -1,0 +1,313 @@
+{
+  "description": "Эталон: 15 фактов и правильные ответы. Создан до экспериментов. Используется ТОЛЬКО для проверки ответов: агенту и суммаризатору не передаётся. accept_patterns — регулярные выражения по нормализованному ответу (нижний регистр, ё→е, без разделителей тысяч); reject_patterns — если совпало, ответ неверный. evidence — цитата из диалога (номер сообщения с 1), подтверждающая эталон; absent_in — шаблон, которого НЕ должно быть в сообщениях указанной роли. category: core — основные факты, detail — дополнительные детали.",
+  "facts": [
+    {
+      "id": 1,
+      "key": "name",
+      "fact": "Имя пользователя",
+      "expected": "Лика",
+      "accept_patterns": [
+        "(?<![а-я])лик(а|и|е|у|ой)(?![а-я])"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 1,
+          "role": "user",
+          "quote": "Меня зовут Лика"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 2,
+      "key": "city",
+      "fact": "Место проживания",
+      "expected": "Нячанг",
+      "accept_patterns": [
+        "(жив|прожива)\\w*[^.;]{0,30}нячанг",
+        "нячанг\\w*[^.;]{0,30}(жив|прожива)",
+        "^\\W*(вы\\s+)?(в\\s+)?нячанг\\w*\\W*$"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 5,
+          "role": "user",
+          "quote": "Я живу в Нячанге"
+        }
+      ],
+      "reject_patterns": [
+        "не\\s+(знаю|указан|сказано|упомина|известно|сообща)"
+      ]
+    },
+    {
+      "id": 3,
+      "key": "budget",
+      "fact": "Бюджет",
+      "expected": "18 500 000 VND",
+      "accept_patterns": [
+        "(?<!\\d)18500000(?!\\d)",
+        "18[,.]5\\s*млн"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 29,
+          "role": "user",
+          "quote": "утвердили 18 500 000 VND"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 4,
+      "key": "deadline",
+      "fact": "Срок проекта",
+      "expected": "17 декабря 2026 года",
+      "accept_patterns": [
+        "17\\s*декабря\\s*2026",
+        "17\\.12\\.2026",
+        "2026-12-17"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 27,
+          "role": "user",
+          "quote": "до 17 декабря 2026 года"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 5,
+      "key": "tests",
+      "fact": "Количество тестов",
+      "expected": "24",
+      "accept_patterns": [
+        "(?<![\\d.,])24(?!\\d)(?![.,]\\d)",
+        "двадцат\\w*\\s+четыр"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 31,
+          "role": "user",
+          "quote": "делаем 24 теста"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 6,
+      "key": "model",
+      "fact": "Модель",
+      "expected": "gemini-3.5-flash-lite",
+      "accept_patterns": [
+        "3\\.5[-\\s]*flash[-\\s]*lite"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 15,
+          "role": "user",
+          "quote": "берём gemini-3.5-flash-lite"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 7,
+      "key": "constraint",
+      "fact": "Ограничение",
+      "expected": "не использовать Docker",
+      "accept_patterns": [
+        "(не\\s|нельзя|без\\s|запрет|отказ|исключ|избега).{0,60}docker",
+        "docker.{0,60}(не\\s|нельзя|запрещ|исключ|не\\s+использ)"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 11,
+          "role": "user",
+          "quote": "Docker не использовать вообще"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 8,
+      "key": "os",
+      "fact": "ОС",
+      "expected": "macOS",
+      "accept_patterns": [
+        "mac\\s*os"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 9,
+          "role": "user",
+          "quote": "Работаю я на macOS"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 9,
+      "key": "storage",
+      "fact": "Решение по хранению",
+      "expected": "хранить результаты в JSON",
+      "accept_patterns": [
+        "json"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 19,
+          "role": "user",
+          "quote": "результаты храним в JSON"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 10,
+      "key": "time",
+      "fact": "Время ежедневного запуска",
+      "expected": "09:30",
+      "accept_patterns": [
+        "(?<!\\d)0?9[:.]30(?!\\d)",
+        "половин\\w*\\s+десят"
+      ],
+      "category": "core",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 33,
+          "role": "user",
+          "quote": "Переносим на 09:30"
+        }
+      ],
+      "reject_patterns": []
+    },
+    {
+      "id": 11,
+      "key": "time_change_reason",
+      "fact": "Причина переноса запуска",
+      "category": "detail",
+      "kind": "reason",
+      "expected": "в 08:00 ноутбук ещё выключен",
+      "accept_patterns": [
+        "ноутбук[^.;]{0,40}(выключ|не\\s+включ)",
+        "(выключ)[^.;]{0,40}ноутбук"
+      ],
+      "reject_patterns": [],
+      "evidence": [
+        {
+          "message": 33,
+          "role": "user",
+          "quote": "в это время ноутбук ещё выключен"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "key": "model_reason",
+      "fact": "Причина выбора модели",
+      "category": "detail",
+      "kind": "preference",
+      "expected": "важнее скорость и цена",
+      "accept_patterns": [
+        "(?=.*(скорост|быстр))(?=.*(цен|стоимост|дешев))"
+      ],
+      "reject_patterns": [],
+      "evidence": [
+        {
+          "message": 15,
+          "role": "user",
+          "quote": "нам важнее скорость и цена"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "key": "storage_alternatives",
+      "fact": "Отвергнутые форматы хранения",
+      "category": "detail",
+      "kind": "alternative",
+      "expected": "CSV и SQLite",
+      "accept_patterns": [
+        "(?=.*csv)(?=.*sqlite)"
+      ],
+      "reject_patterns": [],
+      "evidence": [
+        {
+          "message": 17,
+          "role": "user",
+          "quote": "в CSV, SQLite или JSON"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "key": "budget_preliminary",
+      "fact": "Предварительный бюджет",
+      "category": "detail",
+      "kind": "intermediate",
+      "expected": "15 000 000 VND (предварительный)",
+      "accept_patterns": [
+        "(?<!\\d)15000000(?!\\d)",
+        "(?<![\\d.,])15\\s*млн"
+      ],
+      "reject_patterns": [],
+      "evidence": [
+        {
+          "message": 7,
+          "role": "user",
+          "quote": "Предварительный бюджет на платные API и хостинг — 15 000 000 VND"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "key": "launchd_author",
+      "fact": "Кто предложил launchd",
+      "category": "detail",
+      "kind": "attribution",
+      "expected": "ассистент",
+      "accept_patterns": [
+        "ассистент",
+        "(предложил|посоветовал|предлагал)\\s+(это\\s+)?я(?![а-я])",
+        "(?<![а-я])я\\s+(сам\\s+)?(предложил|посоветовал)"
+      ],
+      "reject_patterns": [
+        "(?<![а-я])(вы|пользовател\\w*)\\s+(сам\\w*\\s+)?(предлож|посовет)",
+        "(предлож|посовет)\\w*\\s+(вы|пользовател)"
+      ],
+      "evidence": [
+        {
+          "message": 22,
+          "role": "model",
+          "quote": "На macOS это удобно сделать через launchd"
+        }
+      ],
+      "absent_in": [
+        {
+          "role": "user",
+          "pattern": "launchd"
+        }
+      ]
+    }
+  ]
+}

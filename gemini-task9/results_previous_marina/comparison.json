@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-11-13T01:52:26",
+  "model": "gemini-3.5-flash-lite",
+  "usage_metadata_complete": true,
+  "facts": [
+    {
+      "id": 1,
+      "fact": "Имя пользователя",
+      "expected": "Марина",
+      "A_correct": true,
+      "A_answer": "Вас зовут Марина.",
+      "B_correct": true,
+      "B_answer": "Вас зовут Марина."
+    },
+    {
+      "id": 2,
+      "fact": "Город",
+      "expected": "Нячанг",
+      "A_correct": true,
+      "A_answer": "Вы живете в Нячанге.",
+      "B_correct": true,
+      "B_answer": "Судя по информации из проекта, для прогноза погоды используется город Нячанг."
+    },
+    {
+      "id": 3,
+      "fact": "Бюджет",
+      "expected": "18 500 000 VND",
+      "A_correct": true,
+      "A_answer": "Утверждённый бюджет составляет 18 500 000 VND.",
+      "B_correct": true,
+      "B_answer": "Утверждён бюджет в 18 500 000 VND."
+    },
+    {
+      "id": 4,
+      "fact": "Срок проекта",
+      "expected": "17 декабря 2026 года",
+      "A_correct": true,
+      "A_answer": "До 17 декабря 2026 года.",
+      "B_correct": true,
+      "B_answer": "Проект нужно сдать до 17 декабря 2026 года."
+    },
+    {
+      "id": 5,
+      "fact": "Количество тестов",
+      "expected": "24",
+      "A_correct": true,
+      "A_answer": "Мы планируем написать 24 теста.",
+      "B_correct": true,
+      "B_answer": "Мы планируем написать 24 теста."
+    },
+    {
+      "id": 6,
+      "fact": "Модель",
+      "expected": "gemini-3.5-flash-lite",
+      "A_correct": true,
+      "A_answer": "Для проекта была выбрана модель `gemini-3.5-flash-lite`.",
+      "B_correct": true,
+      "B_answer": "Для проекта была выбрана модель `gemini-3.5-flash-lite`."
+    },
+    {
+      "id": 7,
+      "fact": "Ограничение",
+      "expected": "не использовать Docker",
+      "A_correct": true,
+      "A_answer": "Вы установили строгое ограничение: **Docker не использовать вообще**, ни для разработки, ни для запуска.",
+      "B_correct": true,
+      "B_answer": "Ни в коем случае не использовать Docker (ни для разработки, ни для запуска)."
+    },
+    {
+      "id": 8,
+      "fact": "ОС",
+      "expected": "macOS",
+      "A_correct": true,
+      "A_answer": "Вы работаете на macOS.",
+      "B_correct": true,
+      "B_answer": "Вы работаете на macOS."
+    },
+    {
+      "id": 9,
+      "fact": "Решение по хранению",
+      "expected": "хранить результаты в JSON",
+      "A_correct": true,
+      "A_answer": "Результаты хранятся в формате JSON, по одному файлу на каждый запуск.",
+      "B_correct": true,
+      "B_answer": "Результаты сохраняются в формате JSON, по одному отдельному файлу на каждый запуск в папке `results/`."
+    },
+    {
+      "id": 10,
+      "fact": "Время ежедневного запуска",
+      "expected": "09:30",
+      "A_correct": true,
+      "A_answer": "Скрипт должен запускаться каждый день в 09:30.",
+      "B_correct": true,
+      "B_answer": "В 09:30."
+    }
+  ],
+  "facts_retained": {
+    "A": {
+      "correct": 10,
+      "total": 10,
+      "percent": 100.0
+    },
+    "B": {
+      "correct": 10,
+      "total": 10,
+      "percent": 100.0
+    },
+    "lost_in_B": [],
+    "gained_in_B": []
+  },
+  "context": {
+    "A": {
+      "full_history_messages": 50,
+      "full_history_tokens": 1066,
+      "summarized_messages": 0,
+      "summary_version": 0,
+      "summary_tokens": 0,
+      "recent_messages": 50,
+      "recent_tokens": 1066,
+      "request_context_tokens": 1066,
+      "count_errors": []
+    },
+    "B": {
+      "full_history_messages": 50,
+      "full_history_tokens": 1066,
+      "summarized_messages": 40,
+      "summary_version": 4,
+      "summary_tokens": 507,
+      "recent_messages": 10,
+      "recent_tokens": 155,
+      "request_context_tokens": 662,
+      "count_errors": []
+    },
+    "request_context_savings_percent_count_tokens": 37.9
+  },
+  "control_requests": {
+    "input_tokens": {
+      "A": 11565,
+      "B": 7525,
+      "savings_percent": 34.93,
+      "source": "usage_metadata.prompt_token_count (фактически)"
+    },
+    "input_tokens_count_tokens": {
+      "A": 10755,
+      "B": 6715,
+      "savings_percent": 37.56,
+      "source": "count_tokens до отправки (оценка, без system instruction)"
+    },
+    "output_tokens": {
+      "A": 134,
+      "B": 141
+    },
+    "total_tokens": {
+      "A": 11699,
+      "B": 7666,
+      "savings_percent": 34.47,
+      "source": "usage_metadata (фактически)"
+    },
+    "input_saving_per_question": 404.0
+  },
+  "overall_with_summarization": {
+    "A_total_tokens": 11699,
+    "B_control_tokens": 7666,
+    "B_summarization_tokens": 4236,
+    "B_summarization_calls": 4,
+    "B_total_tokens": 11902,
+    "savings_percent": -1.74,
+    "estimated_cost_usd": {
+      "A": 0.0038045,
+      "B": 0.0064812
+    },
+    "source": "usage_metadata (фактически); стоимость — расчёт по тарифу config.PRICING"
+  },
+  "break_even_questions": {
+    "value": 10.5,
+    "note": "РАСЧЁТ: сколько запросов к сжатому контексту окупают затраты на создание summary (затраты на summary / экономия токенов на одном запросе). Не измерение."
+  }
+}

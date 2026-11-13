@@ -1,0 +1,268 @@
+{
+  "generated_at": "2026-11-13T18:11:34",
+  "model": "gemini-3.5-flash-lite",
+  "usage_metadata_complete": true,
+  "facts": [
+    {
+      "id": 1,
+      "fact": "Имя пользователя",
+      "category": "core",
+      "expected": "Лика",
+      "A_correct": true,
+      "A_answer": "Вас зовут Лика.",
+      "B_correct": true,
+      "B_answer": "Вас зовут Лика."
+    },
+    {
+      "id": 2,
+      "fact": "Место проживания",
+      "category": "core",
+      "expected": "Нячанг",
+      "A_correct": true,
+      "A_answer": "Вы живете в Нячанге.",
+      "B_correct": true,
+      "B_answer": "В Нячанге."
+    },
+    {
+      "id": 3,
+      "fact": "Бюджет",
+      "category": "core",
+      "expected": "18 500 000 VND",
+      "A_correct": true,
+      "A_answer": "Окончательный бюджет проекта — 18 500 000 VND.",
+      "B_correct": true,
+      "B_answer": "Окончательный бюджет проекта — 18 500 000 VND."
+    },
+    {
+      "id": 4,
+      "fact": "Срок проекта",
+      "category": "core",
+      "expected": "17 декабря 2026 года",
+      "A_correct": true,
+      "A_answer": "До 17 декабря 2026 года.",
+      "B_correct": true,
+      "B_answer": "Крайний срок сдачи проекта — 17 декабря 2026 года."
+    },
+    {
+      "id": 5,
+      "fact": "Количество тестов",
+      "category": "core",
+      "expected": "24",
+      "A_correct": true,
+      "A_answer": "Мы планируем написать 24 теста.",
+      "B_correct": true,
+      "B_answer": "Всего планируется написать 24 теста (включая проверки сетевых ошибок, загрузки данных, сохранения и обработки ошибок)."
+    },
+    {
+      "id": 6,
+      "fact": "Модель",
+      "category": "core",
+      "expected": "gemini-3.5-flash-lite",
+      "A_correct": true,
+      "A_answer": "Мы выбрали модель **gemini-3.5-flash-lite**.",
+      "B_correct": true,
+      "B_answer": "Для проекта выбрана модель `gemini-3.5-flash-lite`."
+    },
+    {
+      "id": 7,
+      "fact": "Ограничение",
+      "category": "core",
+      "expected": "не использовать Docker",
+      "A_correct": true,
+      "A_answer": "Не использовать Docker вообще.",
+      "B_correct": true,
+      "B_answer": "Не использовать Docker вообще (ни для разработки, ни для запуска)."
+    },
+    {
+      "id": 8,
+      "fact": "ОС",
+      "category": "core",
+      "expected": "macOS",
+      "A_correct": true,
+      "A_answer": "macOS.",
+      "B_correct": true,
+      "B_answer": "Вы работаете на macOS."
+    },
+    {
+      "id": 9,
+      "fact": "Решение по хранению",
+      "category": "core",
+      "expected": "хранить результаты в JSON",
+      "A_correct": true,
+      "A_answer": "Результаты сохраняются в JSON, по одному файлу на каждый запуск.",
+      "B_correct": true,
+      "B_answer": "Результаты сохраняются в формате JSON, по одному отдельному файлу на каждый запуск."
+    },
+    {
+      "id": 10,
+      "fact": "Время ежедневного запуска",
+      "category": "core",
+      "expected": "09:30",
+      "A_correct": true,
+      "A_answer": "Скрипт должен запускаться каждый день в 09:30.",
+      "B_correct": true,
+      "B_answer": "Скрипт должен запускаться ежедневно в 09:30."
+    },
+    {
+      "id": 11,
+      "fact": "Причина переноса запуска",
+      "category": "detail",
+      "expected": "в 08:00 ноутбук ещё выключен",
+      "A_correct": true,
+      "A_answer": "Потому что в 08:00 ноутбук ещё выключен. Запуск перенесли на 09:30.",
+      "B_correct": false,
+      "B_answer": "Точная причина изменения времени запуска с 08:00 на 09:30 в предыдущем диалоге не уточнялась."
+    },
+    {
+      "id": 12,
+      "fact": "Причина выбора модели",
+      "category": "detail",
+      "expected": "важнее скорость и цена",
+      "A_correct": true,
+      "A_answer": "Вы сами выбрали `gemini-3.5-flash-lite`, сославшись на то, что для проекта важнее скорость и меньшая цена.",
+      "B_correct": true,
+      "B_answer": "Из-за большей скорости работы и более низкой цены."
+    },
+    {
+      "id": 13,
+      "fact": "Отвергнутые форматы хранения",
+      "category": "detail",
+      "expected": "CSV и SQLite",
+      "A_correct": true,
+      "A_answer": "Рассматривали CSV и SQLite.",
+      "B_correct": false,
+      "B_answer": "В контексте нашего диалога ранее упоминалось только сохранение результатов в формате JSON (по одному отдельному файлу на каждый запуск). Другие форматы не обсуждались."
+    },
+    {
+      "id": 14,
+      "fact": "Предварительный бюджет",
+      "category": "detail",
+      "expected": "15 000 000 VND (предварительный)",
+      "A_correct": true,
+      "A_answer": "Предварительный бюджет составлял 15 000 000 VND.",
+      "B_correct": true,
+      "B_answer": "Предварительный бюджет составлял 15 000 000 VND."
+    },
+    {
+      "id": 15,
+      "fact": "Кто предложил launchd",
+      "category": "detail",
+      "expected": "ассистент",
+      "A_correct": true,
+      "A_answer": "Launchd предложил ассистент.",
+      "B_correct": false,
+      "B_answer": "Пользователь."
+    }
+  ],
+  "facts_retained": {
+    "A": {
+      "correct": 15,
+      "total": 15,
+      "percent": 100.0
+    },
+    "B": {
+      "correct": 12,
+      "total": 15,
+      "percent": 80.0
+    },
+    "lost_in_B": [
+      11,
+      13,
+      15
+    ],
+    "gained_in_B": [],
+    "by_category": {
+      "A": {
+        "core": {
+          "correct": 10,
+          "total": 10,
+          "percent": 100.0
+        },
+        "detail": {
+          "correct": 5,
+          "total": 5,
+          "percent": 100.0
+        }
+      },
+      "B": {
+        "core": {
+          "correct": 10,
+          "total": 10,
+          "percent": 100.0
+        },
+        "detail": {
+          "correct": 2,
+          "total": 5,
+          "percent": 40.0
+        }
+      }
+    }
+  },
+  "context": {
+    "A": {
+      "full_history_messages": 50,
+      "full_history_tokens": 1068,
+      "summarized_messages": 0,
+      "summary_version": 0,
+      "summary_tokens": 0,
+      "recent_messages": 50,
+      "recent_tokens": 1068,
+      "request_context_tokens": 1068,
+      "count_errors": []
+    },
+    "B": {
+      "full_history_messages": 50,
+      "full_history_tokens": 1068,
+      "summarized_messages": 40,
+      "summary_version": 4,
+      "summary_tokens": 453,
+      "recent_messages": 10,
+      "recent_tokens": 155,
+      "request_context_tokens": 608,
+      "count_errors": []
+    },
+    "request_context_savings_percent_count_tokens": 43.07
+  },
+  "control_requests": {
+    "input_tokens": {
+      "A": 17404,
+      "B": 10504,
+      "savings_percent": 39.65,
+      "source": "usage_metadata.prompt_token_count (фактически)"
+    },
+    "input_tokens_count_tokens": {
+      "A": 16189,
+      "B": 9289,
+      "savings_percent": 42.62,
+      "source": "count_tokens до отправки (оценка, без system instruction)"
+    },
+    "output_tokens": {
+      "A": 210,
+      "B": 249
+    },
+    "total_tokens": {
+      "A": 17614,
+      "B": 10753,
+      "savings_percent": 38.95,
+      "source": "usage_metadata (фактически)"
+    },
+    "input_saving_per_question": 460.0
+  },
+  "overall_with_summarization": {
+    "A_total_tokens": 17614,
+    "B_control_tokens": 10753,
+    "B_summarization_tokens": 4090,
+    "B_summarization_calls": 4,
+    "B_total_tokens": 14843,
+    "savings_percent": 15.73,
+    "estimated_cost_usd": {
+      "A": 0.0057462,
+      "B": 0.0073789
+    },
+    "source": "usage_metadata (фактически); стоимость — расчёт по тарифу config.PRICING"
+  },
+  "break_even_questions": {
+    "value": 8.9,
+    "note": "РАСЧЁТ: сколько запросов к сжатому контексту окупают затраты на создание summary (затраты на summary / экономия токенов на одном запросе). Не измерение."
+  }
+}

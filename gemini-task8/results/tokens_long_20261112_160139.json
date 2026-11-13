@@ -1,0 +1,707 @@
+{
+  "experiment": "long",
+  "model": "gemini-3.5-flash-lite",
+  "timestamp": "2026-11-12T16:01:38",
+  "input_token_limit": 1048576,
+  "input_token_limit_error": null,
+  "pricing": {
+    "input_per_1m": 0.3,
+    "output_per_1m": 2.5,
+    "tier": "Standard, paid tier",
+    "source": "https://aistudio.google.com/docs/pricing",
+    "checked": "2026-11-06"
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "message": "Привет! Меня зовут Аня, я изучаю разработку AI-агентов.",
+      "status": "ok",
+      "answer": "Привет, Аня! Рад познакомиться. Разработка AI-агентов — очень увлекательное и перспективное направление. \n\nЕсли тебе понадобится что-то посчитать, конвертировать валюту или узнать время в процессе обучения, обращайся! Чем могу помочь сегодня?",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 19,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 19,
+            "shape": {
+              "messages": 1,
+              "user_text_parts": 1,
+              "model_text_parts": 0,
+              "thought_parts": 0,
+              "function_call_parts": 0,
+              "function_response_parts": 0
+            },
+            "usage": {
+              "prompt_tokens": 695,
+              "candidates_tokens": 57,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 752,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 695,
+        "output_tokens": 57,
+        "history_tokens": 19,
+        "response_tokens": 57,
+        "cost_usd": 0.000351
+      }
+    },
+    {
+      "turn": 2,
+      "message": "Расскажи подробно, что такое токены в языковых моделях.",
+      "status": "ok",
+      "answer": "**Токены** — это базовые «строительные блоки», на которые языковые модели (LLM) разбивают текст перед тем, как начать с ним работать. Модели не понимают слова или буквы напрямую — они оперируют числами, поэтому текст сначала превращается в токены, а затем каждый токен кодируется уникальным числовым ID.\n\nВот главное, что нужно знать о токенах:\n\n### 1. Что из себя представляет токен?\nТокен — это не обязательно целое слово. Это может быть:\n*   Целое слово (например, *«дом»*, *«кот»*).\n*   Часть слова (слог, корень, приставка, суффикс — например, *«раз-»*, *«работ-»*, *«-чик»*).\n*   Отдельный символ или знак препинания (например, точка, запятая, смайлик).\n\n**Пример для английского языка:**\nСлово `unbelievable` модель может разбить на три токена: `un` + `believ` + `able`.\n\n**Для русского языка:**\nИз-за специфики морфологии и токенизаторов (часто использующих алгоритмы вроде BPE — Byte-Pair Encoding) русские слова обычно разбиваются на меньшие части, чем английские. Поэтому один и тот же текст на русском языке часто «тратит» больше токенов, чем на английском.\n\n### 2. Как это работает на практике?\n1. **Токенизация:** Текст на входе пропускается через токенизатор и превращается в последовательность чисел.\n2. **Обработка:** Модель анализирует эти числа, предсказывая наиболее вероятное следующее число (токен).\n3. **Детокенизация:** Полученные моделью выходные числа снова собираются в читаемый текст.\n\n### 3. Почему токенизация важна для разработчика AI-агентов?\n* **Ограничение контекста (Context Window):** У каждой модели есть лимит на общее количество токенов (вход + выход), которые она может удержать в памяти за один раз (например, 8 000, 128 000 или даже 1 млн токенов у Gemini). Если диалог с агентом становится слишком длинным, старые сообщения «выпадают», и агент «забывает» контекст.\n* **Стоимость:** Коммерческие API (OpenAI, Anthropic и др.) тарифицируют запросы **по количеству токенов** (отдельно считаются токены ввода — *prompt tokens*, и токены вывода — *completion tokens*).\n* **Системные промпты и память:** Создавая агента, разработчик должен строго контролировать размер промптов, инструкций и истории сообщений, чтобы не упереться в лимиты и не тратить лишние деньги.\n\nДля быстрой проверки того, как текст разбивается на токены в разных моделях, разработчики обычно используют онлайн-инструменты вроде *Tokenizer* от OpenAI или аналогичные утилиты для Hugging Face.",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 16,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 93,
+            "shape": {
+              "messages": 3,
+              "user_text_parts": 2,
+              "model_text_parts": 1,
+              "thought_parts": 0,
+              "function_call_parts": 0,
+              "function_response_parts": 0
+            },
+            "usage": {
+              "prompt_tokens": 769,
+              "candidates_tokens": 688,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 1457,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 769,
+        "output_tokens": 688,
+        "history_tokens": 93,
+        "response_tokens": 688,
+        "cost_usd": 0.0019507
+      }
+    },
+    {
+      "turn": 3,
+      "message": "Чем контекстное окно отличается от лимита выходных токенов?",
+      "status": "ok",
+      "answer": "**Контекстное окно** и **лимит выходных токенов** — это два разных ограничения языковой модели, которые часто путают. \n\nВот в чём разница:\n\n1. **Контекстное окно (Context Window)** — это **общий объём** памяти модели для одного запроса. Оно включает в себя *всё*: ваш системный промпт, всю историю переписки, текущий вопрос пользователя и... место, которое модель зарезервирует для своего ответа. \n   * *Пример:* Если контекстное окно модели равно 8 000 токенам, а ваш диалог с историей весит 7 500 токенов, то на ответ модели останется всего 500 токенов (даже если её максимальный ответ может быть длиннее). Если суммарно всё превысит 8 000 токенов, модель выдаст ошибку или «обрежет» начало переписки.\n\n2. **Лимит выходных токенов (Max Output Tokens)** — это **максимальная длина одного конкретного ответа**, который модель может сгенерировать за один раз.\n   * *Пример:* Даже у модели с огромным контекстным окном в 128 000 токенов ограничение на один ответ (`max_tokens`) может быть выставлено на уровне 4 096 токенов. Она не сможет написать ответ длиннее этого значения за один вызов API (но можно попросить её «продолжить» в следующем сообщении).\n\n**Краткая аналогия:**\nКонтекстное окно — это размер блокнота, в который вы записываете всю беседу (и в котором должно остаться место для ответа). А лимит выходных токенов — это максимальный объём текста, который помощник может написать за один присест, прежде чем у него устанет рука.",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 16,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 798,
+            "shape": {
+              "messages": 5,
+              "user_text_parts": 3,
+              "model_text_parts": 2,
+              "thought_parts": 0,
+              "function_call_parts": 0,
+              "function_response_parts": 0
+            },
+            "usage": {
+              "prompt_tokens": 1474,
+              "candidates_tokens": 409,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 1883,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 1474,
+        "output_tokens": 409,
+        "history_tokens": 798,
+        "response_tokens": 409,
+        "cost_usd": 0.0014647
+      }
+    },
+    {
+      "turn": 4,
+      "message": "Сколько будет 150 долларов в донгах?",
+      "status": "ok",
+      "answer": "150 долларов США составляют 3 750 000 вьетнамских донгов. \n\n*Обратите внимание: используется фиксированный демонстрационный курс 1 USD = 25 000 VND, он не является актуальным рыночным курсом.*",
+      "tool_calls": [
+        {
+          "iteration": 1,
+          "name": "convert_currency",
+          "args": {
+            "from_currency": "USD",
+            "to_currency": "VND",
+            "amount": 150
+          }
+        }
+      ],
+      "token_stats": {
+        "request_tokens": 14,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 1222,
+            "shape": {
+              "messages": 7,
+              "user_text_parts": 4,
+              "model_text_parts": 3,
+              "thought_parts": 0,
+              "function_call_parts": 0,
+              "function_response_parts": 0
+            },
+            "usage": {
+              "prompt_tokens": 1898,
+              "candidates_tokens": 33,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 1931,
+              "present": true
+            },
+            "function_calls_in_response": 1,
+            "error": null,
+            "overhead_tokens": 676
+          },
+          {
+            "iteration": 2,
+            "history_tokens": 1360,
+            "shape": {
+              "messages": 9,
+              "user_text_parts": 4,
+              "model_text_parts": 3,
+              "thought_parts": 0,
+              "function_call_parts": 1,
+              "function_response_parts": 1
+            },
+            "usage": {
+              "prompt_tokens": 2036,
+              "candidates_tokens": 62,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 2098,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": 138,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 3934,
+        "output_tokens": 95,
+        "history_tokens": 1360,
+        "response_tokens": 62,
+        "cost_usd": 0.0014177
+      }
+    },
+    {
+      "turn": 5,
+      "message": "Добавь к этой сумме 10 процентов.",
+      "status": "ok",
+      "answer": "С учетом 10 процентов получается 4 125 000 донгов.",
+      "tool_calls": [
+        {
+          "iteration": 1,
+          "name": "calculate",
+          "args": {
+            "expression": "3750000 * 1.1"
+          }
+        }
+      ],
+      "token_stats": {
+        "request_tokens": 13,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 1436,
+            "shape": {
+              "messages": 11,
+              "user_text_parts": 5,
+              "model_text_parts": 4,
+              "thought_parts": 0,
+              "function_call_parts": 1,
+              "function_response_parts": 1
+            },
+            "usage": {
+              "prompt_tokens": 2112,
+              "candidates_tokens": 25,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 2137,
+              "present": true
+            },
+            "function_calls_in_response": 1,
+            "error": null,
+            "overhead_tokens": 676
+          },
+          {
+            "iteration": 2,
+            "history_tokens": 1496,
+            "shape": {
+              "messages": 13,
+              "user_text_parts": 5,
+              "model_text_parts": 4,
+              "thought_parts": 0,
+              "function_call_parts": 2,
+              "function_response_parts": 2
+            },
+            "usage": {
+              "prompt_tokens": 2172,
+              "candidates_tokens": 21,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 2193,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": 60,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 4284,
+        "output_tokens": 46,
+        "history_tokens": 1496,
+        "response_tokens": 21,
+        "cost_usd": 0.0014002
+      }
+    },
+    {
+      "turn": 6,
+      "message": "Который сейчас час?",
+      "status": "ok",
+      "answer": "Сейчас 16:01 (четверг, 12 ноября 2026 года) по времени Хошимина.",
+      "tool_calls": [
+        {
+          "iteration": 1,
+          "name": "get_current_time",
+          "args": {}
+        }
+      ],
+      "token_stats": {
+        "request_tokens": 7,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 1525,
+            "shape": {
+              "messages": 15,
+              "user_text_parts": 6,
+              "model_text_parts": 5,
+              "thought_parts": 0,
+              "function_call_parts": 2,
+              "function_response_parts": 2
+            },
+            "usage": {
+              "prompt_tokens": 2201,
+              "candidates_tokens": 12,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 2213,
+              "present": true
+            },
+            "function_calls_in_response": 1,
+            "error": null,
+            "overhead_tokens": 676
+          },
+          {
+            "iteration": 2,
+            "history_tokens": 1640,
+            "shape": {
+              "messages": 17,
+              "user_text_parts": 6,
+              "model_text_parts": 5,
+              "thought_parts": 0,
+              "function_call_parts": 3,
+              "function_response_parts": 3
+            },
+            "usage": {
+              "prompt_tokens": 2316,
+              "candidates_tokens": 29,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 2345,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": 115,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 4517,
+        "output_tokens": 41,
+        "history_tokens": 1640,
+        "response_tokens": 29,
+        "cost_usd": 0.0014575999999999999
+      }
+    },
+    {
+      "turn": 7,
+      "message": "Объясни, почему стоимость запроса растёт с длиной диалога.",
+      "status": "ok",
+      "answer": "Стоимость запроса растёт с длиной диалога из-за особенностей работы механизма внимания (Self-Attention) в архитектуре Transformer и принципа тарификации API. \n\nВот главные причины:\n\n1. **Передача всей истории в каждом новом запросе (Stateless API):**\n   Языковые модели по своей природе «не помнят» прошлые сообщения. Каждый раз, когда вы отправляете новое сообщение агенту, вы отправляете **весь предыдущий диалог заново** (системный промпт + история переписки + новый вопрос). \n   * *Пример:* На 1-м сообщении вы отправляете 100 токенов. На 5-м сообщении история разрослась до 1 000 токенов, и вы снова платите за все эти 1 000 токенов (плюс ответ модели).\n\n2. **Квадратичная сложность вычислений:**\n   С точки зрения математики и вычислительных ресурсов модели (GPU), обработка текста имеет квадратичную сложность ($O(N^2)$) относительно длины токенов $N$. Когда контекст удваивается, объём необходимых вычислений для анализа связей между словами возрастает примерно в 4 раза. Провайдеры закладывают эти затраты в стоимость токенов.\n\n3. **Оплата входных токенов (Input/Prompt Tokens):**\n   Провайдеры берут деньги за каждый токен, который вы передаёте на вход (причём входные токены часто стоят дешевле выходных, но с ростом истории их суммарный объём становится огромным).",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 17,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 1687,
+            "shape": {
+              "messages": 19,
+              "user_text_parts": 7,
+              "model_text_parts": 6,
+              "thought_parts": 0,
+              "function_call_parts": 3,
+              "function_response_parts": 3
+            },
+            "usage": {
+              "prompt_tokens": 2363,
+              "candidates_tokens": 364,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 2727,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 2363,
+        "output_tokens": 364,
+        "history_tokens": 1687,
+        "response_tokens": 364,
+        "cost_usd": 0.0016189000000000002
+      }
+    },
+    {
+      "turn": 8,
+      "message": "Приведи 5 способов сократить расход токенов в агенте.",
+      "status": "ok",
+      "answer": "Вот 5 эффективных способов сократить расход токенов в AI-агенте:\n\n1. **Обрезание истории (Sliding Window):** Храните в памяти только последние $N$ сообщений (например, последние 5-10 пар «вопрос-ответ»), а более старые удаляйте или суммируйте.\n2. **Суммаризация (Summarization):** Периодически запускайте фоновый запрос к модели, чтобы она сжато пересказала суть предыдущего диалога в 2–3 предложениях, и заменяйте длинную историю этим коротким резюме.\n3. **Оптимизация системного промпта:** Пишите инструкции для агента лаконично, убирая «воду», лишние примеры и вежливые обращения, которые модель и так понимает.\n4. **Управление инструментами (Tool Calling):** Передавайте в описании функций (tools) только самое необходимое. Длинные описания параметров и типов данных в каждом запросе тратят много токенов.\n5. **Использование более компактных моделей:** Для простых задач (классификация, маршрутизация запросов, извлечение сущностей) используйте небольшие и дешёвые модели (например, GPT-4o-mini или Claude Haiku), оставляя тяжёлые модели только для сложных рассуждений.",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 17,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 2069,
+            "shape": {
+              "messages": 21,
+              "user_text_parts": 8,
+              "model_text_parts": 7,
+              "thought_parts": 0,
+              "function_call_parts": 3,
+              "function_response_parts": 3
+            },
+            "usage": {
+              "prompt_tokens": 2745,
+              "candidates_tokens": 302,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 3047,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 2745,
+        "output_tokens": 302,
+        "history_tokens": 2069,
+        "response_tokens": 302,
+        "cost_usd": 0.0015785
+      }
+    },
+    {
+      "turn": 9,
+      "message": "Сколько будет 1234 * 5678?",
+      "status": "ok",
+      "answer": "1234 * 5678 = 7 006 652.",
+      "tool_calls": [
+        {
+          "iteration": 1,
+          "name": "calculate",
+          "args": {
+            "expression": "1234 * 5678"
+          }
+        }
+      ],
+      "token_stats": {
+        "request_tokens": 16,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 2388,
+            "shape": {
+              "messages": 23,
+              "user_text_parts": 9,
+              "model_text_parts": 8,
+              "thought_parts": 0,
+              "function_call_parts": 3,
+              "function_response_parts": 3
+            },
+            "usage": {
+              "prompt_tokens": 3064,
+              "candidates_tokens": 23,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 3087,
+              "present": true
+            },
+            "function_calls_in_response": 1,
+            "error": null,
+            "overhead_tokens": 676
+          },
+          {
+            "iteration": 2,
+            "history_tokens": 2444,
+            "shape": {
+              "messages": 25,
+              "user_text_parts": 9,
+              "model_text_parts": 8,
+              "thought_parts": 0,
+              "function_call_parts": 4,
+              "function_response_parts": 4
+            },
+            "usage": {
+              "prompt_tokens": 3120,
+              "candidates_tokens": 22,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 3142,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": 56,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 6184,
+        "output_tokens": 45,
+        "history_tokens": 2444,
+        "response_tokens": 22,
+        "cost_usd": 0.0019676999999999997
+      }
+    },
+    {
+      "turn": 10,
+      "message": "Расскажи, что такое function calling, с коротким примером.",
+      "status": "ok",
+      "answer": "**Function Calling** (вызов функций) — это механизм, который позволяет языковой модели не просто отвечать текстом, а понимать, когда ей нужно воспользоваться внешним инструментом (например, базой данных, калькулятором или API погоды), и формировать структурированный запрос (обычно в формате JSON) с параметрами для этой функции.\n\n### Как это работает:\n1. Вы описываете модели доступные функции (название, описание, аргументы).\n2. Пользователь задает вопрос.\n3. Модель понимает, что для ответа нужен инструмент, и вместо обычного текста возвращает «вызов функции» с заполненными аргументами.\n4. Ваша программа выполняет эту функцию в реальном мире и возвращает результат модели.\n5. Модель использует этот результат, чтобы соромировать финальный ответ пользователю.\n\n### Короткий пример:\n* **Запрос пользователя:** «Какая погода в Москве?»\n* **Функция в описании модели:** `get_weather(city: string)`\n* **Ответ модели (Function Call):** `{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Москва\"}}`\n* **Ваш код вызывает реальное API погоды**, получает `-5°C` и отправляет это модели.\n* **Финальный ответ модели пользователю:** «В Москве сейчас -5°C».",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 17,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 2484,
+            "shape": {
+              "messages": 27,
+              "user_text_parts": 10,
+              "model_text_parts": 9,
+              "thought_parts": 0,
+              "function_call_parts": 4,
+              "function_response_parts": 4
+            },
+            "usage": {
+              "prompt_tokens": 3160,
+              "candidates_tokens": 299,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 3459,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 3160,
+        "output_tokens": 299,
+        "history_tokens": 2484,
+        "response_tokens": 299,
+        "cost_usd": 0.0016955
+      }
+    },
+    {
+      "turn": 11,
+      "message": "Сделай краткое резюме нашего диалога.",
+      "status": "ok",
+      "answer": "Краткое резюме нашего диалога:\n\n1. **Знакомство:** Познакомились с Аней, которая изучает разработку AI-агентов.\n2. **Токены:** Разобрали, что такое токены, чем контекстное окно отличается от лимита выходных токенов и почему стоимость запросов растет с длиной диалога. Обсудили 5 способов экономии токенов в агентах.\n3. **Финансы и расчеты:** Перевели 150 USD в VND (3 750 000 донгов, с учетом фиксированного демо-курса), прибавили к ним 10% (получилось 4 125 000 донгов) и умножили 1234 на 5678 (7 006 652).\n4. **Время:** Узнали текущее время (16:01 во Вьетнаме).\n5. **Function Calling:** Разъяснили суть вызова функций в языковых моделях на простом примере с погодой.",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 13,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 2797,
+            "shape": {
+              "messages": 29,
+              "user_text_parts": 11,
+              "model_text_parts": 10,
+              "thought_parts": 0,
+              "function_call_parts": 4,
+              "function_response_parts": 4
+            },
+            "usage": {
+              "prompt_tokens": 3473,
+              "candidates_tokens": 245,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 3718,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 3473,
+        "output_tokens": 245,
+        "history_tokens": 2797,
+        "response_tokens": 245,
+        "cost_usd": 0.0016543999999999999
+      }
+    },
+    {
+      "turn": 12,
+      "message": "Как меня зовут и какую сумму в донгах ты получил в начале?",
+      "status": "ok",
+      "answer": "Тебя зовут Аня. В начале разговора (в расчете с учетом 10%) мы получили сумму **4 125 000 донгов** (а исходные 150 долларов равнялись 3 750 000 донгов).",
+      "tool_calls": [],
+      "token_stats": {
+        "request_tokens": 16,
+        "calls": [
+          {
+            "iteration": 1,
+            "history_tokens": 3059,
+            "shape": {
+              "messages": 31,
+              "user_text_parts": 12,
+              "model_text_parts": 11,
+              "thought_parts": 0,
+              "function_call_parts": 4,
+              "function_response_parts": 4
+            },
+            "usage": {
+              "prompt_tokens": 3735,
+              "candidates_tokens": 63,
+              "thoughts_tokens": 0,
+              "cached_tokens": 0,
+              "tool_use_prompt_tokens": 0,
+              "total_tokens": 3798,
+              "present": true
+            },
+            "function_calls_in_response": 0,
+            "error": null,
+            "overhead_tokens": 676
+          }
+        ],
+        "tool_exchange_tokens": null,
+        "input_token_limit": 1048576,
+        "status": "ok",
+        "count_errors": [],
+        "blocked_locally": false,
+        "input_tokens": 3735,
+        "output_tokens": 63,
+        "history_tokens": 3059,
+        "response_tokens": 63,
+        "cost_usd": 0.001278
+      }
+    }
+  ],
+  "session": {
+    "turns": 12,
+    "model_calls": 16,
+    "input_tokens": 37333,
+    "output_tokens": 2654,
+    "thoughts_tokens": 0,
+    "cached_tokens": 0,
+    "cost_usd": 0.0178349
+  },
+  "final_history_messages": 32,
+  "final_history_tokens": 3123
+}

@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-11-13T01:52:26",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "compression": true,
+    "summary_every": 10,
+    "keep_last": 6,
+    "answer_thinking_level": "MINIMAL",
+    "summary_thinking_level": "LOW"
+  },
+  "facts_retained_percent": {
+    "A_without_compression": 100.0,
+    "B_with_compression": 100.0
+  },
+  "facts_lost_in_B": [],
+  "context_tokens_before_questions": {
+    "A_full_history": 1066,
+    "B_summary_plus_recent": 662,
+    "B_summary": 507,
+    "B_recent": 155
+  },
+  "savings_control_requests_input_percent": 34.93,
+  "savings_control_requests_total_percent": 34.47,
+  "savings_overall_with_summarization_percent": -1.74,
+  "summarization_tokens": 4236,
+  "break_even_questions_estimate": 10.5,
+  "usage_metadata_complete": true,
+  "final_summary": "* **Общая информация:**\n  * Имя пользователя: Марина.\n  * Тип проекта: учебный проект на Python.\n  * Операционная система: macOS (инструкции для терминала macOS).\n  * Крайний срок сдачи проекта: 17 декабря 2026 года.\n  * Ограничения: Docker не использовать вообще (ни для разработки, ни для запуска); используется виртуальное окружение `venv` и системный планировщик (`launchd`).\n  * Структура проекта: папка `src/` для кода, `tests/` для тестов, `results/` для файлов с результатами, `scripts/` для служебных скриптов.\n  * Конфигурация и безопасность: API-ключи хранятся в файле `.env` (добавлен в `.gitignore`), для чтения используется `python-dotenv`.\n\n* **Функционал и автоматизация:**\n  * Скрипт для ежедневного сбора курсов валют и прогноза погоды.\n  * Время ежедневного запуска: 09:30 (заменило прежнее время 08:00; для `launchd` используется `StartCalendarInterval` с `Hour=9` и `Minute=30`).\n  * Город для прогноза погоды: Нячанг.\n  * ИИ для анализа ответов: выбрана модель `gemini-3.5-flash-lite` (вместо `gemini-3.5-flash`).\n  * HTTP-клиент: выбрана библиотека `httpx`.\n  * Хранение результатов: в формате JSON, по одному отдельному файлу на каждый запуск в папке `results/`.\n  * Тестирование: запланировано 24 теста (заменили прежние 20 тестов), включая проверки сетевых ошибок, загрузку данных, сохранение и обработку ошибок.\n\n* **Финансы:**\n  * Бюджет на платные API и хостинг: утверждён окончательный бюджет 18 500 000 VND (заменил предварительный бюджет в 15 000 000 VND)."
+}
