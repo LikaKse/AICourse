@@ -1,0 +1,641 @@
+[
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 1,
+    "timestamp": "2026-11-10T02:36:45",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:36:45",
+        "latency_sec": 14.243,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 14.243,
+    "total_elapsed_sec": 14.243,
+    "finish_reason": "STOP",
+    "usage_metadata": {
+      "candidates_token_count": 527,
+      "prompt_token_count": 37,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 37
+        }
+      ],
+      "thoughts_token_count": 1028,
+      "total_token_count": 1592
+    },
+    "raw_text": "Вот 3 отличные книги для тех, кто только начинает свой путь в программировании. Они охватывают разные аспекты: от базовой логики и понимания работы компьютера до практики на самом популярном языке для новичков.\n\n---\n\n### 1. «Грокаем алгоритмы» (Grokking Algorithms)\n* **Автор:** Адитья Бхаргава\n* **Год издания:** 2016 (в 2024 году вышло обновленное 2-е издание)\n* **Почему стоит прочитать:** \nПрограммирование — это не просто знание синтаксиса, а умение решать задачи. Эта книга максимально просто, наглядно и с юмором объясняет базовые структуры данных и алгоритмы (поиск, сортировка, графы), без которых невозможно обойтись. Автор использует понятные иллюстрации вместо сложного математического аппарата, поэтому книга не пугает, а вдохновляет.\n\n---\n\n### 2. «Изучаем Python» (Python Crash Course)\n* **Автор:** Эрик Мэтиз\n* **Год издания:** 2023 (3-е издание)\n* **Почему стоит прочитать:** \nPython считается лучшим языком для старта, а эта книга — один из лучших практических учебников по нему. Она разделена на две части: в первой вы учите базовые основы языка, а во второй — закрепляете знания на реальных проектах (создаете 2D-игру, визуализируете данные и делаете веб-приложение). Отличный баланс между теорией и осязаемой практикой.\n\n---\n\n### 3. «Код. Тайный язык информатики» (Code: The Hidden Language of Computer Hardware and Software)\n* **Автор:** Чарльз Петцольд\n* **Год издания:** 2000 (в 2022 году вышло дополненное 2-е издание)\n* **Почему стоит прочитать:** \nКнига читается как увлекательный роман и отвечает на фундаментальный вопрос: *«А как вообще машина понимает код?»*. Петцольд на простых примерах (фонарики, азбука Морзе, реле) показывает путь от базовых законов физики до создания процессоров и операционных систем. Она помогает новичку избавиться от ощущения «магии» и понять глубинную логику работы цифрового мира.",
+    "text_length_chars": 1839,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "json_error",
+      "parse_error": "Expecting value (строка 1, позиция 1)",
+      "validation_status": "skipped",
+      "validation_errors": null,
+      "books_count": null,
+      "titles": null
+    }
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 1,
+    "timestamp": "2026-11-10T02:37:12",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:37:12",
+        "latency_sec": 4.431,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 4.431,
+    "total_elapsed_sec": 4.431,
+    "finish_reason": "MAX_TOKENS",
+    "usage_metadata": {
+      "candidates_token_count": 14,
+      "prompt_token_count": 137,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 137
+        }
+      ],
+      "thoughts_token_count": 382,
+      "total_token_count": 533
+    },
+    "raw_text": "{\n  \"books\": [\n    {\n      \"title",
+    "text_length_chars": 33,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "json_error",
+      "parse_error": "Unterminated string starting at (строка 4, позиция 7)",
+      "validation_status": "skipped",
+      "validation_errors": null,
+      "books_count": null,
+      "titles": null
+    }
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 1,
+    "timestamp": "2026-11-10T02:37:29",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "ApiBook": {
+            "description": "Одна рекомендованная книга (схема для API).",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "ApiBook",
+            "type": "object"
+          }
+        },
+        "description": "Ответ модели: ровно 3 книги (схема для API).",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/ApiBook"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "ApiBookRecommendations",
+        "type": "object"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:37:29",
+        "latency_sec": 6.684,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 6.684,
+    "total_elapsed_sec": 6.684,
+    "finish_reason": "STOP",
+    "usage_metadata": {
+      "candidates_token_count": 213,
+      "prompt_token_count": 37,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 37
+        }
+      ],
+      "thoughts_token_count": 400,
+      "total_token_count": 650
+    },
+    "raw_text": "{\"books\":[{\"title\":\"Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих\",\"author\":\"Адитья Бхаргава\",\"year\":2016,\"reason\":\"Книга наглядно и без сложной математики объясняет фундаментальные алгоритмы и структуры данных с помощью понятных иллюстраций и примеров.\"},{\"title\":\"Изучаем Python. Руководство по программированию для начинающих\",\"author\":\"Эрик Мэтиз\",\"year\":2016,\"reason\":\"Идеальный старт для новичков, сочетающий доступное объяснение базового синтаксиса Python с практическими проектами по созданию игр, веб-приложений и визуализации данных.\"},{\"title\":\"Чистый код: создание, анализ и рефакторинг\",\"author\":\"Роберт Мартин\",\"year\":2008,\"reason\":\"Помогает с самого начала карьеры привить культуру написания качественного, читаемого и легко поддерживаемого кода.\"}]}",
+    "text_length_chars": 799,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "ok",
+      "parse_error": null,
+      "validation_status": "ok",
+      "validation_errors": null,
+      "books_count": 3,
+      "titles": [
+        "Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих",
+        "Изучаем Python. Руководство по программированию для начинающих",
+        "Чистый код: создание, анализ и рефакторинг"
+      ]
+    }
+  },
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 2,
+    "timestamp": "2026-11-10T02:37:49",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:37:49",
+        "latency_sec": 15.644,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 15.644,
+    "total_elapsed_sec": 15.644,
+    "finish_reason": "STOP",
+    "usage_metadata": {
+      "candidates_token_count": 528,
+      "prompt_token_count": 37,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 37
+        }
+      ],
+      "thoughts_token_count": 1085,
+      "total_token_count": 1650
+    },
+    "raw_text": "Вот три отличные книги, которые идеально подойдут тем, кто делает первые шаги в программировании. Они охватывают практику, фундаментальные концепции и понимание того, как вообще работают компьютеры.\n\n---\n\n### 1. «Изучаем Python» (Python Crash Course)\n* **Автор:** Эрик Мэтиз (Eric Matthes)\n* **Год издания:** 2023 (3-е издание; первое вышло в 2015)\n* **Почему стоит прочитать:** \nPython — один из лучших языков для старта благодаря простому синтаксису. Книга Мэтиза разделена на две части: в первой вы изучаете основы языка без сложной теории, а во второй сразу закрепляете знания на реальных проектах (создание простой 2D-игры, визуализация данных и базовое веб-приложение). Это дает быстрый результат и удерживает мотивацию.\n\n### 2. «Грокаем алгоритмы» (Grokking Algorithms)\n* **Автор:** Адитья Бхаргава (Aditya Bhargava)\n* **Год издания:** 2016 (в 2024 вышло 2-е издание)\n* **Почему стоит прочитать:**\nАлгоритмы часто пугают новичков сложной математикой, но эта книга объясняет их буквально «на пальцах». Благодаря сотням забавных иллюстраций и понятным бытовым аналогиям вы легко разберетесь с бинарным поиском, сортировками, графами и оценкой сложности кода (O-нотация). Это база, которая понадобится на любом языке программирования.\n\n### 3. «Код: тайный язык информатики» (Code: The Hidden Language of Computer Hardware and Software)\n* **Автор:** Чарльз Петцольд (Charles Petzold)\n* **Год издания:** 2022 (юбилейное 2-е издание; первое вышло в 1999)\n* **Почему стоит прочитать:**\nКнига помогает избавиться от ощущения, что компьютеры работают на «магии». Автор начинает с простых вещей (азбука Морзе, карманные фонарики, электрические реле) и шаг за шагом показывает, как из простых выключателей собираются процессоры, память и программное обеспечение. Она дает глубокое понимание контекста, в котором живет любой написанный вами код.",
+    "text_length_chars": 1840,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "json_error",
+      "parse_error": "Expecting value (строка 1, позиция 1)",
+      "validation_status": "skipped",
+      "validation_errors": null,
+      "books_count": null,
+      "titles": null
+    }
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 2,
+    "timestamp": "2026-11-10T02:38:18",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:38:18",
+        "latency_sec": 4.971,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 4.971,
+    "total_elapsed_sec": 4.971,
+    "finish_reason": "MAX_TOKENS",
+    "usage_metadata": {
+      "candidates_token_count": 16,
+      "prompt_token_count": 137,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 137
+        }
+      ],
+      "thoughts_token_count": 380,
+      "total_token_count": 533
+    },
+    "raw_text": "{\n  \"books\": [\n    {\n      \"title\": \"",
+    "text_length_chars": 37,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "json_error",
+      "parse_error": "Unterminated string starting at (строка 4, позиция 16)",
+      "validation_status": "skipped",
+      "validation_errors": null,
+      "books_count": null,
+      "titles": null
+    }
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 2,
+    "timestamp": "2026-11-10T02:38:36",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "ApiBook": {
+            "description": "Одна рекомендованная книга (схема для API).",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "ApiBook",
+            "type": "object"
+          }
+        },
+        "description": "Ответ модели: ровно 3 книги (схема для API).",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/ApiBook"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "ApiBookRecommendations",
+        "type": "object"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:38:36",
+        "latency_sec": 9.637,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 9.637,
+    "total_elapsed_sec": 9.637,
+    "finish_reason": "STOP",
+    "usage_metadata": {
+      "candidates_token_count": 196,
+      "prompt_token_count": 37,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 37
+        }
+      ],
+      "thoughts_token_count": 936,
+      "total_token_count": 1169
+    },
+    "raw_text": "{\"books\":[{\"title\":\"Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих\",\"author\":\"Адитья Бхаргава\",\"year\":2016,\"reason\":\"Книга объясняет фундаментальные алгоритмы простым языком с наглядными иллюстрациями, что делает её идеальным стартом для новичков.\"},{\"title\":\"Автоматизация рутинных задач с помощью Python\",\"author\":\"Эл Свейгарт\",\"year\":2015,\"reason\":\"Практическое руководство, позволяющее сразу создавать полезные программы для решения повседневных задач без углубления в сухую теорию.\"},{\"title\":\"Чистый код: создание, анализ и рефакторинг\",\"author\":\"Роберт Мартин\",\"year\":2008,\"reason\":\"Книга с самого начала закладывает культуру написания понятного, поддерживаемого и качественного программного кода.\"}]}",
+    "text_length_chars": 741,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "ok",
+      "parse_error": null,
+      "validation_status": "ok",
+      "validation_errors": null,
+      "books_count": 3,
+      "titles": [
+        "Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих",
+        "Автоматизация рутинных задач с помощью Python",
+        "Чистый код: создание, анализ и рефакторинг"
+      ]
+    }
+  },
+  {
+    "variant_id": "v1_unconstrained",
+    "variant_name": "Без ограничений",
+    "run": 3,
+    "timestamp": "2026-11-10T02:38:58",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": null,
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:38:58",
+        "latency_sec": 16.527,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 16.527,
+    "total_elapsed_sec": 16.527,
+    "finish_reason": "STOP",
+    "usage_metadata": {
+      "candidates_token_count": 527,
+      "prompt_token_count": 37,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 37
+        }
+      ],
+      "thoughts_token_count": 1242,
+      "total_token_count": 1806
+    },
+    "raw_text": "Вот 3 отличные книги для тех, кто только начинает свой путь в программировании. Они охватывают разные аспекты: от базового понимания работы компьютера до алгоритмов и практики написания кода на популярном языке.\n\n---\n\n### 1. «Грокаем алгоритмы» (Grokking Algorithms)\n* **Автор:** Адитья Бхаргава\n* **Год издания:** 2016 (в 2024 году вышло 2-е издание)\n* **Почему стоит прочитать:** \nАлгоритмы — это база программирования, но учебники по ним часто перегружены сложной математикой. Бхаргава объясняет ключевые концепции (сортировки, графы, деревья поиска) простым языком с огромным количеством наглядных иллюстраций и схем. Книга идеально подходит для преодоления страха перед алгоритмами и готовит к техническим собеседованиям.\n\n---\n\n### 2. «Изучаем Python» (Python Crash Course)\n* **Автор:** Эрик Мэтиз\n* **Год издания:** 2023 (3-е издание)\n* **Почему стоит прочитать:** \nPython сегодня — лучший язык для старта: у него понятный синтаксис и широкая сфера применения. Эта книга разделена на две части: первая дает крепкую базу по основам программирования (переменные, списки, классы, циклы), а во второй вы сразу применяете знания на практике, создавая три проекта — 2D-игру, веб-приложение и визуализацию данных.\n\n---\n\n### 3. «Код. Тайный язык информатики» (Code: The Hidden Language of Computer Hardware and Software)\n* **Автор:** Чарльз Петцольд\n* **Год издания:** 2022 (2-е, дополненное издание; оригинальное вышло в 1999)\n* **Почему стоит прочитать:** \nЭта книга не учит писать код на конкретном языке, но она объясняет, *как компьютеры вообще работают*. Автор начинает с простых вещей (азбука Морзе, фонарики, электрические реле) и постепенно показывает, как из них собираются триггеры, микросхемы, память, процессор и операционные системы. Она закрывает страх перед «черным ящиком» компьютера и дает фундаментальное понимание устройства цифрового мира.",
+    "text_length_chars": 1858,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "json_error",
+      "parse_error": "Expecting value (строка 1, позиция 1)",
+      "validation_status": "skipped",
+      "validation_errors": null,
+      "books_count": null,
+      "titles": null
+    }
+  },
+  {
+    "variant_id": "v2_format_and_limits",
+    "variant_name": "Описание формата + max_output_tokens + stop_sequences",
+    "run": 3,
+    "timestamp": "2026-11-10T02:39:28",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.\n\nФормат ответа — строго JSON-объект без пояснений до или после него и без Markdown-разметки:\n{\n  \"books\": [\n    {\"title\": \"строка\", \"author\": \"строка\", \"year\": целое число, \"reason\": \"строка\"}\n  ]\n}\nВ массиве \"books\" должно быть ровно 3 элемента.\nСразу после закрывающей фигурной скобки напиши <<END>>",
+    "request_config": {
+      "max_output_tokens": 400,
+      "stop_sequences": [
+        "<<END>>"
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:39:28",
+        "latency_sec": 5.639,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 5.639,
+    "total_elapsed_sec": 5.639,
+    "finish_reason": "MAX_TOKENS",
+    "usage_metadata": {
+      "candidates_token_count": 13,
+      "prompt_token_count": 137,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 137
+        }
+      ],
+      "thoughts_token_count": 383,
+      "total_token_count": 533
+    },
+    "raw_text": "{\n  \"books\": [\n    {\n      \"",
+    "text_length_chars": 28,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "json_error",
+      "parse_error": "Unterminated string starting at (строка 4, позиция 7)",
+      "validation_status": "skipped",
+      "validation_errors": null,
+      "books_count": null,
+      "titles": null
+    }
+  },
+  {
+    "variant_id": "v3_structured_output",
+    "variant_name": "Structured Output (JSON Schema)",
+    "run": 3,
+    "timestamp": "2026-11-10T02:39:46",
+    "model": "gemini-3.8-flash",
+    "prompt": "Порекомендуй 3 книги по программированию для начинающих. Для каждой укажи название, автора, год издания и коротко объясни, почему её стоит прочитать.",
+    "request_config": {
+      "response_mime_type": "application/json",
+      "response_schema": {
+        "$defs": {
+          "ApiBook": {
+            "description": "Одна рекомендованная книга (схема для API).",
+            "properties": {
+              "title": {
+                "description": "Название книги",
+                "minLength": 1,
+                "title": "Title",
+                "type": "string"
+              },
+              "author": {
+                "description": "Автор или авторы",
+                "minLength": 1,
+                "title": "Author",
+                "type": "string"
+              },
+              "year": {
+                "description": "Год издания",
+                "title": "Year",
+                "type": "integer"
+              },
+              "reason": {
+                "description": "Почему стоит прочитать",
+                "minLength": 1,
+                "title": "Reason",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "author",
+              "year",
+              "reason"
+            ],
+            "title": "ApiBook",
+            "type": "object"
+          }
+        },
+        "description": "Ответ модели: ровно 3 книги (схема для API).",
+        "properties": {
+          "books": {
+            "description": "Ровно 3 книги",
+            "items": {
+              "$ref": "#/$defs/ApiBook"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Books",
+            "type": "array"
+          }
+        },
+        "required": [
+          "books"
+        ],
+        "title": "ApiBookRecommendations",
+        "type": "object"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "started_at": "2026-11-10T02:39:46",
+        "latency_sec": 8.185,
+        "status": "ok",
+        "error": null,
+        "retry_after_sec": null
+      }
+    ],
+    "attempts_count": 1,
+    "retries_count": 0,
+    "api_error": null,
+    "latency_sec": 8.185,
+    "total_elapsed_sec": 8.185,
+    "finish_reason": "STOP",
+    "usage_metadata": {
+      "candidates_token_count": 156,
+      "prompt_token_count": 37,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 37
+        }
+      ],
+      "thoughts_token_count": 715,
+      "total_token_count": 908
+    },
+    "raw_text": "{\"books\":[{\"title\":\"Грокаем алгоритмы\",\"author\":\"Адитья Бхаргава\",\"year\":2016,\"reason\":\"Наглядно и с помощью иллюстраций объясняет ключевые алгоритмы и структуры данных простым языком.\"},{\"title\":\"Изучаем Python\",\"author\":\"Эрик Мэтиз\",\"year\":2016,\"reason\":\"Отличное практическое руководство для старта, сочетающее основы программирования с разработкой реальных проектов.\"},{\"title\":\"Чистый код: создание, анализ и рефакторинг\",\"author\":\"Роберт Мартин\",\"year\":2008,\"reason\":\"Помогает с самого начала сформировать правильные привычки и писать понятный, поддерживаемый код.\"}]}",
+    "text_length_chars": 574,
+    "checks": {
+      "has_code_fence": false,
+      "parse_status": "ok",
+      "parse_error": null,
+      "validation_status": "ok",
+      "validation_errors": null,
+      "books_count": 3,
+      "titles": [
+        "Грокаем алгоритмы",
+        "Изучаем Python",
+        "Чистый код: создание, анализ и рефакторинг"
+      ]
+    }
+  }
+]

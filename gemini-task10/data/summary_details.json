@@ -1,0 +1,804 @@
+{
+  "description": "Каталог деталей диалога для ОФЛАЙН-аудита summary (без вызовов API). Агенту и суммаризатору не передаётся. keep — признаки того, что деталь есть в summary (регулярное выражение по всему тексту; {line_all: [...]} — все шаблоны в одной строке; {text_all: [...]} — все шаблоны где угодно). distort — правило искажения: в строке summary есть line_has, но нет line_lacks, и во всём summary нет text_lacks (итогового значения). attributions — предложения АССИСТЕНТА: проверяется, не записаны ли они в summary как решения пользователя. Номера сообщений — с 1. Шаблоны применяются к нормализованному тексту (нижний регистр, ё→е, без * и `).",
+  "details": [
+    {
+      "id": "D01",
+      "detail": "Имя пользователя — Лика",
+      "importance": "high",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 1,
+          "role": "user",
+          "quote": "Меня зовут Лика"
+        }
+      ],
+      "keep": [
+        "(?<![а-я])лик(а|и|е|у|ой)(?![а-я])"
+      ],
+      "distort": [
+        {
+          "line_has": "имя",
+          "line_lacks": "(?<![а-я])лик(а|и|е|у|ой)(?![а-я])",
+          "note": "в summary другое имя",
+          "text_lacks": "(?<![а-я])лик(а|и|е|у|ой)(?![а-я])"
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "detail": "Учебный проект на Python",
+      "importance": "low",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 1,
+          "role": "user",
+          "quote": "небольшой учебный проект на Python"
+        }
+      ],
+      "keep": [
+        "учебн[^\\n]{0,40}python|python[^\\n]{0,40}учебн"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D03",
+      "detail": "Ежедневный сбор курсов валют и прогноза погоды",
+      "importance": "medium",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 3,
+          "role": "user",
+          "quote": "каждый день собирает курсы валют и прогноз погоды"
+        }
+      ],
+      "keep": [
+        {
+          "line_all": [
+            "курс\\w* валют",
+            "погод"
+          ]
+        }
+      ],
+      "distort": []
+    },
+    {
+      "id": "D04",
+      "detail": "Результаты собираются для анализа",
+      "importance": "low",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 3,
+          "role": "user",
+          "quote": "сохраняет результаты для анализа"
+        }
+      ],
+      "keep": [
+        "(данн|результат)\\w*[^\\n]{0,40}анализ|анализ\\w*[^\\n]{0,20}(данн|результат|курс|погод)"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D05",
+      "detail": "Пользователь живёт в Нячанге",
+      "importance": "high",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 5,
+          "role": "user",
+          "quote": "Я живу в Нячанге"
+        }
+      ],
+      "keep": [
+        "(жив|прожива)\\w*[^\\n]{0,40}нячанг|нячанг[^\\n]{0,40}(жив|прожива)"
+      ],
+      "distort": [
+        {
+          "line_has": "(жив|прожива)",
+          "line_lacks": "нячанг",
+          "note": "указан другой город проживания",
+          "text_lacks": "(жив|прожива)\\w*[^\\n]{0,40}нячанг|нячанг[^\\n]{0,40}(жив|прожива)"
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "detail": "Прогноз погоды — для Нячанга",
+      "importance": "medium",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 5,
+          "role": "user",
+          "quote": "погоду хочу собирать именно для Нячанга"
+        }
+      ],
+      "keep": [
+        "нячанг"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D07",
+      "detail": "Совет: открытые API погоды по координатам города",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 6,
+          "role": "model",
+          "quote": "открытые API погоды по координатам города"
+        }
+      ],
+      "keep": [
+        "координат"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D08",
+      "detail": "Предварительный бюджет 15 000 000 VND",
+      "importance": "medium",
+      "kind": "intermediate",
+      "evidence": [
+        {
+          "message": 7,
+          "role": "user",
+          "quote": "Предварительный бюджет на платные API и хостинг — 15 000 000 VND"
+        }
+      ],
+      "keep": [
+        "(?<!\\d)15000000(?!\\d)|(?<![\\d.,])15\\s*млн"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D09",
+      "detail": "Бюджет — на платные API и хостинг",
+      "importance": "low",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 7,
+          "role": "user",
+          "quote": "на платные API и хостинг"
+        }
+      ],
+      "keep": [
+        "хостинг"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D10",
+      "detail": "Операционная система — macOS",
+      "importance": "high",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 9,
+          "role": "user",
+          "quote": "Работаю я на macOS"
+        }
+      ],
+      "keep": [
+        "mac\\s*os"
+      ],
+      "distort": [
+        {
+          "line_has": "операционн|(?<![а-я])ос(?![а-я])",
+          "line_lacks": "mac\\s*os",
+          "note": "указана другая ОС",
+          "text_lacks": "mac\\s*os"
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "detail": "Команды для zsh и Homebrew (ассистент)",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 10,
+          "role": "model",
+          "quote": "(zsh, Homebrew)"
+        }
+      ],
+      "keep": [
+        "zsh|homebrew"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D12",
+      "detail": "Docker запрещён и для разработки, и для запуска",
+      "importance": "high",
+      "kind": "constraint",
+      "evidence": [
+        {
+          "message": 11,
+          "role": "user",
+          "quote": "Docker не использовать вообще, ни для разработки, ни для запуска"
+        }
+      ],
+      "keep": [
+        "(не\\s|нельзя|без\\s|запрет|отказ|исключ|избега)[^\\n]{0,60}docker|docker[^\\n]{0,60}(не\\s|нельзя|запрещ|исключ)"
+      ],
+      "distort": [
+        {
+          "line_has": "docker",
+          "line_lacks": "не\\s|нельзя|без\\s|запрет|отказ|исключ|избега",
+          "note": "Docker без запрета"
+        }
+      ]
+    },
+    {
+      "id": "D13",
+      "detail": "venv и системный планировщик (предложение ассистента)",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 12,
+          "role": "model",
+          "quote": "Будем использовать виртуальное окружение venv и системный планировщик"
+        }
+      ],
+      "keep": [
+        "venv"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D14",
+      "detail": "Рассматривали и gemini-3.5-flash",
+      "importance": "medium",
+      "kind": "alternative",
+      "evidence": [
+        {
+          "message": 13,
+          "role": "user",
+          "quote": "Выбираю между gemini-3.5-flash и gemini-3.5-flash-lite"
+        }
+      ],
+      "keep": [
+        "gemini-3\\.5-flash(?!-lite)"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D15",
+      "detail": "Сравнение моделей: lite дешевле и быстрее, flash точнее",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 14,
+          "role": "model",
+          "quote": "полная немного точнее на сложных задачах"
+        }
+      ],
+      "keep": [
+        "(?<![а-я])точн"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D16",
+      "detail": "Выбрана модель gemini-3.5-flash-lite",
+      "importance": "high",
+      "kind": "decision",
+      "evidence": [
+        {
+          "message": 15,
+          "role": "user",
+          "quote": "берём gemini-3.5-flash-lite"
+        }
+      ],
+      "keep": [
+        "3\\.5-flash-lite"
+      ],
+      "distort": [
+        {
+          "line_has": "(выбран|решен|использ|модел)[^\\n]*gemini-3\\.5-flash(?!-lite)",
+          "line_lacks": "flash-lite",
+          "note": "выбрана не та модель",
+          "text_lacks": "3\\.5-flash-lite"
+        }
+      ]
+    },
+    {
+      "id": "D17",
+      "detail": "Причина выбора модели: важнее скорость и цена",
+      "importance": "medium",
+      "kind": "preference",
+      "evidence": [
+        {
+          "message": 15,
+          "role": "user",
+          "quote": "нам важнее скорость и цена"
+        }
+      ],
+      "keep": [
+        {
+          "line_all": [
+            "flash-lite|модел",
+            "скорост|быстр",
+            "цен|дешев|стоим"
+          ]
+        }
+      ],
+      "distort": []
+    },
+    {
+      "id": "D18",
+      "detail": "Рассматривали CSV и SQLite",
+      "importance": "medium",
+      "kind": "alternative",
+      "evidence": [
+        {
+          "message": 17,
+          "role": "user",
+          "quote": "в CSV, SQLite или JSON"
+        }
+      ],
+      "keep": [
+        {
+          "text_all": [
+            "csv",
+            "sqlite"
+          ]
+        }
+      ],
+      "distort": []
+    },
+    {
+      "id": "D19",
+      "detail": "Решение: хранить результаты в JSON",
+      "importance": "high",
+      "kind": "decision",
+      "evidence": [
+        {
+          "message": 19,
+          "role": "user",
+          "quote": "результаты храним в JSON"
+        }
+      ],
+      "keep": [
+        "json"
+      ],
+      "distort": [
+        {
+          "line_has": "(хран|формат)[^\\n]*(csv|sqlite)",
+          "line_lacks": "json|рассматр|вместо|отказ|альтернатив",
+          "note": "выбран другой формат",
+          "text_lacks": "json"
+        }
+      ]
+    },
+    {
+      "id": "D20",
+      "detail": "Отдельный файл на каждый запуск",
+      "importance": "medium",
+      "kind": "decision",
+      "evidence": [
+        {
+          "message": 19,
+          "role": "user",
+          "quote": "по одному файлу на каждый запуск"
+        }
+      ],
+      "keep": [
+        "файл[^\\n]{0,40}кажд\\w* запуск|кажд\\w* запуск[^\\n]{0,40}файл"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D21",
+      "detail": "Первоначальное время запуска 08:00",
+      "importance": "medium",
+      "kind": "intermediate",
+      "evidence": [
+        {
+          "message": 21,
+          "role": "user",
+          "quote": "каждый день в 08:00"
+        }
+      ],
+      "keep": [
+        "(?<!\\d)0?8:00"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D22",
+      "detail": "launchd как способ запуска (совет ассистента)",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 22,
+          "role": "model",
+          "quote": "удобно сделать через launchd"
+        }
+      ],
+      "keep": [
+        "launchd"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D23",
+      "detail": "Совет ассистента: 15–20 тестов",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 24,
+          "role": "model",
+          "quote": "хватит 15–20 тестов"
+        }
+      ],
+      "keep": [
+        "15\\s*[–-]\\s*20"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D24",
+      "detail": "Первоначальный план — 20 тестов",
+      "importance": "medium",
+      "kind": "intermediate",
+      "evidence": [
+        {
+          "message": 25,
+          "role": "user",
+          "quote": "Пусть будет 20 тестов"
+        }
+      ],
+      "keep": [
+        "(?<![\\d–-])20\\s+тест|тест\\w*[^\\n]{0,40}(?<![\\d–-])20(?![\\d–-])"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D25",
+      "detail": "Срок сдачи — 17 декабря 2026 года",
+      "importance": "high",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 27,
+          "role": "user",
+          "quote": "до 17 декабря 2026 года"
+        }
+      ],
+      "keep": [
+        "17\\s*декабря\\s*2026|17\\.12\\.2026"
+      ],
+      "distort": [
+        {
+          "line_has": "(срок|дедлайн|сдач)[^\\n]*\\d",
+          "line_lacks": "17\\s*декабря\\s*2026|17\\.12\\.2026",
+          "note": "другой срок",
+          "text_lacks": "17\\s*декабря\\s*2026|17\\.12\\.2026"
+        }
+      ]
+    },
+    {
+      "id": "D26",
+      "detail": "Окончательный бюджет 18 500 000 VND",
+      "importance": "high",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 29,
+          "role": "user",
+          "quote": "утвердили 18 500 000 VND, это окончательная сумма"
+        }
+      ],
+      "keep": [
+        "(?<!\\d)18500000(?!\\d)|18[,.]5\\s*млн"
+      ],
+      "distort": [
+        {
+          "line_has": "бюджет[^\\n]*(?<!\\d)15000000",
+          "line_lacks": "18500000|18[,.]5\\s*млн|замен|вместо|прежн|ранее|изначальн|предварит|перенес|передума|был[аио]?\\s",
+          "note": "предварительный бюджет выдан за итоговый",
+          "text_lacks": "(?<!\\d)18500000(?!\\d)|18[,.]5\\s*млн"
+        }
+      ]
+    },
+    {
+      "id": "D27",
+      "detail": "Итоговый план — 24 теста",
+      "importance": "high",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 31,
+          "role": "user",
+          "quote": "делаем 24 теста"
+        }
+      ],
+      "keep": [
+        "(?<![\\d.,])24\\s+тест|тест\\w*[^\\n]{0,40}(?<![\\d.,])24(?!\\d)"
+      ],
+      "distort": [
+        {
+          "line_has": "тест[^\\n]*(?<![\\d–-])20(?![\\d–-])",
+          "line_lacks": "(?<!\\d)24(?!\\d)|замен|вместо|прежн|ранее|изначальн|предварит|перенес|передума|был[аио]?\\s",
+          "note": "прежнее число тестов выдано за итоговое",
+          "text_lacks": "(?<![\\d.,])24\\s+тест|тест\\w*[^\\n]{0,40}(?<![\\d.,])24(?!\\d)"
+        }
+      ]
+    },
+    {
+      "id": "D28",
+      "detail": "Тесты включают проверки сетевых ошибок",
+      "importance": "low",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 31,
+          "role": "user",
+          "quote": "добавим проверки сетевых ошибок"
+        }
+      ],
+      "keep": [
+        "сетев"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D29",
+      "detail": "Итоговое время запуска 09:30",
+      "importance": "high",
+      "kind": "fact",
+      "evidence": [
+        {
+          "message": 33,
+          "role": "user",
+          "quote": "Переносим на 09:30"
+        }
+      ],
+      "keep": [
+        "(?<!\\d)0?9[:.]30(?!\\d)"
+      ],
+      "distort": [
+        {
+          "line_has": "(?<!\\d)0?8:00",
+          "line_lacks": "0?9[:.]30|замен|вместо|прежн|ранее|изначальн|предварит|перенес|передума|был[аио]?\\s",
+          "note": "прежнее время выдано за итоговое",
+          "text_lacks": "(?<!\\d)0?9[:.]30(?!\\d)"
+        }
+      ]
+    },
+    {
+      "id": "D30",
+      "detail": "Причина переноса: в 08:00 ноутбук ещё выключен",
+      "importance": "medium",
+      "kind": "reason",
+      "evidence": [
+        {
+          "message": 33,
+          "role": "user",
+          "quote": "в это время ноутбук ещё выключен"
+        }
+      ],
+      "keep": [
+        "ноутбук"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D31",
+      "detail": "launchd: StartCalendarInterval, Hour=9, Minute=30",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 34,
+          "role": "model",
+          "quote": "StartCalendarInterval с Hour=9 и Minute=30"
+        }
+      ],
+      "keep": [
+        "startcalendarinterval"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D32",
+      "detail": "Рассматривали requests",
+      "importance": "medium",
+      "kind": "alternative",
+      "evidence": [
+        {
+          "message": 36,
+          "role": "model",
+          "quote": "Подойдут requests или httpx"
+        }
+      ],
+      "keep": [
+        "requests"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D33",
+      "detail": "httpx — если понадобится асинхронность",
+      "importance": "low",
+      "kind": "reason",
+      "evidence": [
+        {
+          "message": 36,
+          "role": "model",
+          "quote": "Если понадобится асинхронность, лучше httpx"
+        }
+      ],
+      "keep": [
+        "асинхрон"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D34",
+      "detail": "Решение: библиотека httpx",
+      "importance": "medium",
+      "kind": "decision",
+      "evidence": [
+        {
+          "message": 37,
+          "role": "user",
+          "quote": "Возьмём httpx"
+        }
+      ],
+      "keep": [
+        "httpx"
+      ],
+      "distort": []
+    },
+    {
+      "id": "D35",
+      "detail": "Структура папок src/, tests/, results/, scripts/ (совет)",
+      "importance": "low",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 38,
+          "role": "model",
+          "quote": "src/ для кода, tests/ для тестов, results/ для файлов с результатами, scripts/"
+        }
+      ],
+      "keep": [
+        {
+          "text_all": [
+            "src/",
+            "scripts/"
+          ]
+        }
+      ],
+      "distort": []
+    },
+    {
+      "id": "D36",
+      "detail": "Ключи в .env (в .gitignore), чтение через python-dotenv (совет)",
+      "importance": "medium",
+      "kind": "advice",
+      "evidence": [
+        {
+          "message": 40,
+          "role": "model",
+          "quote": "В файле .env, который добавлен в .gitignore; читать его можно через python-dotenv"
+        }
+      ],
+      "keep": [
+        {
+          "text_all": [
+            "\\.env",
+            "dotenv"
+          ]
+        }
+      ],
+      "distort": []
+    }
+  ],
+  "attributions": [
+    {
+      "id": "A01",
+      "item": "Открытые API погоды по координатам",
+      "pattern": "координат",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        6
+      ],
+      "accepted_by_user": false,
+      "user_acceptance_quote": null
+    },
+    {
+      "id": "A02",
+      "item": "Команды для zsh / Homebrew",
+      "pattern": "zsh|homebrew",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        10
+      ],
+      "accepted_by_user": false,
+      "user_acceptance_quote": null
+    },
+    {
+      "id": "A03",
+      "item": "Виртуальное окружение venv",
+      "pattern": "venv",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        12
+      ],
+      "accepted_by_user": false,
+      "user_acceptance_quote": null
+    },
+    {
+      "id": "A04",
+      "item": "Системный планировщик / launchd",
+      "pattern": "launchd|планировщик",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        12,
+        22,
+        34
+      ],
+      "accepted_by_user": false,
+      "user_acceptance_quote": null
+    },
+    {
+      "id": "A05",
+      "item": "StartCalendarInterval (Hour=9, Minute=30)",
+      "pattern": "startcalendarinterval",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        34
+      ],
+      "accepted_by_user": false,
+      "user_acceptance_quote": null
+    },
+    {
+      "id": "A06",
+      "item": "Структура папок src/ tests/ results/ scripts/",
+      "pattern": "src/|scripts/",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        38
+      ],
+      "accepted_by_user": false,
+      "user_acceptance_quote": null
+    },
+    {
+      "id": "A07",
+      "item": "Хранение ключей в .env + python-dotenv",
+      "pattern": "\\.env|dotenv",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        40
+      ],
+      "accepted_by_user": false,
+      "user_acceptance_quote": null
+    },
+    {
+      "id": "A08",
+      "item": "Библиотека httpx",
+      "pattern": "httpx",
+      "proposed_by": "assistant",
+      "assistant_messages": [
+        36
+      ],
+      "accepted_by_user": true,
+      "user_acceptance_quote": "Возьмём httpx"
+    }
+  ]
+}

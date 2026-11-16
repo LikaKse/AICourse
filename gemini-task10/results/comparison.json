@@ -1,0 +1,824 @@
+{
+  "generated_at": "2026-11-13T20:43:38",
+  "model": "gemini-3.5-flash-lite",
+  "strategies": [
+    "sliding",
+    "facts",
+    "summary"
+  ],
+  "table": [
+    {
+      "strategy": "sliding",
+      "title": "Sliding Window (последние N сообщений)",
+      "details_preserved": 1,
+      "details_lost": 35,
+      "details_distorted": 0,
+      "details_checked": 36,
+      "lost_ids": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17",
+        "D18",
+        "D19",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D24",
+        "D25",
+        "D26",
+        "D27",
+        "D28",
+        "D29",
+        "D30",
+        "D31",
+        "D32",
+        "D33",
+        "D35",
+        "D36"
+      ],
+      "distorted_ids": [],
+      "attribution_issues": [],
+      "answers_correct": 1,
+      "answers_total": 15,
+      "answers_by_category": {
+        "core": {
+          "correct": 1,
+          "total": 10,
+          "percent": 10.0
+        },
+        "detail": {
+          "correct": 0,
+          "total": 5,
+          "percent": 0.0
+        }
+      },
+      "context_tokens_before_questions": 100,
+      "processing": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0,
+        "failed_calls": 0
+      },
+      "processing_by_kind": {},
+      "control": {
+        "calls": 15,
+        "input_tokens": 2884,
+        "output_tokens": 398,
+        "total_tokens": 3282,
+        "estimated_cost_usd": 0.0018602
+      },
+      "total": {
+        "generate_content_calls": 15,
+        "input_tokens": 2884,
+        "output_tokens": 398,
+        "total_tokens": 3282,
+        "complete": true,
+        "estimated_cost_usd": 0.0018602
+      },
+      "count_tokens_calls": 18,
+      "usage_complete": true,
+      "complexity": {
+        "loc": 23,
+        "components": 1,
+        "functions": 5,
+        "extra_state_files": 0,
+        "extra_model_call_types": 0,
+        "extra_prompts": 0,
+        "model_output_validation": false,
+        "units": [
+          "strategies/sliding_window.py"
+        ]
+      }
+    },
+    {
+      "strategy": "facts",
+      "title": "Sticky Facts (key-value память + последние N)",
+      "details_preserved": 23,
+      "details_lost": 13,
+      "details_distorted": 0,
+      "details_checked": 36,
+      "lost_ids": [
+        "D07",
+        "D09",
+        "D11",
+        "D13",
+        "D15",
+        "D18",
+        "D22",
+        "D23",
+        "D30",
+        "D31",
+        "D32",
+        "D35",
+        "D36"
+      ],
+      "distorted_ids": [],
+      "attribution_issues": [],
+      "answers_correct": 13,
+      "answers_total": 15,
+      "answers_by_category": {
+        "core": {
+          "correct": 10,
+          "total": 10,
+          "percent": 100.0
+        },
+        "detail": {
+          "correct": 3,
+          "total": 5,
+          "percent": 60.0
+        }
+      },
+      "context_tokens_before_questions": 791,
+      "processing": {
+        "calls": 25,
+        "input_tokens": 20238,
+        "output_tokens": 1881,
+        "total_tokens": 22119,
+        "estimated_cost_usd": 0.0107739,
+        "failed_calls": 0
+      },
+      "processing_by_kind": {
+        "facts_update": {
+          "calls": 25,
+          "calls_with_usage_metadata": 25,
+          "complete": true,
+          "input_tokens": 20238,
+          "candidates_tokens": 1881,
+          "thoughts_tokens": 0,
+          "output_tokens": 1881,
+          "total_tokens": 22119,
+          "request_tokens_count_tokens": 11038,
+          "estimated_cost_usd": 0.0107739,
+          "failed_calls": 0
+        }
+      },
+      "control": {
+        "calls": 15,
+        "input_tokens": 14029,
+        "output_tokens": 281,
+        "total_tokens": 14310,
+        "estimated_cost_usd": 0.0049112
+      },
+      "total": {
+        "generate_content_calls": 40,
+        "input_tokens": 34267,
+        "output_tokens": 2162,
+        "total_tokens": 36429,
+        "complete": true,
+        "estimated_cost_usd": 0.0156851
+      },
+      "count_tokens_calls": 44,
+      "usage_complete": true,
+      "complexity": {
+        "loc": 363,
+        "components": 17,
+        "functions": 33,
+        "extra_state_files": 1,
+        "extra_model_call_types": 1,
+        "extra_prompts": 2,
+        "model_output_validation": true,
+        "units": [
+          "strategies/sticky_facts.py",
+          "facts_store.py",
+          "agent.py::build_facts_request",
+          "agent.py::Agent.extract_facts"
+        ]
+      }
+    },
+    {
+      "strategy": "summary",
+      "title": "Summary (День 9: summary + последние KEEP_LAST)",
+      "details_preserved": 26,
+      "details_lost": 10,
+      "details_distorted": 0,
+      "details_checked": 36,
+      "lost_ids": [
+        "D05",
+        "D07",
+        "D11",
+        "D15",
+        "D17",
+        "D18",
+        "D23",
+        "D30",
+        "D32",
+        "D33"
+      ],
+      "distorted_ids": [],
+      "attribution_issues": [
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07"
+      ],
+      "answers_correct": 12,
+      "answers_total": 15,
+      "answers_by_category": {
+        "core": {
+          "correct": 10,
+          "total": 10,
+          "percent": 100.0
+        },
+        "detail": {
+          "correct": 2,
+          "total": 5,
+          "percent": 40.0
+        }
+      },
+      "context_tokens_before_questions": 677,
+      "processing": {
+        "calls": 4,
+        "input_tokens": 3075,
+        "output_tokens": 1216,
+        "total_tokens": 4291,
+        "estimated_cost_usd": 0.0039625,
+        "failed_calls": 0
+      },
+      "processing_by_kind": {
+        "summary": {
+          "calls": 4,
+          "calls_with_usage_metadata": 4,
+          "complete": true,
+          "input_tokens": 3075,
+          "candidates_tokens": 1216,
+          "thoughts_tokens": 0,
+          "output_tokens": 1216,
+          "total_tokens": 4291,
+          "request_tokens_count_tokens": 2275,
+          "estimated_cost_usd": 0.0039625,
+          "failed_calls": 0
+        }
+      },
+      "control": {
+        "calls": 15,
+        "input_tokens": 11539,
+        "output_tokens": 319,
+        "total_tokens": 11858,
+        "estimated_cost_usd": 0.0042592
+      },
+      "total": {
+        "generate_content_calls": 19,
+        "input_tokens": 14614,
+        "output_tokens": 1535,
+        "total_tokens": 16149,
+        "complete": true,
+        "estimated_cost_usd": 0.0082217
+      },
+      "count_tokens_calls": 27,
+      "usage_complete": true,
+      "complexity": {
+        "loc": 276,
+        "components": 11,
+        "functions": 36,
+        "extra_state_files": 1,
+        "extra_model_call_types": 1,
+        "extra_prompts": 1,
+        "model_output_validation": false,
+        "units": [
+          "strategies/summary.py",
+          "context_manager.py::SummarizationError",
+          "context_manager.py::StateError",
+          "context_manager.py::SummaryOutput",
+          "context_manager.py::CompressionEvent",
+          "context_manager.py::ContextManager",
+          "history_store.py::SummaryState",
+          "history_store.py::SummaryStore",
+          "agent.py::render_messages",
+          "agent.py::build_summary_request",
+          "agent.py::Agent.summarize"
+        ]
+      }
+    }
+  ],
+  "per_question": [
+    {
+      "id": 1,
+      "fact": "Имя пользователя",
+      "category": "core",
+      "expected": "Лика",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В нашем диалоге вы не представлялись, поэтому я не знаю вашего имени.",
+      "facts_answer": "Вас зовут Лика.",
+      "summary_answer": "Лика."
+    },
+    {
+      "id": 2,
+      "fact": "Место проживания",
+      "category": "core",
+      "expected": "Нячанг",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В нашем диалоге нет информации о том, где вы живете, поэтому я не знаю этого.",
+      "facts_answer": "Ты живешь в Нячанге.",
+      "summary_answer": "В Нячанге."
+    },
+    {
+      "id": 3,
+      "fact": "Бюджет",
+      "category": "core",
+      "expected": "18 500 000 VND",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В нашем диалоге нет информации об утвержденном бюджете проекта. Я не знаю этого.",
+      "facts_answer": "Для проекта утверждён бюджет 18 500 000 VND.",
+      "summary_answer": "Утверждённый бюджет проекта составляет 18 500 000 VND."
+    },
+    {
+      "id": 4,
+      "fact": "Срок проекта",
+      "category": "core",
+      "expected": "17 декабря 2026 года",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "Извините, в нашем диалоге нет информации о дате сдачи проекта. Я не знаю этого.",
+      "facts_answer": "До 17 декабря 2026 года.",
+      "summary_answer": "Крайний срок сдачи проекта — 17 декабря 2026 года."
+    },
+    {
+      "id": 5,
+      "fact": "Количество тестов",
+      "category": "core",
+      "expected": "24",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В предыдущих сообщениях диалога точное количество тестов не упоминалось. Известно только, что тесты нужно написать в рамках оставшихся задач.",
+      "facts_answer": "Мы планируем написать 24 теста.",
+      "summary_answer": "24 теста."
+    },
+    {
+      "id": 6,
+      "fact": "Модель",
+      "category": "core",
+      "expected": "gemini-3.5-flash-lite",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В предыдущей части диалога не упоминалось, какую именно модель Gemini мы выбрали.",
+      "facts_answer": "Для проекта выбрана модель **gemini-3.5-flash-lite**.",
+      "summary_answer": "Мы выбрали модель **gemini-3.5-flash-lite**."
+    },
+    {
+      "id": 7,
+      "fact": "Ограничение",
+      "category": "core",
+      "expected": "не использовать Docker",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В текущем диалоге вы не указывали никаких ограничений по инструментам для разработки и запуска (кроме упоминания `ruff` для форматирования кода в предыдущих сообщениях).",
+      "facts_answer": "Ваше ограничение: Docker не использовать вообще, ни для разработки, ни для запуска.",
+      "summary_answer": "Docker использовать запрещено (ни для разработки, ни для запуска). Используются виртуальное окружение `venv` и системный планировщик `launchd` на macOS."
+    },
+    {
+      "id": 8,
+      "fact": "ОС",
+      "category": "core",
+      "expected": "macOS",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В нашем предыдущем разговоре этой информации не было, поэтому я не знаю, на какой операционной системе вы работаете.",
+      "facts_answer": "Вы работаете на macOS.",
+      "summary_answer": "Ты работаешь на macOS."
+    },
+    {
+      "id": 9,
+      "fact": "Решение по хранению",
+      "category": "core",
+      "expected": "хранить результаты в JSON",
+      "sliding_correct": true,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В диалоге пока не обсуждался формат хранения результатов. Уточните, какой формат вы бы хотели использовать (например, JSON, CSV или SQLite)?",
+      "facts_answer": "Результаты сохраняются в формате JSON, по одному файлу на каждый запуск.",
+      "summary_answer": "Результаты сохраняются в формате **JSON**, по одному отдельному файлу на каждый запуск в папке `results/`."
+    },
+    {
+      "id": 10,
+      "fact": "Время ежедневного запуска",
+      "category": "core",
+      "expected": "09:30",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В нашем диалоге пока не обсуждалось время запуска скрипта. Укажите его, и я запомню.",
+      "facts_answer": "Скрипт должен запускаться каждый день в 09:30.",
+      "summary_answer": "Скрипт должен запускаться ежедневно в 09:30."
+    },
+    {
+      "id": 11,
+      "fact": "Причина переноса запуска",
+      "category": "detail",
+      "expected": "в 08:00 ноутбук ещё выключен",
+      "sliding_correct": false,
+      "facts_correct": false,
+      "summary_correct": false,
+      "sliding_answer": "В нашем диалоге нет информации о причинах переноса времени ежедневного запуска. Я не знаю этого.",
+      "facts_answer": "Пользователь принял решение перенести ежедневный запуск на 09:30. Причину изменения в диалоге он не уточнял.",
+      "summary_answer": "Ежедневный запуск перенесли с 08:00 на 09:30. Причина изменения в контексте диалога не указана."
+    },
+    {
+      "id": 12,
+      "fact": "Причина выбора модели",
+      "category": "detail",
+      "expected": "важнее скорость и цена",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": false,
+      "sliding_answer": "В нашей переписке не было обсуждения выбора между `gemini-3.5-flash-lite` и `gemini-3.5-flash`, поэтому я не знаю причину.",
+      "facts_answer": "Потому что вы выбрали gemini-3.5-flash-lite из соображений скорости и цены.",
+      "summary_answer": "Эту модель выбрали для оптимизации бюджета в рамках выделенных 18 500 000 VND и снижения задержек при обработке ответов."
+    },
+    {
+      "id": 13,
+      "fact": "Отвергнутые форматы хранения",
+      "category": "detail",
+      "expected": "CSV и SQLite",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": false,
+      "sliding_answer": "В предыдущей части диалога не обсуждались другие форматы хранения (кроме упоминания необходимости сохранения результатов). Я не знаю эту информацию и не буду выдумывать.",
+      "facts_answer": "Помимо JSON, мы рассматривали другие варианты в процессе обсуждения (или планировали их), но зафиксировали в итоге именно JSON по одному файлу на каждый запуск. Если нужны были другие форматы (например, CSV или SQLite), в текущем диалоге они не обсуждались.",
+      "summary_answer": "В предыдущей части диалога другие форматы хранения не обсуждались — с самого начала было зафиксировано сохранение результатов в JSON (по одному отдельному файлу на каждый запуск). Другие варианты не рассматривались."
+    },
+    {
+      "id": 14,
+      "fact": "Предварительный бюджет",
+      "category": "detail",
+      "expected": "15 000 000 VND (предварительный)",
+      "sliding_correct": false,
+      "facts_correct": true,
+      "summary_correct": true,
+      "sliding_answer": "В предыдущей части диалога не было информации о бюджете. Я не знаю, каким он был до окончательного утверждения.",
+      "facts_answer": "До окончательного утверждения бюджет составлял 15 000 000 VND.",
+      "summary_answer": "До окончательного утверждения бюджет составлял 15 000 000 VND (позже он был увеличен до 18 500 000 VND)."
+    },
+    {
+      "id": 15,
+      "fact": "Кто предложил launchd",
+      "category": "detail",
+      "expected": "ассистент",
+      "sliding_correct": false,
+      "facts_correct": false,
+      "summary_correct": true,
+      "sliding_answer": "В предыдущей части диалога инструмент `launchd` не упоминался. Я не знаю, кто его предложил.",
+      "facts_answer": "В нашей памяти нет информации о том, кто предложил использовать `launchd`.",
+      "summary_answer": "Ассистент (при согласовании с вами)."
+    }
+  ],
+  "per_detail": [
+    {
+      "id": "D01",
+      "detail": "Имя пользователя — Лика",
+      "importance": "high",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D02",
+      "detail": "Учебный проект на Python",
+      "importance": "low",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D03",
+      "detail": "Ежедневный сбор курсов валют и прогноза погоды",
+      "importance": "medium",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D04",
+      "detail": "Результаты собираются для анализа",
+      "importance": "low",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D05",
+      "detail": "Пользователь живёт в Нячанге",
+      "importance": "high",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "lost"
+    },
+    {
+      "id": "D06",
+      "detail": "Прогноз погоды — для Нячанга",
+      "importance": "medium",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D07",
+      "detail": "Совет: открытые API погоды по координатам города",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "lost"
+    },
+    {
+      "id": "D08",
+      "detail": "Предварительный бюджет 15 000 000 VND",
+      "importance": "medium",
+      "kind": "intermediate",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D09",
+      "detail": "Бюджет — на платные API и хостинг",
+      "importance": "low",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "preserved"
+    },
+    {
+      "id": "D10",
+      "detail": "Операционная система — macOS",
+      "importance": "high",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D11",
+      "detail": "Команды для zsh и Homebrew (ассистент)",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "lost"
+    },
+    {
+      "id": "D12",
+      "detail": "Docker запрещён и для разработки, и для запуска",
+      "importance": "high",
+      "kind": "constraint",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D13",
+      "detail": "venv и системный планировщик (предложение ассистента)",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "preserved"
+    },
+    {
+      "id": "D14",
+      "detail": "Рассматривали и gemini-3.5-flash",
+      "importance": "medium",
+      "kind": "alternative",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D15",
+      "detail": "Сравнение моделей: lite дешевле и быстрее, flash точнее",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "lost"
+    },
+    {
+      "id": "D16",
+      "detail": "Выбрана модель gemini-3.5-flash-lite",
+      "importance": "high",
+      "kind": "decision",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D17",
+      "detail": "Причина выбора модели: важнее скорость и цена",
+      "importance": "medium",
+      "kind": "preference",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "lost"
+    },
+    {
+      "id": "D18",
+      "detail": "Рассматривали CSV и SQLite",
+      "importance": "medium",
+      "kind": "alternative",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "lost"
+    },
+    {
+      "id": "D19",
+      "detail": "Решение: хранить результаты в JSON",
+      "importance": "high",
+      "kind": "decision",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D20",
+      "detail": "Отдельный файл на каждый запуск",
+      "importance": "medium",
+      "kind": "decision",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D21",
+      "detail": "Первоначальное время запуска 08:00",
+      "importance": "medium",
+      "kind": "intermediate",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D22",
+      "detail": "launchd как способ запуска (совет ассистента)",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "preserved"
+    },
+    {
+      "id": "D23",
+      "detail": "Совет ассистента: 15–20 тестов",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "lost"
+    },
+    {
+      "id": "D24",
+      "detail": "Первоначальный план — 20 тестов",
+      "importance": "medium",
+      "kind": "intermediate",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D25",
+      "detail": "Срок сдачи — 17 декабря 2026 года",
+      "importance": "high",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D26",
+      "detail": "Окончательный бюджет 18 500 000 VND",
+      "importance": "high",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D27",
+      "detail": "Итоговый план — 24 теста",
+      "importance": "high",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D28",
+      "detail": "Тесты включают проверки сетевых ошибок",
+      "importance": "low",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D29",
+      "detail": "Итоговое время запуска 09:30",
+      "importance": "high",
+      "kind": "fact",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D30",
+      "detail": "Причина переноса: в 08:00 ноутбук ещё выключен",
+      "importance": "medium",
+      "kind": "reason",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "lost"
+    },
+    {
+      "id": "D31",
+      "detail": "launchd: StartCalendarInterval, Hour=9, Minute=30",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "preserved"
+    },
+    {
+      "id": "D32",
+      "detail": "Рассматривали requests",
+      "importance": "medium",
+      "kind": "alternative",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "lost"
+    },
+    {
+      "id": "D33",
+      "detail": "httpx — если понадобится асинхронность",
+      "importance": "low",
+      "kind": "reason",
+      "sliding": "lost",
+      "facts": "preserved",
+      "summary": "lost"
+    },
+    {
+      "id": "D34",
+      "detail": "Решение: библиотека httpx",
+      "importance": "medium",
+      "kind": "decision",
+      "sliding": "preserved",
+      "facts": "preserved",
+      "summary": "preserved"
+    },
+    {
+      "id": "D35",
+      "detail": "Структура папок src/, tests/, results/, scripts/ (совет)",
+      "importance": "low",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "preserved"
+    },
+    {
+      "id": "D36",
+      "detail": "Ключи в .env (в .gitignore), чтение через python-dotenv (совет)",
+      "importance": "medium",
+      "kind": "advice",
+      "sliding": "lost",
+      "facts": "lost",
+      "summary": "preserved"
+    }
+  ],
+  "notes": [
+    "Деталей сохранено — офлайн-аудит 36 деталей по тексту контекста перед вопросом (блок памяти + последние сообщения), регулярные выражения data/summary_details.json.",
+    "Токены — usage_metadata (фактически). Стоимость — расчёт по config.PRICING, не счёт Google.",
+    "Вызовы модели — generate_content; count_tokens (бесплатный) указан отдельно."
+  ]
+}
