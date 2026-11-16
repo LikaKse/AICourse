@@ -1,0 +1,20 @@
+{
+  "description": "Эталон для 15 контрольных вопросов. Используется ТОЛЬКО для проверки ответов: агенту и менеджеру памяти не передаётся. layer — слой, из которого должен браться ответ (short_term / working / long_term). Шаблоны — регулярные выражения по нормализованному ответу (нижний регистр, ё→е, без разделителей тысяч): ответ верен, если совпали ВСЕ accept_all и НИ ОДИН reject. evidence_message — номер сообщения сценария (с 1), где появился факт.",
+  "answers": [
+    {"id": 1, "layer": "long_term", "expected": "Лика", "accept_all": ["(?<![а-я])лик(а|и|е|у|ой)(?![а-я])"], "reject": [], "evidence_message": 1},
+    {"id": 2, "layer": "long_term", "expected": "в Нячанге", "accept_all": ["нячанг"], "reject": [], "evidence_message": 1},
+    {"id": 3, "layer": "long_term", "expected": "macOS", "accept_all": ["mac ?os|мак ?ос"], "reject": [], "evidence_message": 3},
+    {"id": 4, "layer": "long_term", "expected": "не использовать Docker ни для разработки, ни для запуска", "accept_all": ["docker|докер"], "reject": [], "evidence_message": 3},
+    {"id": 5, "layer": "long_term", "expected": "1000 запросов в день", "accept_all": ["(?<!\\d)1000(?!\\d)|тысяч"], "reject": [], "evidence_message": 7},
+    {"id": 6, "layer": "long_term", "expected": "pytest — предложил ассистент, пользователь принял", "accept_all": ["pytest", "ассистент|ты предлож|я предлож|предложил я|мной"], "reject": [], "evidence_message": 11},
+    {"id": 7, "layer": "long_term", "expected": "launchd предложил ассистент; пользователь это не подтвердил", "accept_all": ["launchd", "ассистент|я предлож|мной|предложил я"], "reject": ["(?<![а-я])(вы|пользовател[а-я]*) (сам[а-я]* )?(выбрал|решил|предложил|утвердил|принял)[а-я]*"], "evidence_message": 14},
+    {"id": 8, "layer": "working", "expected": "еженедельный отчёт по курсам валют в Markdown", "accept_all": ["еженедельн|недельн|отчет[а-я]* за неделю"], "reject": [], "evidence_message": 15},
+    {"id": 9, "layer": "working", "expected": "до 20 ноября", "accept_all": ["(?<!\\d)20 ноябр|(?<!\\d)20\\.11"], "reject": [], "evidence_message": 17},
+    {"id": 10, "layer": "working", "expected": "отчёт должен помещаться на одну страницу", "accept_all": ["(одн[а-я]*|1) страниц"], "reject": [], "evidence_message": 17},
+    {"id": 11, "layer": "working", "expected": "load_rates", "accept_all": ["load_?rates|load rates"], "reject": [], "evidence_message": 19},
+    {"id": 12, "layer": "working", "expected": "написать тесты для build_report", "accept_all": ["build_?report|build report", "тест"], "reject": [], "evidence_message": 21},
+    {"id": 13, "layer": "short_term", "expected": "на строке 42", "accept_all": ["(?<!\\d)42(?!\\d)"], "reject": [], "evidence_message": 25},
+    {"id": 14, "layer": "short_term", "expected": "кофе с кокосовым молоком", "accept_all": ["кофе"], "reject": [], "evidence_message": 27},
+    {"id": 15, "layer": "short_term", "expected": "forecast", "accept_all": ["forecast"], "reject": [], "evidence_message": 29}
+  ]
+}
