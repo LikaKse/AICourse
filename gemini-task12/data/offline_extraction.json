@@ -1,0 +1,50 @@
+{
+  "description": "Ответы «менеджера памяти» для FakeClient (офлайн-режим). Ключ — номер сообщения пользователя в сценарии (с 1). Это то, что ПРЕДЛАГАЕТ модель; записывает код и только после проверки правилами memory/rules.py. Операции с пометкой _demo намеренно неверные — они показывают, что правила записи их отклоняют. Сообщения 25, 27, 29 (сиюминутные детали) намеренно без операций.",
+  "by_user_message": {
+    "1": [
+      {"layer": "long_term", "op": "set", "key": "name", "value": "Лика", "kind": "user", "category": "name", "evidence": "Меня зовут Лика"},
+      {"layer": "long_term", "op": "set", "key": "city", "value": "Нячанг", "kind": "user", "category": "location", "evidence": "Я живу в Нячанге"},
+      {"layer": "long_term", "op": "set", "key": "project", "value": "учебный скрипт на Python: собирает курсы валют и погоду", "kind": "user", "category": "other", "evidence": "пишу на Python небольшой скрипт, который собирает курсы валют и погоду"}
+    ],
+    "3": [
+      {"layer": "long_term", "op": "set", "key": "os", "value": "macOS", "kind": "user", "category": "environment", "evidence": "Работаю я на macOS"},
+      {"layer": "long_term", "op": "set", "key": "no_docker", "value": "не использовать Docker ни для разработки, ни для запуска", "kind": "user", "category": "constraint", "evidence": "никакого Docker — ни для разработки, ни для запуска"}
+    ],
+    "5": [
+      {"layer": "long_term", "op": "set", "key": "answer_style", "value": "кратко и с примерами кода на Python", "kind": "user", "category": "preference", "evidence": "отвечай мне кратко и с примерами кода на Python"}
+    ],
+    "7": [
+      {"layer": "long_term", "op": "set", "key": "openweather_limit", "value": "бесплатный ключ OpenWeather — 1000 запросов в день", "kind": "user", "category": "knowledge", "evidence": "бесплатный ключ OpenWeather ограничен 1000 запросами в день"}
+    ],
+    "9": [
+      {"_demo": "вопрос — не факт", "layer": "long_term", "op": "set", "key": "test_framework", "value": "pytest", "kind": "user", "category": "decision", "evidence": "Какой фреймворк для тестов посоветуешь"}
+    ],
+    "11": [
+      {"layer": "long_term", "op": "set", "key": "test_framework", "value": "pytest", "kind": "accepted_proposal", "category": "decision", "evidence": "Давай pytest", "proposal_evidence": "удобнее всего pytest"}
+    ],
+    "15": [
+      {"layer": "long_term", "op": "set", "key": "scheduler", "value": "launchd (системный планировщик macOS)", "kind": "assistant_proposal", "category": "decision", "evidence": "можно использовать launchd"},
+      {"layer": "working", "op": "set", "key": "goal", "value": "еженедельный отчёт по курсам валют в формате Markdown", "kind": "user", "category": "other", "evidence": "нужно сделать еженедельный отчёт по курсам валют в формате Markdown"},
+      {"layer": "working", "op": "set", "key": "status", "value": "planning", "kind": "user", "category": "other", "evidence": "Теперь к текущей задаче"},
+      {"_demo": "данные задачи в long-term", "layer": "long_term", "op": "set", "key": "current_task", "value": "еженедельный отчёт по курсам валют", "kind": "user", "category": "goal", "evidence": "нужно сделать еженедельный отчёт по курсам валют"}
+    ],
+    "17": [
+      {"layer": "working", "op": "set", "key": "deadline", "value": "20 ноября", "kind": "user", "category": "other", "evidence": "Сдать отчёт нужно до 20 ноября"},
+      {"layer": "working", "op": "set", "key": "constraints", "value": "отчёт помещается на одну страницу", "kind": "user", "category": "other", "evidence": "отчёт должен помещаться на одну страницу"},
+      {"_demo": "данные задачи в long-term", "layer": "long_term", "op": "set", "key": "deadline", "value": "20 ноября", "kind": "user", "category": "deadline", "evidence": "Сдать отчёт нужно до 20 ноября"}
+    ],
+    "19": [
+      {"layer": "working", "op": "set", "key": "status", "value": "in_progress", "kind": "user", "category": "other", "evidence": "Начинаю"},
+      {"layer": "working", "op": "set", "key": "results", "value": "функция load_rates готова: читает курсы из JSON за неделю", "kind": "user", "category": "other", "evidence": "Функцию load_rates, которая читает курсы из JSON за неделю, я уже написала"},
+      {"_demo": "поле вне рабочей памяти", "layer": "working", "op": "set", "key": "priority", "value": "высокий", "kind": "user", "category": "other", "evidence": "Начинаю"}
+    ],
+    "21": [
+      {"layer": "working", "op": "set", "key": "next_step", "value": "написать тесты для build_report", "kind": "user", "category": "other", "evidence": "Сначала напишу тесты для build_report"},
+      {"_demo": "неподтверждённое предложение в working", "layer": "working", "op": "set", "key": "results", "value": "build_report собирает Markdown-таблицу", "kind": "assistant_proposal", "category": "other", "evidence": "Следующая — build_report, которая собирает Markdown-таблицу"}
+    ],
+    "23": [
+      {"layer": "working", "op": "set", "key": "budget", "value": "не больше 5 USD на платные API", "kind": "user", "category": "other", "evidence": "бюджет на платные API для этой задачи — максимум 5 долларов"},
+      {"_demo": "краткосрочную память пишет только код", "layer": "short_term", "op": "set", "key": "note", "value": "бюджет 5 долларов", "kind": "user", "category": "other", "evidence": "максимум 5 долларов"}
+    ]
+  }
+}

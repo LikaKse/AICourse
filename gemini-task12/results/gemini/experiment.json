@@ -1,0 +1,3053 @@
+{
+  "meta": {
+    "mode": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "created_at": "2026-11-16T21:46:43",
+    "short_term_window": 6,
+    "render_evidence": true,
+    "exchanges": 15,
+    "messages": 30,
+    "questions": 15,
+    "token_source": "Gemini: count_tokens (contents, без system instruction) и usage_metadata",
+    "note": "Реальные ответы Gemini."
+  },
+  "rules": {
+    "write": {
+      "short_term": [
+        "Пишет только код, без вызова LLM: каждая пара «сообщение пользователя — ответ ассистента» как есть.",
+        "Только если ответ получен успешно (status=ok) и сообщение не контрольное (remember=True).",
+        "Ошибки API, пустые ответы и контрольные вопросы не записываются.",
+        "Хранится вся история текущего диалога; размер окна влияет только на чтение.",
+        "Операции модели с layer=short_term отклоняются."
+      ],
+      "working": [
+        "Только операции layer=working из вызова менеджера памяти (1 вызов на сообщение пользователя).",
+        "key — одно из полей задачи: goal, deadline, budget, status, next_step (значение заменяется, прежнее уходит в history) или constraints, results (добавляется элемент, дубликаты не пишутся).",
+        "status — только planning | in_progress | blocked | done.",
+        "Цитата evidence — в сообщении пользователя (kind=user) или согласие пользователя + цитата ассистента (kind=accepted_proposal); числа значения должны быть в исходном тексте.",
+        "Неподтверждённые предложения ассистента (kind=assistant_proposal) в рабочую память не пишутся.",
+        "После status=done задача не меняется; новая задача начинается с goal, завершённая уходит в archived.",
+        "Ничего не переносится в долговременную память — ни автоматически, ни при завершении или очистке."
+      ],
+      "long_term": [
+        "Только операции layer=long_term (правила Sticky Facts из Дня 10).",
+        "Три вида записи: user, accepted_proposal, assistant_proposal — с проверкой цитат в нужных сообщениях и чисел значения.",
+        "Категории: name, location, environment, constraint, preference, decision, knowledge, reason, alternative, other.",
+        "Данные текущей задачи (категория или ключ goal, deadline, budget, status, result, next_step, task, plan…) отклоняются: их место — рабочая память.",
+        "Вопрос пользователя — не факт: цитата из вопросительного предложения отклоняется.",
+        "Предложение ассистента не может перезаписать решение пользователя; изменение значения сохраняет прежнее в history; delete — только с причиной и цитатой пользователя."
+      ]
+    },
+    "read": {
+      "long_term": [
+        "Первым блоком промпта, если есть хотя бы один факт.",
+        "Факты сгруппированы по kind; неподтверждённые предложения помечены «НЕ решение пользователя» (флаг INCLUDE_UNCONFIRMED_PROPOSALS=False скрывает их).",
+        "С цитатами-источниками, если RENDER_EVIDENCE=True."
+      ],
+      "working": [
+        "Вторым блоком — только если есть текущая задача и её status ≠ done.",
+        "Цель, срок, бюджет, ограничения, промежуточные результаты, следующий шаг и статус — без цитат."
+      ],
+      "short_term": [
+        "После блоков памяти — последние SHORT_TERM_WINDOW сообщений как обычные реплики диалога.",
+        "Если окно начинается с ответа ассистента, он отбрасывается, чтобы роли чередовались.",
+        "window=0 — история в промпт не попадает."
+      ]
+    }
+  },
+  "processing": {
+    "calls": 15,
+    "calls_with_usage_metadata": 15,
+    "complete": true,
+    "input_tokens": 14889,
+    "candidates_tokens": 1569,
+    "thoughts_tokens": 0,
+    "output_tokens": 1569,
+    "total_tokens": 16458,
+    "request_tokens_count_tokens": 6324,
+    "estimated_cost_usd": 0.0083892,
+    "failed_calls": 0
+  },
+  "write_log": {
+    "working": {
+      "applied": [
+        {
+          "message": 1,
+          "key": "goal",
+          "value": "Написать скрипт, который собирает курсы валют и погоду",
+          "kind": "user"
+        },
+        {
+          "message": 1,
+          "key": "status",
+          "value": "in_progress",
+          "kind": "user"
+        },
+        {
+          "message": 15,
+          "key": "goal",
+          "value": "Сделать еженедельный отчёт по курсам валют в формате Markdown",
+          "kind": "user"
+        },
+        {
+          "message": 17,
+          "key": "deadline",
+          "value": "20 ноября",
+          "kind": "user"
+        },
+        {
+          "message": 17,
+          "key": "constraints",
+          "value": "отчёт должен помещаться на одну страницу",
+          "kind": "user"
+        },
+        {
+          "message": 19,
+          "key": "results",
+          "value": "написана работающая функция load_rates для чтения курсов из JSON за неделю",
+          "kind": "user"
+        },
+        {
+          "message": 21,
+          "key": "next_step",
+          "value": "написать тесты для build_report, а потом саму функцию",
+          "kind": "user"
+        },
+        {
+          "message": 23,
+          "key": "budget",
+          "value": "максимум 5 долларов",
+          "kind": "user"
+        }
+      ],
+      "rejected": [],
+      "unchanged": [
+        {
+          "message": 19,
+          "key": "status",
+          "value": "in_progress",
+          "kind": "user"
+        }
+      ]
+    },
+    "long_term": {
+      "applied": [
+        {
+          "message": 1,
+          "key": "name",
+          "value": "Лика",
+          "kind": "user"
+        },
+        {
+          "message": 1,
+          "key": "city",
+          "value": "Нячанг",
+          "kind": "user"
+        },
+        {
+          "message": 1,
+          "key": "os",
+          "value": "Python",
+          "kind": "user"
+        },
+        {
+          "message": 3,
+          "key": "os",
+          "value": "macOS",
+          "kind": "user"
+        },
+        {
+          "message": 3,
+          "key": "docker_restriction",
+          "value": "никакого Docker",
+          "kind": "user"
+        },
+        {
+          "message": 5,
+          "key": "communication_preference",
+          "value": "отвечай кратко и с примерами кода на Python",
+          "kind": "user"
+        },
+        {
+          "message": 7,
+          "key": "openweather_limit",
+          "value": "бесплатный ключ OpenWeather ограничен 1000 запросами в день",
+          "kind": "user"
+        },
+        {
+          "message": 11,
+          "key": "test_framework",
+          "value": "pytest",
+          "kind": "accepted_proposal"
+        }
+      ],
+      "rejected": [],
+      "unchanged": []
+    },
+    "unrouted": [],
+    "failed_calls": []
+  },
+  "layers_after_scenario": {
+    "short_term": {
+      "stats": {
+        "stored_messages": 30,
+        "window": 6,
+        "in_prompt_messages": 6,
+        "message_counter": 30
+      },
+      "content": {
+        "messages": [
+          {
+            "no": 1,
+            "role": "user",
+            "text": "Привет! Меня зовут Лика. Я живу в Нячанге и пишу на Python небольшой скрипт, который собирает курсы валют и погоду."
+          },
+          {
+            "no": 2,
+            "role": "model",
+            "text": "Привет, Лика! Звучит как отличный учебный проект. Чем могу помочь?"
+          },
+          {
+            "no": 3,
+            "role": "user",
+            "text": "Работаю я на macOS, и сразу договоримся: никакого Docker — ни для разработки, ни для запуска."
+          },
+          {
+            "no": 4,
+            "role": "model",
+            "text": "Понял: macOS и без Docker. Буду предлагать только решения, которые работают нативно."
+          },
+          {
+            "no": 5,
+            "role": "user",
+            "text": "И ещё: отвечай мне кратко и с примерами кода на Python — так мне удобнее всегда."
+          },
+          {
+            "no": 6,
+            "role": "model",
+            "text": "Договорились: кратко и с примерами на Python."
+          },
+          {
+            "no": 7,
+            "role": "user",
+            "text": "Полезная деталь на будущее: бесплатный ключ OpenWeather ограничен 1000 запросами в день."
+          },
+          {
+            "no": 8,
+            "role": "model",
+            "text": "Учту: лимит бесплатного ключа OpenWeather — 1000 запросов в день. При одном запуске в день до него далеко."
+          },
+          {
+            "no": 9,
+            "role": "user",
+            "text": "Какой фреймворк для тестов посоветуешь?"
+          },
+          {
+            "no": 10,
+            "role": "model",
+            "text": "Для такого проекта удобнее всего pytest: простые assert и фикстуры. Можно и unittest, но он многословнее."
+          },
+          {
+            "no": 11,
+            "role": "user",
+            "text": "Давай pytest."
+          },
+          {
+            "no": 12,
+            "role": "model",
+            "text": "Отлично, используем pytest. Тесты положим в папку tests/."
+          },
+          {
+            "no": 13,
+            "role": "user",
+            "text": "А чем запускать скрипт по расписанию на маке?"
+          },
+          {
+            "no": 14,
+            "role": "model",
+            "text": "На macOS можно использовать launchd: это системный планировщик, Docker не нужен. Вариант попроще — cron."
+          },
+          {
+            "no": 15,
+            "role": "user",
+            "text": "Подумаю над этим позже. Теперь к текущей задаче: нужно сделать еженедельный отчёт по курсам валют в формате Markdown."
+          },
+          {
+            "no": 16,
+            "role": "model",
+            "text": "Хорошо. Еженедельный отчёт в Markdown: таблица курсов за 7 дней и изменение за неделю. Какой срок?"
+          },
+          {
+            "no": 17,
+            "role": "user",
+            "text": "Сдать отчёт нужно до 20 ноября. И важно: отчёт должен помещаться на одну страницу."
+          },
+          {
+            "no": 18,
+            "role": "model",
+            "text": "Принято: срок — 20 ноября, объём — не больше одной страницы."
+          },
+          {
+            "no": 19,
+            "role": "user",
+            "text": "Начинаю. Функцию load_rates, которая читает курсы из JSON за неделю, я уже написала, она работает."
+          },
+          {
+            "no": 20,
+            "role": "model",
+            "text": "Отлично, load_rates готова. Следующая — build_report, которая собирает Markdown-таблицу."
+          },
+          {
+            "no": 21,
+            "role": "user",
+            "text": "Сначала напишу тесты для build_report, а потом саму функцию. Это следующий шаг."
+          },
+          {
+            "no": 22,
+            "role": "model",
+            "text": "Хороший подход — сначала тесты. Начните с проверки заголовка и количества строк таблицы."
+          },
+          {
+            "no": 23,
+            "role": "user",
+            "text": "Кстати, бюджет на платные API для этой задачи — максимум 5 долларов."
+          },
+          {
+            "no": 24,
+            "role": "model",
+            "text": "Учту: на платные API для задачи — не больше 5 долларов. Курсы и погода у нас бесплатные, так что укладываемся."
+          },
+          {
+            "no": 25,
+            "role": "user",
+            "text": "Сейчас у меня открыт report.py на строке 42, но это пока неважно."
+          },
+          {
+            "no": 26,
+            "role": "model",
+            "text": "Хорошо. Когда будете готовы — продолжим."
+          },
+          {
+            "no": 27,
+            "role": "user",
+            "text": "Сделаю перерыв: сейчас пью кофе с кокосовым молоком."
+          },
+          {
+            "no": 28,
+            "role": "model",
+            "text": "Приятного перерыва!"
+          },
+          {
+            "no": 29,
+            "role": "user",
+            "text": "Как перевести на русский слово forecast?"
+          },
+          {
+            "no": 30,
+            "role": "model",
+            "text": "forecast — «прогноз», например weather forecast — прогноз погоды."
+          }
+        ]
+      }
+    },
+    "working": {
+      "stats": {
+        "has_task": true,
+        "task_id": 1,
+        "status": "in_progress",
+        "active": true,
+        "filled_fields": [
+          "goal",
+          "deadline",
+          "budget",
+          "status",
+          "next_step"
+        ],
+        "constraints": 1,
+        "results": 1,
+        "archived_tasks": 0,
+        "version": 6,
+        "in_prompt": true
+      },
+      "content": {
+        "task": {
+          "task_id": 1,
+          "status": "in_progress",
+          "goal": "Сделать еженедельный отчёт по курсам валют в формате Markdown",
+          "deadline": "20 ноября",
+          "budget": "максимум 5 долларов",
+          "next_step": "написать тесты для build_report, а потом саму функцию",
+          "constraints": [
+            "отчёт должен помещаться на одну страницу"
+          ],
+          "results": [
+            "написана работающая функция load_rates для чтения курсов из JSON за неделю"
+          ]
+        },
+        "archived_tasks": 0
+      }
+    },
+    "long_term": {
+      "stats": {
+        "facts": 7,
+        "by_kind": {
+          "user": 6,
+          "accepted_proposal": 1
+        },
+        "by_category": {
+          "name": 1,
+          "location": 1,
+          "environment": 1,
+          "constraint": 1,
+          "preference": 2,
+          "knowledge": 1
+        },
+        "deleted": 0,
+        "version": 5,
+        "in_prompt": true
+      },
+      "content": {
+        "facts": {
+          "name": {
+            "value": "Лика",
+            "kind": "user",
+            "category": "name"
+          },
+          "city": {
+            "value": "Нячанг",
+            "kind": "user",
+            "category": "location"
+          },
+          "os": {
+            "value": "macOS",
+            "kind": "user",
+            "category": "environment"
+          },
+          "docker_restriction": {
+            "value": "никакого Docker",
+            "kind": "user",
+            "category": "constraint"
+          },
+          "communication_preference": {
+            "value": "отвечай кратко и с примерами кода на Python",
+            "kind": "user",
+            "category": "preference"
+          },
+          "openweather_limit": {
+            "value": "бесплатный ключ OpenWeather ограничен 1000 запросами в день",
+            "kind": "user",
+            "category": "knowledge"
+          },
+          "test_framework": {
+            "value": "pytest",
+            "kind": "accepted_proposal",
+            "category": "preference"
+          }
+        }
+      }
+    }
+  },
+  "restart_check": {
+    "same_content": true,
+    "same_prompt": true,
+    "files": {
+      "short_term": "short_term.json",
+      "working": "working_memory.json",
+      "long_term": "long_term.json"
+    },
+    "ok": true
+  },
+  "variants": {
+    "full": {
+      "name": "full",
+      "title": "Все три слоя",
+      "cleared_layer": null,
+      "changed_files": [],
+      "memory_unchanged_by_questions": true,
+      "available_data": {
+        "short_term": {
+          "stored_messages": 30,
+          "window": 6,
+          "in_prompt_messages": 6,
+          "message_counter": 30
+        },
+        "working": {
+          "has_task": true,
+          "task_id": 1,
+          "status": "in_progress",
+          "active": true,
+          "filled_fields": [
+            "goal",
+            "deadline",
+            "budget",
+            "status",
+            "next_step"
+          ],
+          "constraints": 1,
+          "results": 1,
+          "archived_tasks": 0,
+          "version": 6,
+          "in_prompt": true
+        },
+        "long_term": {
+          "facts": 7,
+          "by_kind": {
+            "user": 6,
+            "accepted_proposal": 1
+          },
+          "by_category": {
+            "name": 1,
+            "location": 1,
+            "environment": 1,
+            "constraint": 1,
+            "preference": 2,
+            "knowledge": 1
+          },
+          "deleted": 0,
+          "version": 5,
+          "in_prompt": true
+        }
+      },
+      "prompt_layers": [
+        "long_term",
+        "working",
+        "short_term"
+      ],
+      "prompt_context_text": "Пользователь: Долговременная память: профиль пользователя, предпочтения, решения и знания:\nДанные и решения пользователя (сообщил или решил сам):\n- name: Лика [пользователь, сообщение 1: «Меня зовут Лика.»]\n- city: Нячанг [пользователь, сообщение 1: «Я живу в Нячанге»]\n- os: macOS (ранее: Python) [пользователь, сообщение 3: «Работаю я на macOS»]\n- docker_restriction: никакого Docker [пользователь, сообщение 3: «никакого Docker — ни для разработки, ни для запуска»]\n- communication_preference: отвечай кратко и с примерами кода на Python [пользователь, сообщение 5: «отвечай мне кратко и с примерами кода на Python — так мне удобнее всегда.»]\n- openweather_limit: бесплатный ключ OpenWeather ограничен 1000 запросами в день [пользователь, сообщение 7: «Полезная деталь на будущее: бесплатный ключ OpenWeather ограничен 1000 запросами в день.»]\nПредложения ассистента, ЯВНО принятые пользователем:\n- test_framework: pytest [пользователь, сообщение 11: «Давай pytest.»] [предложил ассистент: «Для такого проекта удобнее всего pytest: простые assert и фикстуры.»]\nАссистент: Понятно, я учту долговременную память.\nПользователь: Рабочая память: данные текущей задачи:\nЗадача #1, статус: в работе (in_progress)\n- Цель: Сделать еженедельный отчёт по курсам валют в формате Markdown\n- Срок: 20 ноября\n- Бюджет: максимум 5 долларов\n- Ограничения задачи: отчёт должен помещаться на одну страницу\n- Промежуточные результаты: написана работающая функция load_rates для чтения курсов из JSON за неделю\n- Следующий шаг: написать тесты для build_report, а потом саму функцию\nАссистент: Понятно, я учту данные текущей задачи.\nПользователь: Сейчас у меня открыт report.py на строке 42, но это пока неважно.\nАссистент: Хорошо. Когда будете готовы — продолжим.\nПользователь: Сделаю перерыв: сейчас пью кофе с кокосовым молоком.\nАссистент: Приятного перерыва!\nПользователь: Как перевести на русский слово forecast?\nАссистент: forecast — «прогноз», например weather forecast — прогноз погоды.",
+      "answers": [
+        {
+          "id": 1,
+          "question": "Как меня зовут?",
+          "layer": "long_term",
+          "expected": "Лика",
+          "answer": "Лика.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 5,
+            "total": 551,
+            "sum_of_parts": 551,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 718,
+            "candidates_tokens": 3,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 721,
+            "present": true,
+            "input_tokens": 718,
+            "output_tokens": 3
+          }
+        },
+        {
+          "id": 2,
+          "question": "Где я живу?",
+          "layer": "long_term",
+          "expected": "в Нячанге",
+          "answer": "Лика, вы живете в Нячанге.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 6,
+            "total": 552,
+            "sum_of_parts": 552,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 719,
+            "candidates_tokens": 11,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 730,
+            "present": true,
+            "input_tokens": 719,
+            "output_tokens": 11
+          }
+        },
+        {
+          "id": 3,
+          "question": "На какой операционной системе я работаю?",
+          "layer": "long_term",
+          "expected": "macOS",
+          "answer": "macOS.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 9,
+            "total": 555,
+            "sum_of_parts": 555,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 722,
+            "candidates_tokens": 3,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 725,
+            "present": true,
+            "input_tokens": 722,
+            "output_tokens": 3
+          }
+        },
+        {
+          "id": 4,
+          "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+          "layer": "long_term",
+          "expected": "не использовать Docker ни для разработки, ни для запуска",
+          "answer": "Никакого Docker — ни для разработки, ни для запуска.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 16,
+            "total": 562,
+            "sum_of_parts": 562,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 729,
+            "candidates_tokens": 13,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 742,
+            "present": true,
+            "input_tokens": 729,
+            "output_tokens": 13
+          }
+        },
+        {
+          "id": 5,
+          "question": "Какой лимит запросов у бесплатного ключа OpenWeather?",
+          "layer": "long_term",
+          "expected": "1000 запросов в день",
+          "answer": "Лимит бесплатного ключа OpenWeather — 1000 запросов в день.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 14,
+            "total": 560,
+            "sum_of_parts": 560,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 727,
+            "candidates_tokens": 19,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 746,
+            "present": true,
+            "input_tokens": 727,
+            "output_tokens": 19
+          }
+        },
+        {
+          "id": 6,
+          "question": "Какой фреймворк для тестов мы выбрали и кто его предложил?",
+          "layer": "long_term",
+          "expected": "pytest — предложил ассистент, пользователь принял",
+          "answer": "Мы выбрали **pytest**. Его предложил ассистент, а вы подтвердили.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 18,
+            "total": 564,
+            "sum_of_parts": 564,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 731,
+            "candidates_tokens": 18,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 749,
+            "present": true,
+            "input_tokens": 731,
+            "output_tokens": 18
+          }
+        },
+        {
+          "id": 7,
+          "question": "Кто предложил запускать скрипт через launchd — я или ты? Это решение принято?",
+          "layer": "long_term",
+          "expected": "launchd предложил ассистент; пользователь это не подтвердил",
+          "answer": "В нашей памяти нет информации о том, кто предлагал запускать скрипт через `launchd`, и это решение не принималось.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": true,
+          "matches_expectation": false,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 21,
+            "total": 567,
+            "sum_of_parts": 567,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 734,
+            "candidates_tokens": 28,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 762,
+            "present": true,
+            "input_tokens": 734,
+            "output_tokens": 28
+          }
+        },
+        {
+          "id": 8,
+          "question": "Какая цель у текущей задачи?",
+          "layer": "working",
+          "expected": "еженедельный отчёт по курсам валют в Markdown",
+          "answer": "Сделать еженедельный отчёт по курсам валют в формате Markdown.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 9,
+            "total": 555,
+            "sum_of_parts": 555,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 722,
+            "candidates_tokens": 17,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 739,
+            "present": true,
+            "input_tokens": 722,
+            "output_tokens": 17
+          }
+        },
+        {
+          "id": 9,
+          "question": "До какого числа нужно сдать текущую задачу?",
+          "layer": "working",
+          "expected": "до 20 ноября",
+          "answer": "До 20 ноября.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 11,
+            "total": 557,
+            "sum_of_parts": 557,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 724,
+            "candidates_tokens": 6,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 730,
+            "present": true,
+            "input_tokens": 724,
+            "output_tokens": 6
+          }
+        },
+        {
+          "id": 10,
+          "question": "Какое ограничение по объёму есть у отчёта?",
+          "layer": "working",
+          "expected": "отчёт должен помещаться на одну страницу",
+          "answer": "Отчёт должен помещаться на одну страницу.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 15,
+            "total": 561,
+            "sum_of_parts": 561,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 728,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 737,
+            "present": true,
+            "input_tokens": 728,
+            "output_tokens": 9
+          }
+        },
+        {
+          "id": 11,
+          "question": "Какая функция для текущей задачи уже готова?",
+          "layer": "working",
+          "expected": "load_rates",
+          "answer": "Готова функция `load_rates` для чтения курсов из JSON за неделю.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 11,
+            "total": 557,
+            "sum_of_parts": 557,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 724,
+            "candidates_tokens": 17,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 741,
+            "present": true,
+            "input_tokens": 724,
+            "output_tokens": 17
+          }
+        },
+        {
+          "id": 12,
+          "question": "Какой следующий шаг по текущей задаче?",
+          "layer": "working",
+          "expected": "написать тесты для build_report",
+          "answer": "Написать тесты для `build_report` (с использованием `pytest`), а затем саму функцию.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 10,
+            "total": 556,
+            "sum_of_parts": 556,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 723,
+            "candidates_tokens": 22,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 745,
+            "present": true,
+            "input_tokens": 723,
+            "output_tokens": 22
+          }
+        },
+        {
+          "id": 13,
+          "question": "На какой строке у меня сейчас открыт файл?",
+          "layer": "short_term",
+          "expected": "на строке 42",
+          "answer": "Файл `report.py` открыт на 42-й строке.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 12,
+            "total": 558,
+            "sum_of_parts": 558,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 725,
+            "candidates_tokens": 18,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 743,
+            "present": true,
+            "input_tokens": 725,
+            "output_tokens": 18
+          }
+        },
+        {
+          "id": 14,
+          "question": "Что я сейчас пью?",
+          "layer": "short_term",
+          "expected": "кофе с кокосовым молоком",
+          "answer": "Кофе с кокосовым молоком.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 7,
+            "total": 553,
+            "sum_of_parts": 553,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 720,
+            "candidates_tokens": 10,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 730,
+            "present": true,
+            "input_tokens": 720,
+            "output_tokens": 10
+          }
+        },
+        {
+          "id": 15,
+          "question": "Какое английское слово я просила перевести?",
+          "layer": "short_term",
+          "expected": "forecast",
+          "answer": "Вы просили перевести слово **forecast**.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 12,
+            "total": 558,
+            "sum_of_parts": 558,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 725,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 734,
+            "present": true,
+            "input_tokens": 725,
+            "output_tokens": 9
+          }
+        }
+      ],
+      "summary": {
+        "correct": 14,
+        "total": 15,
+        "correct_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "wrong_ids": [
+          7
+        ],
+        "by_layer": {
+          "short_term": {
+            "correct": 3,
+            "total": 3
+          },
+          "working": {
+            "correct": 5,
+            "total": 5
+          },
+          "long_term": {
+            "correct": 6,
+            "total": 7
+          }
+        },
+        "matches_expectation": false,
+        "tokens": {
+          "layers": {
+            "long_term": 327,
+            "working": 134,
+            "short_term": 85
+          },
+          "question_avg": 11.7,
+          "total_avg": 557.7,
+          "total_sum": 8366
+        },
+        "usage": {
+          "calls": 15,
+          "calls_with_usage_metadata": 15,
+          "complete": true,
+          "input_tokens": 10871,
+          "candidates_tokens": 203,
+          "thoughts_tokens": 0,
+          "output_tokens": 203,
+          "total_tokens": 11074,
+          "request_tokens_count_tokens": 8366,
+          "estimated_cost_usd": 0.0037688
+        },
+        "still_correct_vs_full": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "lost_vs_full": []
+      }
+    },
+    "no_short_term": {
+      "name": "no_short_term",
+      "title": "Очищена только краткосрочная память",
+      "cleared_layer": "short_term",
+      "changed_files": [
+        "short_term"
+      ],
+      "memory_unchanged_by_questions": true,
+      "available_data": {
+        "short_term": {
+          "stored_messages": 0,
+          "window": 6,
+          "in_prompt_messages": 0,
+          "message_counter": 30
+        },
+        "working": {
+          "has_task": true,
+          "task_id": 1,
+          "status": "in_progress",
+          "active": true,
+          "filled_fields": [
+            "goal",
+            "deadline",
+            "budget",
+            "status",
+            "next_step"
+          ],
+          "constraints": 1,
+          "results": 1,
+          "archived_tasks": 0,
+          "version": 6,
+          "in_prompt": true
+        },
+        "long_term": {
+          "facts": 7,
+          "by_kind": {
+            "user": 6,
+            "accepted_proposal": 1
+          },
+          "by_category": {
+            "name": 1,
+            "location": 1,
+            "environment": 1,
+            "constraint": 1,
+            "preference": 2,
+            "knowledge": 1
+          },
+          "deleted": 0,
+          "version": 5,
+          "in_prompt": true
+        }
+      },
+      "prompt_layers": [
+        "long_term",
+        "working"
+      ],
+      "prompt_context_text": "Пользователь: Долговременная память: профиль пользователя, предпочтения, решения и знания:\nДанные и решения пользователя (сообщил или решил сам):\n- name: Лика [пользователь, сообщение 1: «Меня зовут Лика.»]\n- city: Нячанг [пользователь, сообщение 1: «Я живу в Нячанге»]\n- os: macOS (ранее: Python) [пользователь, сообщение 3: «Работаю я на macOS»]\n- docker_restriction: никакого Docker [пользователь, сообщение 3: «никакого Docker — ни для разработки, ни для запуска»]\n- communication_preference: отвечай кратко и с примерами кода на Python [пользователь, сообщение 5: «отвечай мне кратко и с примерами кода на Python — так мне удобнее всегда.»]\n- openweather_limit: бесплатный ключ OpenWeather ограничен 1000 запросами в день [пользователь, сообщение 7: «Полезная деталь на будущее: бесплатный ключ OpenWeather ограничен 1000 запросами в день.»]\nПредложения ассистента, ЯВНО принятые пользователем:\n- test_framework: pytest [пользователь, сообщение 11: «Давай pytest.»] [предложил ассистент: «Для такого проекта удобнее всего pytest: простые assert и фикстуры.»]\nАссистент: Понятно, я учту долговременную память.\nПользователь: Рабочая память: данные текущей задачи:\nЗадача #1, статус: в работе (in_progress)\n- Цель: Сделать еженедельный отчёт по курсам валют в формате Markdown\n- Срок: 20 ноября\n- Бюджет: максимум 5 долларов\n- Ограничения задачи: отчёт должен помещаться на одну страницу\n- Промежуточные результаты: написана работающая функция load_rates для чтения курсов из JSON за неделю\n- Следующий шаг: написать тесты для build_report, а потом саму функцию\nАссистент: Понятно, я учту данные текущей задачи.",
+      "answers": [
+        {
+          "id": 1,
+          "question": "Как меня зовут?",
+          "layer": "long_term",
+          "expected": "Лика",
+          "answer": "Вас зовут Лика.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 5,
+            "total": 466,
+            "sum_of_parts": 466,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 633,
+            "candidates_tokens": 6,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 639,
+            "present": true,
+            "input_tokens": 633,
+            "output_tokens": 6
+          }
+        },
+        {
+          "id": 2,
+          "question": "Где я живу?",
+          "layer": "long_term",
+          "expected": "в Нячанге",
+          "answer": "Лика, вы живёте в Нячанге.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 6,
+            "total": 467,
+            "sum_of_parts": 467,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 634,
+            "candidates_tokens": 12,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 646,
+            "present": true,
+            "input_tokens": 634,
+            "output_tokens": 12
+          }
+        },
+        {
+          "id": 3,
+          "question": "На какой операционной системе я работаю?",
+          "layer": "long_term",
+          "expected": "macOS",
+          "answer": "Вы работаете на macOS.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 9,
+            "total": 470,
+            "sum_of_parts": 470,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 637,
+            "candidates_tokens": 6,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 643,
+            "present": true,
+            "input_tokens": 637,
+            "output_tokens": 6
+          }
+        },
+        {
+          "id": 4,
+          "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+          "layer": "long_term",
+          "expected": "не использовать Docker ни для разработки, ни для запуска",
+          "answer": "Никакого Docker — ни для разработки, ни для запуска.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 16,
+            "total": 477,
+            "sum_of_parts": 477,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 644,
+            "candidates_tokens": 13,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 657,
+            "present": true,
+            "input_tokens": 644,
+            "output_tokens": 13
+          }
+        },
+        {
+          "id": 5,
+          "question": "Какой лимит запросов у бесплатного ключа OpenWeather?",
+          "layer": "long_term",
+          "expected": "1000 запросов в день",
+          "answer": "1000 запросов в день.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 14,
+            "total": 475,
+            "sum_of_parts": 475,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 642,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 651,
+            "present": true,
+            "input_tokens": 642,
+            "output_tokens": 9
+          }
+        },
+        {
+          "id": 6,
+          "question": "Какой фреймворк для тестов мы выбрали и кто его предложил?",
+          "layer": "long_term",
+          "expected": "pytest — предложил ассистент, пользователь принял",
+          "answer": "Для тестов мы выбрали **pytest**. Его предложил ассистент, а ты подтвердила выбор («Давай pytest»).",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 18,
+            "total": 479,
+            "sum_of_parts": 479,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 646,
+            "candidates_tokens": 26,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 672,
+            "present": true,
+            "input_tokens": 646,
+            "output_tokens": 26
+          }
+        },
+        {
+          "id": 7,
+          "question": "Кто предложил запускать скрипт через launchd — я или ты? Это решение принято?",
+          "layer": "long_term",
+          "expected": "launchd предложил ассистент; пользователь это не подтвердил",
+          "answer": "В нашей истории нет упоминаний о `launchd` — ни от вас, ни от меня. Это решение не принималось.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": true,
+          "matches_expectation": false,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 21,
+            "total": 482,
+            "sum_of_parts": 482,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 649,
+            "candidates_tokens": 26,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 675,
+            "present": true,
+            "input_tokens": 649,
+            "output_tokens": 26
+          }
+        },
+        {
+          "id": 8,
+          "question": "Какая цель у текущей задачи?",
+          "layer": "working",
+          "expected": "еженедельный отчёт по курсам валют в Markdown",
+          "answer": "Цель текущей задачи (#1): сделать еженедельный отчёт по курсам валют в формате Markdown.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 9,
+            "total": 470,
+            "sum_of_parts": 470,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 637,
+            "candidates_tokens": 24,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 661,
+            "present": true,
+            "input_tokens": 637,
+            "output_tokens": 24
+          }
+        },
+        {
+          "id": 9,
+          "question": "До какого числа нужно сдать текущую задачу?",
+          "layer": "working",
+          "expected": "до 20 ноября",
+          "answer": "Текущую задачу нужно сдать до 20 ноября.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 11,
+            "total": 472,
+            "sum_of_parts": 472,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 639,
+            "candidates_tokens": 13,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 652,
+            "present": true,
+            "input_tokens": 639,
+            "output_tokens": 13
+          }
+        },
+        {
+          "id": 10,
+          "question": "Какое ограничение по объёму есть у отчёта?",
+          "layer": "working",
+          "expected": "отчёт должен помещаться на одну страницу",
+          "answer": "Отчёт должен помещаться на одну страницу.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 15,
+            "total": 476,
+            "sum_of_parts": 476,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 643,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 652,
+            "present": true,
+            "input_tokens": 643,
+            "output_tokens": 9
+          }
+        },
+        {
+          "id": 11,
+          "question": "Какая функция для текущей задачи уже готова?",
+          "layer": "working",
+          "expected": "load_rates",
+          "answer": "Готова функция `load_rates` для чтения курсов из JSON за неделю.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 11,
+            "total": 472,
+            "sum_of_parts": 472,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 639,
+            "candidates_tokens": 17,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 656,
+            "present": true,
+            "input_tokens": 639,
+            "output_tokens": 17
+          }
+        },
+        {
+          "id": 12,
+          "question": "Какой следующий шаг по текущей задаче?",
+          "layer": "working",
+          "expected": "написать тесты для build_report",
+          "answer": "Следующий шаг по текущей задаче: написать тесты для `build_report`, а потом саму функцию. \n\nПоскольку мы используем `pytest`, вот пример теста для `build_report`:\n\n```python\nimport pytest\n\n\ndef test_build_report():\n    rates = {\"2023-11-13\": 90.5, \"2023-11-14\": 91.0}\n    report = build_report(rates)\n    assert \"# Еженедельный отчёт\" in report\n    assert \"90.5\" in report\n```",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 10,
+            "total": 471,
+            "sum_of_parts": 471,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 638,
+            "candidates_tokens": 133,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 771,
+            "present": true,
+            "input_tokens": 638,
+            "output_tokens": 133
+          }
+        },
+        {
+          "id": 13,
+          "question": "На какой строке у меня сейчас открыт файл?",
+          "layer": "short_term",
+          "expected": "на строке 42",
+          "answer": "У меня нет информации о том, на какой строке у вас открыт файл. В рабочей или долговременной памяти этих данных нет.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 12,
+            "total": 473,
+            "sum_of_parts": 473,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 640,
+            "candidates_tokens": 29,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 669,
+            "present": true,
+            "input_tokens": 640,
+            "output_tokens": 29
+          }
+        },
+        {
+          "id": 14,
+          "question": "Что я сейчас пью?",
+          "layer": "short_term",
+          "expected": "кофе с кокосовым молоком",
+          "answer": "В памяти и текущем диалоге нет информации о том, что вы пьете. Я не знаю этого.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 7,
+            "total": 468,
+            "sum_of_parts": 468,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 635,
+            "candidates_tokens": 24,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 659,
+            "present": true,
+            "input_tokens": 635,
+            "output_tokens": 24
+          }
+        },
+        {
+          "id": 15,
+          "question": "Какое английское слово я просила перевести?",
+          "layer": "short_term",
+          "expected": "forecast",
+          "answer": "В нашей текущей беседе и памяти нет информации о том, какое английское слово вы просили перевести. Вы не задавали этот вопрос ранее.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 134,
+              "short_term": 0
+            },
+            "question": 12,
+            "total": 473,
+            "sum_of_parts": 473,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 640,
+            "candidates_tokens": 31,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 671,
+            "present": true,
+            "input_tokens": 640,
+            "output_tokens": 31
+          }
+        }
+      ],
+      "summary": {
+        "correct": 11,
+        "total": 15,
+        "correct_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "wrong_ids": [
+          7,
+          13,
+          14,
+          15
+        ],
+        "by_layer": {
+          "short_term": {
+            "correct": 0,
+            "total": 3
+          },
+          "working": {
+            "correct": 5,
+            "total": 5
+          },
+          "long_term": {
+            "correct": 6,
+            "total": 7
+          }
+        },
+        "matches_expectation": false,
+        "tokens": {
+          "layers": {
+            "long_term": 327,
+            "working": 134,
+            "short_term": 0
+          },
+          "question_avg": 11.7,
+          "total_avg": 472.7,
+          "total_sum": 7091
+        },
+        "usage": {
+          "calls": 15,
+          "calls_with_usage_metadata": 15,
+          "complete": true,
+          "input_tokens": 9596,
+          "candidates_tokens": 378,
+          "thoughts_tokens": 0,
+          "output_tokens": 378,
+          "total_tokens": 9974,
+          "request_tokens_count_tokens": 7091,
+          "estimated_cost_usd": 0.0038238
+        },
+        "still_correct_vs_full": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "lost_vs_full": [
+          13,
+          14,
+          15
+        ]
+      }
+    },
+    "no_working": {
+      "name": "no_working",
+      "title": "Очищена только рабочая память",
+      "cleared_layer": "working",
+      "changed_files": [
+        "working"
+      ],
+      "memory_unchanged_by_questions": true,
+      "available_data": {
+        "short_term": {
+          "stored_messages": 30,
+          "window": 6,
+          "in_prompt_messages": 6,
+          "message_counter": 30
+        },
+        "working": {
+          "has_task": false,
+          "task_id": null,
+          "status": null,
+          "active": false,
+          "filled_fields": [],
+          "constraints": 0,
+          "results": 0,
+          "archived_tasks": 0,
+          "version": 0,
+          "in_prompt": false
+        },
+        "long_term": {
+          "facts": 7,
+          "by_kind": {
+            "user": 6,
+            "accepted_proposal": 1
+          },
+          "by_category": {
+            "name": 1,
+            "location": 1,
+            "environment": 1,
+            "constraint": 1,
+            "preference": 2,
+            "knowledge": 1
+          },
+          "deleted": 0,
+          "version": 5,
+          "in_prompt": true
+        }
+      },
+      "prompt_layers": [
+        "long_term",
+        "short_term"
+      ],
+      "prompt_context_text": "Пользователь: Долговременная память: профиль пользователя, предпочтения, решения и знания:\nДанные и решения пользователя (сообщил или решил сам):\n- name: Лика [пользователь, сообщение 1: «Меня зовут Лика.»]\n- city: Нячанг [пользователь, сообщение 1: «Я живу в Нячанге»]\n- os: macOS (ранее: Python) [пользователь, сообщение 3: «Работаю я на macOS»]\n- docker_restriction: никакого Docker [пользователь, сообщение 3: «никакого Docker — ни для разработки, ни для запуска»]\n- communication_preference: отвечай кратко и с примерами кода на Python [пользователь, сообщение 5: «отвечай мне кратко и с примерами кода на Python — так мне удобнее всегда.»]\n- openweather_limit: бесплатный ключ OpenWeather ограничен 1000 запросами в день [пользователь, сообщение 7: «Полезная деталь на будущее: бесплатный ключ OpenWeather ограничен 1000 запросами в день.»]\nПредложения ассистента, ЯВНО принятые пользователем:\n- test_framework: pytest [пользователь, сообщение 11: «Давай pytest.»] [предложил ассистент: «Для такого проекта удобнее всего pytest: простые assert и фикстуры.»]\nАссистент: Понятно, я учту долговременную память.\nПользователь: Сейчас у меня открыт report.py на строке 42, но это пока неважно.\nАссистент: Хорошо. Когда будете готовы — продолжим.\nПользователь: Сделаю перерыв: сейчас пью кофе с кокосовым молоком.\nАссистент: Приятного перерыва!\nПользователь: Как перевести на русский слово forecast?\nАссистент: forecast — «прогноз», например weather forecast — прогноз погоды.",
+      "answers": [
+        {
+          "id": 1,
+          "question": "Как меня зовут?",
+          "layer": "long_term",
+          "expected": "Лика",
+          "answer": "Вас зовут Лика.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 5,
+            "total": 417,
+            "sum_of_parts": 417,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 584,
+            "candidates_tokens": 6,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 590,
+            "present": true,
+            "input_tokens": 584,
+            "output_tokens": 6
+          }
+        },
+        {
+          "id": 2,
+          "question": "Где я живу?",
+          "layer": "long_term",
+          "expected": "в Нячанге",
+          "answer": "Вы живёте в Нячанге.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 6,
+            "total": 418,
+            "sum_of_parts": 418,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 585,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 594,
+            "present": true,
+            "input_tokens": 585,
+            "output_tokens": 9
+          }
+        },
+        {
+          "id": 3,
+          "question": "На какой операционной системе я работаю?",
+          "layer": "long_term",
+          "expected": "macOS",
+          "answer": "macOS.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 9,
+            "total": 421,
+            "sum_of_parts": 421,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 588,
+            "candidates_tokens": 3,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 591,
+            "present": true,
+            "input_tokens": 588,
+            "output_tokens": 3
+          }
+        },
+        {
+          "id": 4,
+          "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+          "layer": "long_term",
+          "expected": "не использовать Docker ни для разработки, ни для запуска",
+          "answer": "Никакого Docker — ни для разработки, ни для запуска.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 16,
+            "total": 428,
+            "sum_of_parts": 428,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 595,
+            "candidates_tokens": 13,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 608,
+            "present": true,
+            "input_tokens": 595,
+            "output_tokens": 13
+          }
+        },
+        {
+          "id": 5,
+          "question": "Какой лимит запросов у бесплатного ключа OpenWeather?",
+          "layer": "long_term",
+          "expected": "1000 запросов в день",
+          "answer": "1000 запросов в день.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 14,
+            "total": 426,
+            "sum_of_parts": 426,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 593,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 602,
+            "present": true,
+            "input_tokens": 593,
+            "output_tokens": 9
+          }
+        },
+        {
+          "id": 6,
+          "question": "Какой фреймворк для тестов мы выбрали и кто его предложил?",
+          "layer": "long_term",
+          "expected": "pytest — предложил ассистент, пользователь принял",
+          "answer": "Мы выбрали **pytest**. Его предложил ассистент, а вы подтвердили выбор.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 18,
+            "total": 430,
+            "sum_of_parts": 430,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 597,
+            "candidates_tokens": 19,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 616,
+            "present": true,
+            "input_tokens": 597,
+            "output_tokens": 19
+          }
+        },
+        {
+          "id": 7,
+          "question": "Кто предложил запускать скрипт через launchd — я или ты? Это решение принято?",
+          "layer": "long_term",
+          "expected": "launchd предложил ассистент; пользователь это не подтвердил",
+          "answer": "В нашей памяти нет информации о том, чтобы кто-то предлагал запускать скрипт через `launchd`.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": true,
+          "matches_expectation": false,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 21,
+            "total": 433,
+            "sum_of_parts": 433,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 600,
+            "candidates_tokens": 24,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 624,
+            "present": true,
+            "input_tokens": 600,
+            "output_tokens": 24
+          }
+        },
+        {
+          "id": 8,
+          "question": "Какая цель у текущей задачи?",
+          "layer": "working",
+          "expected": "еженедельный отчёт по курсам валют в Markdown",
+          "answer": "В текущей рабочей памяти нет информации о цели текущей задачи. Если вы хотите её поставить, просто расскажите, над чем работаем!",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 9,
+            "total": 421,
+            "sum_of_parts": 421,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 588,
+            "candidates_tokens": 28,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 616,
+            "present": true,
+            "input_tokens": 588,
+            "output_tokens": 28
+          }
+        },
+        {
+          "id": 9,
+          "question": "До какого числа нужно сдать текущую задачу?",
+          "layer": "working",
+          "expected": "до 20 ноября",
+          "answer": "В рабочей памяти и истории диалога нет информации о дедлайне текущей задачи. Я не знаю эту дату.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 11,
+            "total": 423,
+            "sum_of_parts": 423,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 590,
+            "candidates_tokens": 24,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 614,
+            "present": true,
+            "input_tokens": 590,
+            "output_tokens": 24
+          }
+        },
+        {
+          "id": 10,
+          "question": "Какое ограничение по объёму есть у отчёта?",
+          "layer": "working",
+          "expected": "отчёт должен помещаться на одну страницу",
+          "answer": "В памяти и текущем диалоге нет информации об ограничении по объёму для отчёта. Я не знаю этого.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 15,
+            "total": 427,
+            "sum_of_parts": 427,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 594,
+            "candidates_tokens": 27,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 621,
+            "present": true,
+            "input_tokens": 594,
+            "output_tokens": 27
+          }
+        },
+        {
+          "id": 11,
+          "question": "Какая функция для текущей задачи уже готова?",
+          "layer": "working",
+          "expected": "load_rates",
+          "answer": "Из текущего диалога и памяти я не знаю, какая именно функция для текущей задачи уже готова (в контексте об этом ничего не упоминалось).",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 11,
+            "total": 423,
+            "sum_of_parts": 423,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 590,
+            "candidates_tokens": 31,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 621,
+            "present": true,
+            "input_tokens": 590,
+            "output_tokens": 31
+          }
+        },
+        {
+          "id": 12,
+          "question": "Какой следующий шаг по текущей задаче?",
+          "layer": "working",
+          "expected": "написать тесты для build_report",
+          "answer": "В памяти пока нет активной задачи. Напомните, над каким проектом или скриптом (например, `report.py`) мы работаем?",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 10,
+            "total": 422,
+            "sum_of_parts": 422,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 589,
+            "candidates_tokens": 32,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 621,
+            "present": true,
+            "input_tokens": 589,
+            "output_tokens": 32
+          }
+        },
+        {
+          "id": 13,
+          "question": "На какой строке у меня сейчас открыт файл?",
+          "layer": "short_term",
+          "expected": "на строке 42",
+          "answer": "На 42-й строке.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 12,
+            "total": 424,
+            "sum_of_parts": 424,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 591,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 600,
+            "present": true,
+            "input_tokens": 591,
+            "output_tokens": 9
+          }
+        },
+        {
+          "id": 14,
+          "question": "Что я сейчас пью?",
+          "layer": "short_term",
+          "expected": "кофе с кокосовым молоком",
+          "answer": "Кофе с кокосовым молоком.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 7,
+            "total": 419,
+            "sum_of_parts": 419,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 586,
+            "candidates_tokens": 10,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 596,
+            "present": true,
+            "input_tokens": 586,
+            "output_tokens": 10
+          }
+        },
+        {
+          "id": 15,
+          "question": "Какое английское слово я просила перевести?",
+          "layer": "short_term",
+          "expected": "forecast",
+          "answer": "Вы просили перевести слово **forecast**.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 327,
+              "working": 0,
+              "short_term": 85
+            },
+            "question": 12,
+            "total": 424,
+            "sum_of_parts": 424,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 591,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 600,
+            "present": true,
+            "input_tokens": 591,
+            "output_tokens": 9
+          }
+        }
+      ],
+      "summary": {
+        "correct": 9,
+        "total": 15,
+        "correct_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          13,
+          14,
+          15
+        ],
+        "wrong_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "by_layer": {
+          "short_term": {
+            "correct": 3,
+            "total": 3
+          },
+          "working": {
+            "correct": 0,
+            "total": 5
+          },
+          "long_term": {
+            "correct": 6,
+            "total": 7
+          }
+        },
+        "matches_expectation": false,
+        "tokens": {
+          "layers": {
+            "long_term": 327,
+            "working": 0,
+            "short_term": 85
+          },
+          "question_avg": 11.7,
+          "total_avg": 423.7,
+          "total_sum": 6356
+        },
+        "usage": {
+          "calls": 15,
+          "calls_with_usage_metadata": 15,
+          "complete": true,
+          "input_tokens": 8861,
+          "candidates_tokens": 253,
+          "thoughts_tokens": 0,
+          "output_tokens": 253,
+          "total_tokens": 9114,
+          "request_tokens_count_tokens": 6356,
+          "estimated_cost_usd": 0.0032908
+        },
+        "still_correct_vs_full": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          13,
+          14,
+          15
+        ],
+        "lost_vs_full": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    "no_long_term": {
+      "name": "no_long_term",
+      "title": "Очищена только долговременная память",
+      "cleared_layer": "long_term",
+      "changed_files": [
+        "long_term"
+      ],
+      "memory_unchanged_by_questions": true,
+      "available_data": {
+        "short_term": {
+          "stored_messages": 30,
+          "window": 6,
+          "in_prompt_messages": 6,
+          "message_counter": 30
+        },
+        "working": {
+          "has_task": true,
+          "task_id": 1,
+          "status": "in_progress",
+          "active": true,
+          "filled_fields": [
+            "goal",
+            "deadline",
+            "budget",
+            "status",
+            "next_step"
+          ],
+          "constraints": 1,
+          "results": 1,
+          "archived_tasks": 0,
+          "version": 6,
+          "in_prompt": true
+        },
+        "long_term": {
+          "facts": 0,
+          "by_kind": {},
+          "by_category": {},
+          "deleted": 0,
+          "version": 0,
+          "in_prompt": false
+        }
+      },
+      "prompt_layers": [
+        "working",
+        "short_term"
+      ],
+      "prompt_context_text": "Пользователь: Рабочая память: данные текущей задачи:\nЗадача #1, статус: в работе (in_progress)\n- Цель: Сделать еженедельный отчёт по курсам валют в формате Markdown\n- Срок: 20 ноября\n- Бюджет: максимум 5 долларов\n- Ограничения задачи: отчёт должен помещаться на одну страницу\n- Промежуточные результаты: написана работающая функция load_rates для чтения курсов из JSON за неделю\n- Следующий шаг: написать тесты для build_report, а потом саму функцию\nАссистент: Понятно, я учту данные текущей задачи.\nПользователь: Сейчас у меня открыт report.py на строке 42, но это пока неважно.\nАссистент: Хорошо. Когда будете готовы — продолжим.\nПользователь: Сделаю перерыв: сейчас пью кофе с кокосовым молоком.\nАссистент: Приятного перерыва!\nПользователь: Как перевести на русский слово forecast?\nАссистент: forecast — «прогноз», например weather forecast — прогноз погоды.",
+      "answers": [
+        {
+          "id": 1,
+          "question": "Как меня зовут?",
+          "layer": "long_term",
+          "expected": "Лика",
+          "answer": "В предоставленной памяти и текущем диалоге нет информации о вашем имени. Я пока не знаю, как вас зовут.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 5,
+            "total": 224,
+            "sum_of_parts": 224,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 391,
+            "candidates_tokens": 25,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 416,
+            "present": true,
+            "input_tokens": 391,
+            "output_tokens": 25
+          }
+        },
+        {
+          "id": 2,
+          "question": "Где я живу?",
+          "layer": "long_term",
+          "expected": "в Нячанге",
+          "answer": "В предоставленной информации нет данных о том, где вы живёте. Я этого не знаю.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 6,
+            "total": 225,
+            "sum_of_parts": 225,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 392,
+            "candidates_tokens": 20,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 412,
+            "present": true,
+            "input_tokens": 392,
+            "output_tokens": 20
+          }
+        },
+        {
+          "id": 3,
+          "question": "На какой операционной системе я работаю?",
+          "layer": "long_term",
+          "expected": "macOS",
+          "answer": "В рабочей памяти и текущем диалоге нет информации о вашей операционной системе. Я не знаю, какая у вас ОС.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 9,
+            "total": 228,
+            "sum_of_parts": 228,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 395,
+            "candidates_tokens": 26,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 421,
+            "present": true,
+            "input_tokens": 395,
+            "output_tokens": 26
+          }
+        },
+        {
+          "id": 4,
+          "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+          "layer": "long_term",
+          "expected": "не использовать Docker ни для разработки, ни для запуска",
+          "answer": "В предоставленных данных нет информации о каких-либо ограничениях по инструментам для разработки и запуска (указаны только бюджет до 5 долларов, срок до 20 ноября и ограничение по размеру отчёта — на одну страницу).",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 16,
+            "total": 235,
+            "sum_of_parts": 235,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 402,
+            "candidates_tokens": 50,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 452,
+            "present": true,
+            "input_tokens": 402,
+            "output_tokens": 50
+          }
+        },
+        {
+          "id": 5,
+          "question": "Какой лимит запросов у бесплатного ключа OpenWeather?",
+          "layer": "long_term",
+          "expected": "1000 запросов в день",
+          "answer": "На бесплатном тарифе (Free tier) OpenWeather обычно действует лимит **60 запросов в минуту** и **1 000 000 запросов в месяц**.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 14,
+            "total": 233,
+            "sum_of_parts": 233,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 400,
+            "candidates_tokens": 40,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 440,
+            "present": true,
+            "input_tokens": 400,
+            "output_tokens": 40
+          }
+        },
+        {
+          "id": 6,
+          "question": "Какой фреймворк для тестов мы выбрали и кто его предложил?",
+          "layer": "long_term",
+          "expected": "pytest — предложил ассистент, пользователь принял",
+          "answer": "В текущей памяти и истории диалога нет информации о том, какой фреймворк для тестов мы выбрали и кто его предложил. Вы упоминали только то, что нужно написать тесты для `build_report`. \n\nЕсли вы уже обсуждали это ранее или приняли решение, напомните мне, пожалуйста, и я зафиксирую.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 18,
+            "total": 237,
+            "sum_of_parts": 237,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 404,
+            "candidates_tokens": 73,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 477,
+            "present": true,
+            "input_tokens": 404,
+            "output_tokens": 73
+          }
+        },
+        {
+          "id": 7,
+          "question": "Кто предложил запускать скрипт через launchd — я или ты? Это решение принято?",
+          "layer": "long_term",
+          "expected": "launchd предложил ассистент; пользователь это не подтвердил",
+          "answer": "В текущей памяти и истории диалога нет информации о `launchd` и скриптах. Я ничего не знаю об этом предложении и решении.",
+          "status": "ok",
+          "correct": false,
+          "expected_correct": false,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 21,
+            "total": 240,
+            "sum_of_parts": 240,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 407,
+            "candidates_tokens": 32,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 439,
+            "present": true,
+            "input_tokens": 407,
+            "output_tokens": 32
+          }
+        },
+        {
+          "id": 8,
+          "question": "Какая цель у текущей задачи?",
+          "layer": "working",
+          "expected": "еженедельный отчёт по курсам валют в Markdown",
+          "answer": "Цель текущей задачи — сделать еженедельный отчёт по курсам валют в формате Markdown.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 9,
+            "total": 228,
+            "sum_of_parts": 228,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 395,
+            "candidates_tokens": 22,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 417,
+            "present": true,
+            "input_tokens": 395,
+            "output_tokens": 22
+          }
+        },
+        {
+          "id": 9,
+          "question": "До какого числа нужно сдать текущую задачу?",
+          "layer": "working",
+          "expected": "до 20 ноября",
+          "answer": "Срок выполнения текущей задачи (Задача #1) — **20 ноября**.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 11,
+            "total": 230,
+            "sum_of_parts": 230,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 397,
+            "candidates_tokens": 17,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 414,
+            "present": true,
+            "input_tokens": 397,
+            "output_tokens": 17
+          }
+        },
+        {
+          "id": 10,
+          "question": "Какое ограничение по объёму есть у отчёта?",
+          "layer": "working",
+          "expected": "отчёт должен помещаться на одну страницу",
+          "answer": "Отчёт должен помещаться на одну страницу.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 15,
+            "total": 234,
+            "sum_of_parts": 234,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 401,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 410,
+            "present": true,
+            "input_tokens": 401,
+            "output_tokens": 9
+          }
+        },
+        {
+          "id": 11,
+          "question": "Какая функция для текущей задачи уже готова?",
+          "layer": "working",
+          "expected": "load_rates",
+          "answer": "Для текущей задачи уже готова функция `load_rates` для чтения курсов валют из JSON за неделю.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 11,
+            "total": 230,
+            "sum_of_parts": 230,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 397,
+            "candidates_tokens": 23,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 420,
+            "present": true,
+            "input_tokens": 397,
+            "output_tokens": 23
+          }
+        },
+        {
+          "id": 12,
+          "question": "Какой следующий шаг по текущей задаче?",
+          "layer": "working",
+          "expected": "написать тесты для build_report",
+          "answer": "Следующий шаг: написать тесты для `build_report`, а затем саму функцию.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 10,
+            "total": 229,
+            "sum_of_parts": 229,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 396,
+            "candidates_tokens": 19,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 415,
+            "present": true,
+            "input_tokens": 396,
+            "output_tokens": 19
+          }
+        },
+        {
+          "id": 13,
+          "question": "На какой строке у меня сейчас открыт файл?",
+          "layer": "short_term",
+          "expected": "на строке 42",
+          "answer": "Файл `report.py` открыт на 42-й строке.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 12,
+            "total": 231,
+            "sum_of_parts": 231,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 398,
+            "candidates_tokens": 18,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 416,
+            "present": true,
+            "input_tokens": 398,
+            "output_tokens": 18
+          }
+        },
+        {
+          "id": 14,
+          "question": "Что я сейчас пью?",
+          "layer": "short_term",
+          "expected": "кофе с кокосовым молоком",
+          "answer": "Вы пьете кофе с кокосовым молоком.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 7,
+            "total": 226,
+            "sum_of_parts": 226,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 393,
+            "candidates_tokens": 13,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 406,
+            "present": true,
+            "input_tokens": 393,
+            "output_tokens": 13
+          }
+        },
+        {
+          "id": 15,
+          "question": "Какое английское слово я просила перевести?",
+          "layer": "short_term",
+          "expected": "forecast",
+          "answer": "Вы просили перевести слово **forecast**.",
+          "status": "ok",
+          "correct": true,
+          "expected_correct": true,
+          "matches_expectation": true,
+          "tokens": {
+            "layers": {
+              "long_term": 0,
+              "working": 134,
+              "short_term": 85
+            },
+            "question": 12,
+            "total": 231,
+            "sum_of_parts": 231,
+            "errors": []
+          },
+          "usage": {
+            "prompt_tokens": 398,
+            "candidates_tokens": 9,
+            "thoughts_tokens": 0,
+            "cached_tokens": 0,
+            "total_tokens": 407,
+            "present": true,
+            "input_tokens": 398,
+            "output_tokens": 9
+          }
+        }
+      ],
+      "summary": {
+        "correct": 8,
+        "total": 15,
+        "correct_ids": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "wrong_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "by_layer": {
+          "short_term": {
+            "correct": 3,
+            "total": 3
+          },
+          "working": {
+            "correct": 5,
+            "total": 5
+          },
+          "long_term": {
+            "correct": 0,
+            "total": 7
+          }
+        },
+        "matches_expectation": true,
+        "tokens": {
+          "layers": {
+            "long_term": 0,
+            "working": 134,
+            "short_term": 85
+          },
+          "question_avg": 11.7,
+          "total_avg": 230.7,
+          "total_sum": 3461
+        },
+        "usage": {
+          "calls": 15,
+          "calls_with_usage_metadata": 15,
+          "complete": true,
+          "input_tokens": 5966,
+          "candidates_tokens": 396,
+          "thoughts_tokens": 0,
+          "output_tokens": 396,
+          "total_tokens": 6362,
+          "request_tokens_count_tokens": 3461,
+          "estimated_cost_usd": 0.0027798
+        },
+        "still_correct_vs_full": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "lost_vs_full": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    }
+  },
+  "matrix": [
+    {
+      "id": 1,
+      "question": "Как меня зовут?",
+      "layer": "long_term",
+      "full": true,
+      "no_short_term": true,
+      "no_working": true,
+      "no_long_term": false
+    },
+    {
+      "id": 2,
+      "question": "Где я живу?",
+      "layer": "long_term",
+      "full": true,
+      "no_short_term": true,
+      "no_working": true,
+      "no_long_term": false
+    },
+    {
+      "id": 3,
+      "question": "На какой операционной системе я работаю?",
+      "layer": "long_term",
+      "full": true,
+      "no_short_term": true,
+      "no_working": true,
+      "no_long_term": false
+    },
+    {
+      "id": 4,
+      "question": "Какое ограничение по инструментам я поставила для разработки и запуска?",
+      "layer": "long_term",
+      "full": true,
+      "no_short_term": true,
+      "no_working": true,
+      "no_long_term": false
+    },
+    {
+      "id": 5,
+      "question": "Какой лимит запросов у бесплатного ключа OpenWeather?",
+      "layer": "long_term",
+      "full": true,
+      "no_short_term": true,
+      "no_working": true,
+      "no_long_term": false
+    },
+    {
+      "id": 6,
+      "question": "Какой фреймворк для тестов мы выбрали и кто его предложил?",
+      "layer": "long_term",
+      "full": true,
+      "no_short_term": true,
+      "no_working": true,
+      "no_long_term": false
+    },
+    {
+      "id": 7,
+      "question": "Кто предложил запускать скрипт через launchd — я или ты? Это решение принято?",
+      "layer": "long_term",
+      "full": false,
+      "no_short_term": false,
+      "no_working": false,
+      "no_long_term": false
+    },
+    {
+      "id": 8,
+      "question": "Какая цель у текущей задачи?",
+      "layer": "working",
+      "full": true,
+      "no_short_term": true,
+      "no_working": false,
+      "no_long_term": true
+    },
+    {
+      "id": 9,
+      "question": "До какого числа нужно сдать текущую задачу?",
+      "layer": "working",
+      "full": true,
+      "no_short_term": true,
+      "no_working": false,
+      "no_long_term": true
+    },
+    {
+      "id": 10,
+      "question": "Какое ограничение по объёму есть у отчёта?",
+      "layer": "working",
+      "full": true,
+      "no_short_term": true,
+      "no_working": false,
+      "no_long_term": true
+    },
+    {
+      "id": 11,
+      "question": "Какая функция для текущей задачи уже готова?",
+      "layer": "working",
+      "full": true,
+      "no_short_term": true,
+      "no_working": false,
+      "no_long_term": true
+    },
+    {
+      "id": 12,
+      "question": "Какой следующий шаг по текущей задаче?",
+      "layer": "working",
+      "full": true,
+      "no_short_term": true,
+      "no_working": false,
+      "no_long_term": true
+    },
+    {
+      "id": 13,
+      "question": "На какой строке у меня сейчас открыт файл?",
+      "layer": "short_term",
+      "full": true,
+      "no_short_term": false,
+      "no_working": true,
+      "no_long_term": true
+    },
+    {
+      "id": 14,
+      "question": "Что я сейчас пью?",
+      "layer": "short_term",
+      "full": true,
+      "no_short_term": false,
+      "no_working": true,
+      "no_long_term": true
+    },
+    {
+      "id": 15,
+      "question": "Какое английское слово я просила перевести?",
+      "layer": "short_term",
+      "full": true,
+      "no_short_term": false,
+      "no_working": true,
+      "no_long_term": true
+    }
+  ]
+}
