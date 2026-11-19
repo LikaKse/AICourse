@@ -47,6 +47,12 @@ PRIVILEGED_EVENTS = frozenset({
     "resume",
 })
 
+#: Runtime-only реестр выданных capability валидации. Нужен, чтобы копия
+#: TaskFSM (например, в тестах/диагностике) могла применить результат,
+#: созданный по действующему запросу. Это не криптографическая защита:
+#: токен и реестр доступны в процессе.
+_ACTIVE_VALIDATION_CAPABILITIES: set[object] = set()
+
 #: Явная таблица разрешённых переходов. Для validation_passed целевое
 #: состояние зависит от того, остались ли ещё шаги плана.
 TRANSITIONS: dict[str, dict[str, Any]] = {
@@ -242,6 +248,10 @@ class ValidationResult:
     evidence: str
     validator: str = "code"
     subject: str = ""
+    attempt: int = 0
+    #: Runtime-only capability запроса. Не сериализуется и не является
+    #: криптографическим доказательством; проверяется только контроллером.
+    _capability: object | None = field(default=None, repr=False, compare=False)
 
     def __post_init__(self) -> None:
         if not isinstance(self.step_id, str) or not self.step_id.strip():
@@ -252,6 +262,8 @@ class ValidationResult:
             raise ValueError("ValidationResult требует непустой validator")
         if not isinstance(self.subject, str):
             raise ValueError("subject ValidationResult должен быть строкой")
+        if type(self.attempt) is not int or self.attempt < 0:
+            raise ValueError("attempt ValidationResult должен быть целым >= 0")
 
         object.__setattr__(self, "step_id", self.step_id.strip())
         object.__setattr__(self, "evidence", self.evidence.strip())
@@ -271,6 +283,7 @@ class ValidationResult:
             "evidence": self.evidence,
             "validator": self.validator,
             "subject": self.subject,
+            "attempt": self.attempt,
         }
 
     @classmethod
@@ -283,6 +296,7 @@ class ValidationResult:
             evidence=data.get("evidence", ""),
             validator=data.get("validator", "code"),
             subject=data.get("subject", ""),
+            attempt=data.get("attempt", 0),
         )
         if "passed" in data and data["passed"] is not result.passed:
             raise ValueError("поле passed не согласовано с результатами проверок")
@@ -300,6 +314,7 @@ class ValidationRequest:
     step_id: str
     subject: str
     attempt: int
+    _capability: object | None = field(default=None, repr=False, compare=False)
 
     def create_result(self, checks: Iterable[Mapping[str, Any]], *, evidence: str,
                       validator: str = "code") -> ValidationResult:
@@ -309,6 +324,8 @@ class ValidationRequest:
             evidence=evidence,
             validator=validator,
             subject=self.subject,
+            attempt=self.attempt,
+            _capability=self._capability,
         )
 
 
@@ -343,10 +360,14 @@ class Transition:
     actor_source: str = "caller_claim"
     actor_trusted: bool = False
 
+    def __post_init__(self) -> None:
+        object.__setattr__(
+            self, "validation", copy.deepcopy(self.validation))
+
     def to_dict(self) -> dict:
         return {"at": self.at, "event": self.event, "actor": self.actor, "reason": self.reason,
                 "from": self.from_state, "to": self.to_state, "step_id": self.step_id,
-                "validation": self.validation, "actor_source": self.actor_source,
+                "validation": copy.deepcopy(self.validation), "actor_source": self.actor_source,
                 "actor_trusted": self.actor_trusted}
 
     @classmethod
@@ -363,7 +384,7 @@ class Transition:
                    actor=str(data.get("actor", "")), reason=str(data.get("reason", "")),
                    from_state=str(data.get("from", data.get("from_state", ""))),
                    to_state=str(data.get("to", data.get("to_state", ""))),
-                   step_id=step_id, validation=data.get("validation"),
+                   step_id=step_id, validation=copy.deepcopy(data.get("validation")),
                    actor_source=str(data.get("actor_source", "unknown")),
                    actor_trusted=actor_trusted)
 
@@ -390,6 +411,9 @@ class TaskState:
     version: int = 0
     updated_at: str = field(default_factory=lambda: _now())
 
+    def __post_init__(self) -> None:
+        self.validation = copy.deepcopy(self.validation)
+
     def to_dict(self) -> dict:
         return {
             "state": self.state,
@@ -404,7 +428,7 @@ class TaskState:
             "plan_approved_at": self.plan_approved_at,
             "current_step": self.current_step,
             "expected_action": self.expected_action,
-            "validation": self.validation,
+            "validation": copy.deepcopy(self.validation),
             "last_result": self.last_result,
             "transitions": [transition.to_dict() for transition in self.transitions],
             "version": self.version,
@@ -446,7 +470,7 @@ class TaskState:
             plan_approved_at=data.get("plan_approved_at"),
             current_step=data.get("current_step"),
             expected_action=str(data.get("expected_action", "create_plan")),
-            validation=data.get("validation"),
+            validation=copy.deepcopy(data.get("validation")),
             last_result=str(data.get("last_result", "")),
             transitions=[Transition.from_dict(transition) for transition in raw_transitions],
             version=version,
@@ -821,6 +845,7 @@ class TaskFSM:
 
     def __init__(self, state: TaskState | None = None):
         self._state = copy.deepcopy(state) if state is not None else TaskState()
+        self._active_validation_capability: object | None = None
         self._state.validate()
 
     @property
@@ -829,7 +854,7 @@ class TaskFSM:
         return copy.deepcopy(self._state)
 
     def snapshot(self) -> dict:
-        return self._state.to_dict()
+        return copy.deepcopy(self._state.to_dict())
 
     def to_dict(self) -> dict:
         return self._state.to_dict()
@@ -856,10 +881,17 @@ class TaskFSM:
         attempts = sum(
             1 for item in state.transitions
             if item.event == "submit_step" and item.step_id == state.current_step)
+        if self._active_validation_capability is not None:
+            _ACTIVE_VALIDATION_CAPABILITIES.discard(
+                self._active_validation_capability)
+        capability = object()
+        _ACTIVE_VALIDATION_CAPABILITIES.add(capability)
+        self._active_validation_capability = capability
         return ValidationRequest(
             step_id=state.current_step,
             subject=_result_fingerprint(state.last_result),
             attempt=attempts,
+            _capability=capability,
         )
 
     # ----- проверка -----
@@ -957,10 +989,27 @@ class TaskFSM:
             if validation.subject != expected_subject:
                 return False, (
                     "ValidationResult не привязан к отправленному результату шага")
+            expected_attempt = sum(
+                1 for item in state.transitions
+                if item.event == "submit_step" and item.step_id == state.current_step)
+            if validation.attempt != expected_attempt:
+                return False, (
+                    f"результат относится к попытке {validation.attempt}, "
+                    f"а текущая попытка {expected_attempt}")
             if event == "validation_passed" and not validation.passed:
                 return False, "validation_passed требует успешной валидации"
             if event == "validation_failed" and validation.passed:
                 return False, "validation_failed требует failed-валидации"
+            expected_capability = self._active_validation_capability
+            capability = validation._capability
+            # Копия FSM не имеет собственного активного токена, поэтому
+            # допускает capability из общего runtime-реестра.
+            if capability is None or capability not in _ACTIVE_VALIDATION_CAPABILITIES:
+                return False, (
+                    "ValidationResult не имеет действующего capability валидатора")
+            if expected_capability is not None and capability is not expected_capability:
+                return False, (
+                    "ValidationResult принадлежит другому запросу валидации")
             return True, ""
 
         return False, f"неизвестное событие {event!r}"
@@ -1072,7 +1121,19 @@ class TaskFSM:
         new.updated_at = timestamp
         new.validate()
         self._state = new
-        return transition
+        if event in ("validation_passed", "validation_failed"):
+            if validation is not None and validation._capability is not None:
+                _ACTIVE_VALIDATION_CAPABILITIES.discard(
+                    validation._capability)
+            self._active_validation_capability = None
+        elif event in ("pause", "resume"):
+            if self._active_validation_capability is not None:
+                _ACTIVE_VALIDATION_CAPABILITIES.discard(
+                    self._active_validation_capability)
+            self._active_validation_capability = None
+        # Возвращаем копию: история внутри FSM не должна меняться через
+        # объект, который получил вызывающий код.
+        return copy.deepcopy(transition)
 
     # ----- удобные методы -----
 

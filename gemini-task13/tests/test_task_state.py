@@ -11,6 +11,7 @@ from task_state import (
     PlanStep,
     TaskFSM,
     TaskState,
+    Transition,
     TransitionError,
     ValidationResult,
 )
@@ -764,3 +765,194 @@ def test_from_dict_accepts_valid_states(factory):
     restored = TaskState.from_dict(copy.deepcopy(snapshot))
 
     assert restored.to_dict() == snapshot
+
+
+# ---------------------------------------------------------------------------
+# Защита от алиасинга через snapshot/from_dict
+# ---------------------------------------------------------------------------
+
+
+def test_snapshot_validation_is_defensive_copy():
+    machine = make_done()
+    before = machine.snapshot()
+
+    snapshot = machine.snapshot()
+    snapshot["validation"]["evidence"] = "подмена"
+    snapshot["validation"]["checks"][0]["passed"] = False
+
+    assert machine.snapshot() == before
+    TaskFSM(machine.state)  # инварианты по-прежнему выполняются
+
+
+def test_snapshot_transition_validation_is_defensive_copy():
+    machine = make_done()
+    before = machine.snapshot()
+
+    snapshot = machine.snapshot()
+    snapshot["transitions"][-1]["validation"]["evidence"] = "подмена"
+    snapshot["transitions"][-1]["validation"]["checks"][0]["evidence"] = "подмена"
+
+    assert machine.snapshot() == before
+    assert machine.snapshot()["transitions"][-1]["validation"]["evidence"] != "подмена"
+
+
+def test_task_state_from_dict_does_not_share_validation_with_input():
+    snapshot = make_done().snapshot()
+    state = TaskState.from_dict(snapshot)
+    before = state.to_dict()
+
+    snapshot["validation"]["evidence"] = "подмена"
+    snapshot["validation"]["checks"][0]["passed"] = False
+    snapshot["transitions"][-1]["validation"]["evidence"] = "подмена"
+
+    assert state.to_dict() == before
+    state.validate()
+
+
+def test_transition_from_dict_does_not_share_validation_with_input():
+    data = make_done().snapshot()["transitions"][-1]
+    transition = Transition.from_dict(data)
+    before = transition.to_dict()
+
+    data["validation"]["evidence"] = "подмена"
+    data["validation"]["checks"][0]["passed"] = False
+
+    assert transition.to_dict() == before
+
+
+def test_task_state_to_dict_returns_deep_copies_of_nested_validation():
+    state = make_done().state
+
+    first = state.to_dict()
+    second = state.to_dict()
+    first["validation"]["checks"][0]["evidence"] = "подмена"
+
+    assert second["validation"]["checks"][0]["evidence"] != "подмена"
+    assert state.to_dict()["validation"]["checks"][0]["evidence"] != "подмена"
+
+
+def test_snapshot_mutations_do_not_break_state_validation():
+    machine = make_done()
+    snapshot = machine.snapshot()
+    snapshot["validation"] = None
+    snapshot["transitions"] = []
+
+    assert machine.snapshot()["validation"] is not None
+    assert machine.snapshot()["transitions"]
+    TaskFSM(machine.state)
+
+
+# ---------------------------------------------------------------------------
+# D3/D5/D8: attempt, возвращённый Transition, прямые конструкторы
+# ---------------------------------------------------------------------------
+
+
+def test_validation_result_is_bound_to_current_attempt():
+    machine = make_validation()
+    request = machine.validation_request()
+    old_passing = request.create_result(
+        ({"name": "x", "passed": True, "evidence": "old"},), evidence="old")
+    failing = request.create_result(
+        ({"name": "x", "passed": False, "evidence": "fail"},), evidence="fail")
+
+    assert old_passing.attempt == request.attempt == 1
+
+    machine.apply_validation(failing, actor=VALIDATOR)
+    machine.submit_step("результат шага", actor=CODE, at="2026-11-19T10:10:00+07:00")
+    before = machine.snapshot()
+
+    with pytest.raises(TransitionError) as exc:
+        machine.apply_validation(old_passing, actor=VALIDATOR)
+
+    assert "попытке" in exc.value.reason
+    assert machine.snapshot() == before
+    assert machine.state.state == "validation"
+
+
+def test_returned_transition_is_detached_from_history():
+    machine = make_validation()
+    request = machine.validation_request()
+    result = request.create_result(
+        ({"name": "x", "passed": True, "evidence": "ok"},), evidence="ok")
+    transition = machine.apply_validation(result, actor=VALIDATOR)
+    before = machine.snapshot()
+
+    transition.validation["evidence"] = "MUTATED"
+
+    assert machine.snapshot() == before
+    assert machine.snapshot()["transitions"][-1]["validation"]["evidence"] != "MUTATED"
+
+
+def test_direct_validation_result_without_capability_is_rejected():
+    machine = make_validation()
+    request = machine.validation_request()
+    result = ValidationResult(
+        step_id=request.step_id,
+        checks=({"name": "x", "passed": True, "evidence": "forged"},),
+        evidence="forged",
+        validator="attacker",
+        subject=request.subject,
+        attempt=request.attempt,
+    )
+
+    before = machine.snapshot()
+    with pytest.raises(TransitionError) as exc:
+        machine.apply_validation(result, actor=VALIDATOR)
+
+    assert "capability" in exc.value.reason
+    assert machine.snapshot() == before
+    assert machine.state.state == "validation"
+
+
+def test_validation_capability_is_invalidated_by_pause_on_fsm():
+    machine = make_validation()
+    request = machine.validation_request()
+    result = request.create_result(
+        ({"name": "x", "passed": True, "evidence": "old"},), evidence="old")
+    machine.pause(actor=SYSTEM)
+    machine.resume(actor=SYSTEM)
+
+    with pytest.raises(TransitionError):
+        machine.apply_validation(result, actor=VALIDATOR)
+
+
+def test_task_state_constructor_copies_validation():
+    source = {
+        "step_id": "step-1",
+        "passed": True,
+        "checks": [{"name": "x", "passed": True, "evidence": "ok"}],
+        "evidence": "ok",
+        "validator": "test",
+        "subject": "0" * 64,
+        "attempt": 1,
+    }
+    state = TaskState(validation=source)
+    source["evidence"] = "changed"
+    source["checks"][0]["passed"] = False
+
+    assert state.validation["evidence"] == "ok"
+    assert state.validation["checks"][0]["passed"] is True
+
+
+def test_transition_constructor_copies_validation():
+    source = {
+        "step_id": "step-1",
+        "passed": True,
+        "checks": [{"name": "x", "passed": True, "evidence": "ok"}],
+        "evidence": "ok",
+        "validator": "test",
+        "subject": "0" * 64,
+        "attempt": 1,
+    }
+    transition = Transition(
+        at="2026-11-19T10:00:00+07:00",
+        event="validation_passed",
+        actor="validator",
+        reason="ok",
+        from_state="validation",
+        to_state="done",
+        validation=source,
+    )
+    source["evidence"] = "changed"
+
+    assert transition.validation["evidence"] == "ok"
