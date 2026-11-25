@@ -1,0 +1,9 @@
+{
+  "name": "mcp-server-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Project-local MCP Filesystem server for gemini-task16",
+  "dependencies": {
+    "@modelcontextprotocol/server-filesystem": "2.4.0"
+  }
+}

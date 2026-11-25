@@ -1,0 +1,25 @@
+# Секреты
+.env
+.env.*
+!.env.example
+*.key
+
+# Изолированные окружения
+.venv/
+venv/
+.tools/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Логи, результаты, временные файлы
+logs/
+results/*.json
+*.log
+*.tmp
+.DS_Store
+
+# Временные файлы демонстрации
+demo_workspace/tmp/
