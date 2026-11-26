@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Окружение
+.venv/
+venv/
+
+# Результаты и логи
+output/*
+!output/.gitkeep
+logs/
+*.log
+*.tmp
+.DS_Store
