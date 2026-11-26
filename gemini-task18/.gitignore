@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Изолированное окружение
+.venv/
+venv/
+
+# Runtime-данные
+data/*.db
+data/*.db-*
+data/*.sqlite
+data/*.sqlite-*
+reports/*.json
+logs/
+*.log
+*.tmp
+.DS_Store
