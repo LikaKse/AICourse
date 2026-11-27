@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Окружения и project-local Node
+.venv/
+venv/
+.tools/
+
+# Логи и временные файлы
+logs/
+*.log
+*.tmp
+.DS_Store
